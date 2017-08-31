@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A1A887BD4885C51A2CB5F04 /* libPods-TSMTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C97E2184C8D86A76551B68 /* libPods-TSMTraining.a */; };
+		79B1432C1F5862A40088A624 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1432B1F5862A40088A624 /* main.m */; };
+		79B1432F1F5862A40088A624 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1432E1F5862A40088A624 /* AppDelegate.m */; };
+		79B143321F5862A40088A624 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B143311F5862A40088A624 /* ViewController.m */; };
+		79B143351F5862A40088A624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B143331F5862A40088A624 /* Main.storyboard */; };
+		79B143381F5862A40088A624 /* TSMTraining.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79B143361F5862A40088A624 /* TSMTraining.xcdatamodeld */; };
+		79B1433A1F5862A40088A624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B143391F5862A40088A624 /* Assets.xcassets */; };
+		79B1433D1F5862A40088A624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B1433B1F5862A40088A624 /* LaunchScreen.storyboard */; };
+		79B1434D1F5869DA0088A624 /* TSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1434C1F5869DA0088A624 /* TSMViewController.m */; };
+		79B143501F586A6C0088A624 /* TSMSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B1434F1F586A6C0088A624 /* TSMSignIn.m */; };
+		79B143571F5888C10088A624 /* UIFont+TSM.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B143561F5888C10088A624 /* UIFont+TSM.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		28C97E2184C8D86A76551B68 /* libPods-TSMTraining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTraining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B143271F5862A40088A624 /* TSMTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSMTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79B1432B1F5862A40088A624 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79B1432D1F5862A40088A624 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79B1432E1F5862A40088A624 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79B143301F5862A40088A624 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		79B143311F5862A40088A624 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		79B143341F5862A40088A624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79B143371F5862A40088A624 /* TSMTraining.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TSMTraining.xcdatamodel; sourceTree = "<group>"; };
+		79B143391F5862A40088A624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79B1433C1F5862A40088A624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		79B1433E1F5862A40088A624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79B1434B1F5869DA0088A624 /* TSMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMViewController.h; sourceTree = "<group>"; };
+		79B1434C1F5869DA0088A624 /* TSMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMViewController.m; sourceTree = "<group>"; };
+		79B1434E1F586A6C0088A624 /* TSMSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMSignIn.h; sourceTree = "<group>"; };
+		79B1434F1F586A6C0088A624 /* TSMSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMSignIn.m; sourceTree = "<group>"; };
+		79B143551F5888C10088A624 /* UIFont+TSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+TSM.h"; sourceTree = "<group>"; };
+		79B143561F5888C10088A624 /* UIFont+TSM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TSM.m"; sourceTree = "<group>"; };
+		79B1435E1F588BA20088A624 /* TSMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMConfig.h; sourceTree = "<group>"; };
+		79B1435F1F588C9F0088A624 /* TSMTraining.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMTraining.pch; sourceTree = "<group>"; };
+		AD10757C507ABED72DE74949 /* Pods-TSMTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.release.xcconfig"; sourceTree = "<group>"; };
+		E4207A427A4446F9523E373B /* Pods-TSMTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79B143241F5862A40088A624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A1A887BD4885C51A2CB5F04 /* libPods-TSMTraining.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C0ECE14CA7C8732068E036A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4207A427A4446F9523E373B /* Pods-TSMTraining.debug.xcconfig */,
+				AD10757C507ABED72DE74949 /* Pods-TSMTraining.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		79B1431E1F5862A40088A624 = {
+			isa = PBXGroup;
+			children = (
+				79B143291F5862A40088A624 /* TSMTraining */,
+				79B143281F5862A40088A624 /* Products */,
+				1C0ECE14CA7C8732068E036A /* Pods */,
+				D274A05051EE5CD03A342D03 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		79B143281F5862A40088A624 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79B143271F5862A40088A624 /* TSMTraining.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79B143291F5862A40088A624 /* TSMTraining */ = {
+			isa = PBXGroup;
+			children = (
+				79B143481F5864D60088A624 /* Resources */,
+				79B143471F58641A0088A624 /* AppLibrary */,
+				79B143461F5864040088A624 /* Controllers */,
+				79B143441F58635F0088A624 /* Application */,
+				79B1432A1F5862A40088A624 /* Supporting Files */,
+			);
+			path = TSMTraining;
+			sourceTree = "<group>";
+		};
+		79B1432A1F5862A40088A624 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79B1432B1F5862A40088A624 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79B143441F58635F0088A624 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				79B143451F5863960088A624 /* AppDelegate */,
+				79B143361F5862A40088A624 /* TSMTraining.xcdatamodeld */,
+				79B143301F5862A40088A624 /* ViewController.h */,
+				79B143311F5862A40088A624 /* ViewController.m */,
+				79B143331F5862A40088A624 /* Main.storyboard */,
+				79B143391F5862A40088A624 /* Assets.xcassets */,
+				79B1433B1F5862A40088A624 /* LaunchScreen.storyboard */,
+				79B1433E1F5862A40088A624 /* Info.plist */,
+				79B1435F1F588C9F0088A624 /* TSMTraining.pch */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		79B143451F5863960088A624 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				79B1432D1F5862A40088A624 /* AppDelegate.h */,
+				79B1432E1F5862A40088A624 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		79B143461F5864040088A624 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79B1434E1F586A6C0088A624 /* TSMSignIn.h */,
+				79B1434F1F586A6C0088A624 /* TSMSignIn.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		79B143471F58641A0088A624 /* AppLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				79B143581F5889CF0088A624 /* Constants */,
+				79B143511F5888340088A624 /* Categories */,
+				79B143491F5869870088A624 /* Base Classes */,
+			);
+			name = AppLibrary;
+			sourceTree = "<group>";
+		};
+		79B143481F5864D60088A624 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		79B143491F5869870088A624 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				79B1434A1F5869B00088A624 /* BaseViewController */,
+			);
+			name = "Base Classes";
+			sourceTree = "<group>";
+		};
+		79B1434A1F5869B00088A624 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				79B1434B1F5869DA0088A624 /* TSMViewController.h */,
+				79B1434C1F5869DA0088A624 /* TSMViewController.m */,
+			);
+			name = BaseViewController;
+			sourceTree = "<group>";
+		};
+		79B143511F5888340088A624 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				79B143551F5888C10088A624 /* UIFont+TSM.h */,
+				79B143561F5888C10088A624 /* UIFont+TSM.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		79B143581F5889CF0088A624 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				79B1435E1F588BA20088A624 /* TSMConfig.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		D274A05051EE5CD03A342D03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28C97E2184C8D86A76551B68 /* libPods-TSMTraining.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79B143261F5862A40088A624 /* TSMTraining */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79B143411F5862A40088A624 /* Build configuration list for PBXNativeTarget "TSMTraining" */;
+			buildPhases = (
+				229129B5BEB9A5F67B335D39 /* [CP] Check Pods Manifest.lock */,
+				79B143231F5862A40088A624 /* Sources */,
+				79B143241F5862A40088A624 /* Frameworks */,
+				79B143251F5862A40088A624 /* Resources */,
+				0EE6E982E49942F56D36621C /* [CP] Embed Pods Frameworks */,
+				6A9E55EA8806F28DA3F6903E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSMTraining;
+			productName = TSMTraining;
+			productReference = 79B143271F5862A40088A624 /* TSMTraining.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79B1431F1F5862A40088A624 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Praveen Sharma";
+				TargetAttributes = {
+					79B143261F5862A40088A624 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 79B143221F5862A40088A624 /* Build configuration list for PBXProject "TSMTraining" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 79B1431E1F5862A40088A624;
+			productRefGroup = 79B143281F5862A40088A624 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79B143261F5862A40088A624 /* TSMTraining */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79B143251F5862A40088A624 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79B1433D1F5862A40088A624 /* LaunchScreen.storyboard in Resources */,
+				79B1433A1F5862A40088A624 /* Assets.xcassets in Resources */,
+				79B143351F5862A40088A624 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EE6E982E49942F56D36621C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		229129B5BEB9A5F67B335D39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TSMTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A9E55EA8806F28DA3F6903E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79B143231F5862A40088A624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79B143571F5888C10088A624 /* UIFont+TSM.m in Sources */,
+				79B143501F586A6C0088A624 /* TSMSignIn.m in Sources */,
+				79B1434D1F5869DA0088A624 /* TSMViewController.m in Sources */,
+				79B143381F5862A40088A624 /* TSMTraining.xcdatamodeld in Sources */,
+				79B143321F5862A40088A624 /* ViewController.m in Sources */,
+				79B1432F1F5862A40088A624 /* AppDelegate.m in Sources */,
+				79B1432C1F5862A40088A624 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		79B143331F5862A40088A624 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79B143341F5862A40088A624 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		79B1433B1F5862A40088A624 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79B1433C1F5862A40088A624 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79B1433F1F5862A40088A624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		79B143401F5862A40088A624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79B143421F5862A40088A624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4207A427A4446F9523E373B /* Pods-TSMTraining.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TSMTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		79B143431F5862A40088A624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD10757C507ABED72DE74949 /* Pods-TSMTraining.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TSMTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NEW_SETTING = "";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79B143221F5862A40088A624 /* Build configuration list for PBXProject "TSMTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79B1433F1F5862A40088A624 /* Debug */,
+				79B143401F5862A40088A624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79B143411F5862A40088A624 /* Build configuration list for PBXNativeTarget "TSMTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79B143421F5862A40088A624 /* Debug */,
+				79B143431F5862A40088A624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79B143361F5862A40088A624 /* TSMTraining.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79B143371F5862A40088A624 /* TSMTraining.xcdatamodel */,
+			);
+			currentVersion = 79B143371F5862A40088A624 /* TSMTraining.xcdatamodel */;
+			path = TSMTraining.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 79B1431F1F5862A40088A624 /* Project object */;
+}
