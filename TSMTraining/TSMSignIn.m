@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setTitle:@"Login" isBold:YES];
+    
     // Do any additional setup after loading the view.
 }
 

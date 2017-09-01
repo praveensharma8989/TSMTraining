@@ -29,7 +29,7 @@
     [label setFont:[UIFont TSM_AppFontWithType:(isBold) ? Bold :Regular WithSize:18]];
     [label setText:title];
     [label setShadowColor:[UIColor clearColor]];
-    [label setTextColor:[UIColor defaultBlueColor]];
+//    [label setTextColor:[UIColor defaultBlueColor]];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setBackgroundColor:[UIColor whiteColor]];
     if (self.tabBarController) {

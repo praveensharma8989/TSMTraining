@@ -10,4 +10,6 @@
 
 @interface TSMViewController : ViewController
 
+-(void)setTitle:(NSString *)title isBold:(BOOL)isBold;
+
 @end
