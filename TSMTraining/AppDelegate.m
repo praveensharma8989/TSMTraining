@@ -15,6 +15,7 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;
@@ -93,6 +94,25 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+-(BOOL)connectedToInternet {
+    Reachability *reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
+    NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+    bool result = false;
+    if (internetStatus == ReachableViaWiFi) {
+        result = true;
+    } else if(internetStatus==ReachableViaWWAN){
+        result = true;
+    }
+    return result;
+}
+
+-(void)showNointernetConnectAlert {
+    
+   
+
+    
 }
 
 @end

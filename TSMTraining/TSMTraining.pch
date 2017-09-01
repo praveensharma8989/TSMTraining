@@ -7,4 +7,4 @@
 //
 
 #import "TSMConfig.h"
-#import "AllConstants.h"
+#import "AppDelegate.h"

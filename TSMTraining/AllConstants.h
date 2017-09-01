@@ -6,6 +6,8 @@
 //  Copyright © 2017 Praveen Sharma. All rights reserved.
 //
 
+#define APP_DELEGATE (AppDelegate *)[[UIApplication sharedApplication] delegate]
+
 #define BaseUrl @"https://wheebox.com/MobileAPIService/"
 
 #define HelloServlet @"HelloServlet"

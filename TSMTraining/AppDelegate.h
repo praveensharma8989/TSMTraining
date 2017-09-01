@@ -17,6 +17,7 @@
 
 - (void)saveContext;
 
+-(BOOL)connectedToInternet;
 
 @end
 
