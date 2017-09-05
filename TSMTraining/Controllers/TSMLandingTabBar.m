@@ -66,10 +66,12 @@
         CATransform3D percent1 = CATransform3DMakeScale(0.95f, 0.9f, 1.00f);
         
         [UIView animateWithDuration:0.3f animations:^{
+            _firstItemview.subviews[0].layer.transform = percent;
             _firstItemview.subviews[1].layer.transform = percent;
         } completion:^(BOOL finished) {
             
             [UIView animateWithDuration:0.2f animations:^{
+                _firstItemview.subviews[0].layer.transform=percent1;
                 _firstItemview.subviews[1].layer.transform=percent1;
             } completion:^(BOOL finished) {
             }];

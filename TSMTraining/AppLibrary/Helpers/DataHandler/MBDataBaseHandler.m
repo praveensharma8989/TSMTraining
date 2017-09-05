@@ -51,7 +51,7 @@
     
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
     
-        OfflineObject *object = [OfflineObject MR_createEntity];
+        OfflineObject *object = [OfflineObject MR_createEntityInContext:localContext];
         object.objData = crmDataArray.toJSONString;
         object.objType = [NSNumber numberWithInt:CRMUserData];
         object.objClass = NSStringFromClass([crmDataArray class]);
