@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="OfflineObject" representedClassName="OfflineObject" syncable="YES" codeGenerationType="class">
+    <entity name="OfflineObject" representedClassName="OfflineObject" syncable="YES">
         <attribute name="isOfflineUpdated" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="objClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objData" optional="YES" attributeType="String" syncable="YES"/>

@@ -38,10 +38,10 @@
 		E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A7E1F5EAF8900AA0101 /* MBDataHandler.m */; };
 		E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A811F5EAF8900AA0101 /* MBValidator.m */; };
 		E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */; };
-		E95C6A9E1F5EAF8900AA0101 /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A881F5EAF8900AA0101 /* OfflineObject.m */; };
 		E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */; };
 		E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA91F5ECA6400AA0101 /* CRMData.m */; };
 		E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D01EF01F5EDA150043BC89 /* AppDelegate.m */; };
+		E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0B1A41F5EE087000DE22A /* OfflineObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,14 +129,14 @@
 		E95C6A811F5EAF8900AA0101 /* MBValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBValidator.m; sourceTree = "<group>"; };
 		E95C6A831F5EAF8900AA0101 /* TSMAPICleint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMAPICleint.h; sourceTree = "<group>"; };
 		E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMAPICleint.m; sourceTree = "<group>"; };
-		E95C6A871F5EAF8900AA0101 /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
-		E95C6A881F5EAF8900AA0101 /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
 		E95C6AA01F5EAF8E00AA0101 /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
 		E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 		E95C6AA31F5EAFB900AA0101 /* TSMTraining.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMTraining.pch; sourceTree = "<group>"; };
 		E95C6AA81F5ECA6400AA0101 /* CRMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMData.h; sourceTree = "<group>"; };
 		E95C6AA91F5ECA6400AA0101 /* CRMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMData.m; sourceTree = "<group>"; };
 		E9D01EF01F5EDA150043BC89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E9E0B1A41F5EE087000DE22A /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
+		E9E0B1A51F5EE087000DE22A /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,8 +390,8 @@
 		E95C6A861F5EAF8900AA0101 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				E95C6A871F5EAF8900AA0101 /* OfflineObject.h */,
-				E95C6A881F5EAF8900AA0101 /* OfflineObject.m */,
+				E9E0B1A41F5EE087000DE22A /* OfflineObject.m */,
+				E9E0B1A51F5EE087000DE22A /* OfflineObject.h */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -605,6 +605,7 @@
 				E95C6A191F5EAAC100AA0101 /* TSMTraining.xcdatamodeld in Sources */,
 				E95C6A931F5EAF8900AA0101 /* UIFont+TSM.m in Sources */,
 				E95C6A8A1F5EAF8900AA0101 /* NSArray+MB.m in Sources */,
+				E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */,
 				E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */,
 				E95C6A961F5EAF8900AA0101 /* UITableView+MB.m in Sources */,
 				E95C6A8C1F5EAF8900AA0101 /* NSDateFormatter+MB.m in Sources */,
@@ -616,7 +617,6 @@
 				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
-				E95C6A9E1F5EAF8900AA0101 /* OfflineObject.m in Sources */,
 				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
 				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,
 				E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */,
