@@ -1,0 +1,902 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42FEA641C900AE95BEDA9AA1 /* libPods-TSMTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */; };
+		E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A0C1F5EAAC100AA0101 /* main.m */; };
+		E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A121F5EAAC100AA0101 /* ViewController.m */; };
+		E95C6A161F5EAAC100AA0101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6A141F5EAAC100AA0101 /* Main.storyboard */; };
+		E95C6A191F5EAAC100AA0101 /* TSMTraining.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A171F5EAAC100AA0101 /* TSMTraining.xcdatamodeld */; };
+		E95C6A1B1F5EAAC100AA0101 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95C6A1A1F5EAAC100AA0101 /* Assets.xcassets */; };
+		E95C6A1E1F5EAAC100AA0101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6A1C1F5EAAC100AA0101 /* LaunchScreen.storyboard */; };
+		E95C6A291F5EAAC100AA0101 /* TSMTrainingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A281F5EAAC100AA0101 /* TSMTrainingTests.m */; };
+		E95C6A341F5EAAC100AA0101 /* TSMTrainingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A331F5EAAC100AA0101 /* TSMTrainingUITests.m */; };
+		E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A4C1F5EAF8100AA0101 /* TSMSignIn.m */; };
+		E95C6A891F5EAF8900AA0101 /* TSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A541F5EAF8800AA0101 /* TSMViewController.m */; };
+		E95C6A8A1F5EAF8900AA0101 /* NSArray+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A571F5EAF8800AA0101 /* NSArray+MB.m */; };
+		E95C6A8B1F5EAF8900AA0101 /* NSDate+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A591F5EAF8800AA0101 /* NSDate+MB.m */; };
+		E95C6A8C1F5EAF8900AA0101 /* NSDateFormatter+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A5B1F5EAF8800AA0101 /* NSDateFormatter+MB.m */; };
+		E95C6A8D1F5EAF8900AA0101 /* NSMutableAttributedString+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A5D1F5EAF8800AA0101 /* NSMutableAttributedString+MB.m */; };
+		E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A5F1F5EAF8800AA0101 /* NSObject+MB.m */; };
+		E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A611F5EAF8800AA0101 /* NSString+MB.m */; };
+		E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A631F5EAF8900AA0101 /* UIButton+MB.m */; };
+		E95C6A911F5EAF8900AA0101 /* UIColor+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A651F5EAF8900AA0101 /* UIColor+MB.m */; };
+		E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A671F5EAF8900AA0101 /* UIFont+MB.m */; };
+		E95C6A931F5EAF8900AA0101 /* UIFont+TSM.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A691F5EAF8900AA0101 /* UIFont+TSM.m */; };
+		E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A6B1F5EAF8900AA0101 /* UIImage+ImageEffects.m */; };
+		E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A6D1F5EAF8900AA0101 /* UIImage+MB.m */; };
+		E95C6A961F5EAF8900AA0101 /* UITableView+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A6F1F5EAF8900AA0101 /* UITableView+MB.m */; };
+		E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A711F5EAF8900AA0101 /* UITextField+MB.m */; };
+		E95C6A981F5EAF8900AA0101 /* UIView+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A731F5EAF8900AA0101 /* UIView+MB.m */; };
+		E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A751F5EAF8900AA0101 /* UIViewController+MB.m */; };
+		E95C6A9A1F5EAF8900AA0101 /* MBDataBaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A7C1F5EAF8900AA0101 /* MBDataBaseHandler.m */; };
+		E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A7E1F5EAF8900AA0101 /* MBDataHandler.m */; };
+		E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A811F5EAF8900AA0101 /* MBValidator.m */; };
+		E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */; };
+		E95C6A9E1F5EAF8900AA0101 /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A881F5EAF8900AA0101 /* OfflineObject.m */; };
+		E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */; };
+		E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA91F5ECA6400AA0101 /* CRMData.m */; };
+		E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D01EF01F5EDA150043BC89 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E95C6A251F5EAAC100AA0101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E95C6A001F5EAAC100AA0101 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95C6A071F5EAAC100AA0101;
+			remoteInfo = TSMTraining;
+		};
+		E95C6A301F5EAAC100AA0101 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E95C6A001F5EAAC100AA0101 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95C6A071F5EAAC100AA0101;
+			remoteInfo = TSMTraining;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTraining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BCD85B492B85405EC4482E0 /* libPods-TSMTrainingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.release.xcconfig"; sourceTree = "<group>"; };
+		C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		E95C6A081F5EAAC100AA0101 /* TSMTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSMTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95C6A0C1F5EAAC100AA0101 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E95C6A0E1F5EAAC100AA0101 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E95C6A111F5EAAC100AA0101 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E95C6A121F5EAAC100AA0101 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E95C6A151F5EAAC100AA0101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E95C6A181F5EAAC100AA0101 /* TSMTraining.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TSMTraining.xcdatamodel; sourceTree = "<group>"; };
+		E95C6A1A1F5EAAC100AA0101 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E95C6A1D1F5EAAC100AA0101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E95C6A1F1F5EAAC100AA0101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95C6A241F5EAAC100AA0101 /* TSMTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSMTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95C6A281F5EAAC100AA0101 /* TSMTrainingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMTrainingTests.m; sourceTree = "<group>"; };
+		E95C6A2A1F5EAAC100AA0101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95C6A2F1F5EAAC100AA0101 /* TSMTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSMTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95C6A331F5EAAC100AA0101 /* TSMTrainingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMTrainingUITests.m; sourceTree = "<group>"; };
+		E95C6A351F5EAAC100AA0101 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95C6A4B1F5EAF8100AA0101 /* TSMSignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMSignIn.h; sourceTree = "<group>"; };
+		E95C6A4C1F5EAF8100AA0101 /* TSMSignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMSignIn.m; sourceTree = "<group>"; };
+		E95C6A531F5EAF8800AA0101 /* TSMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMViewController.h; sourceTree = "<group>"; };
+		E95C6A541F5EAF8800AA0101 /* TSMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMViewController.m; sourceTree = "<group>"; };
+		E95C6A561F5EAF8800AA0101 /* NSArray+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MB.h"; sourceTree = "<group>"; };
+		E95C6A571F5EAF8800AA0101 /* NSArray+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MB.m"; sourceTree = "<group>"; };
+		E95C6A581F5EAF8800AA0101 /* NSDate+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MB.h"; sourceTree = "<group>"; };
+		E95C6A591F5EAF8800AA0101 /* NSDate+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MB.m"; sourceTree = "<group>"; };
+		E95C6A5A1F5EAF8800AA0101 /* NSDateFormatter+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+MB.h"; sourceTree = "<group>"; };
+		E95C6A5B1F5EAF8800AA0101 /* NSDateFormatter+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+MB.m"; sourceTree = "<group>"; };
+		E95C6A5C1F5EAF8800AA0101 /* NSMutableAttributedString+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+MB.h"; sourceTree = "<group>"; };
+		E95C6A5D1F5EAF8800AA0101 /* NSMutableAttributedString+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+MB.m"; sourceTree = "<group>"; };
+		E95C6A5E1F5EAF8800AA0101 /* NSObject+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MB.h"; sourceTree = "<group>"; };
+		E95C6A5F1F5EAF8800AA0101 /* NSObject+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MB.m"; sourceTree = "<group>"; };
+		E95C6A601F5EAF8800AA0101 /* NSString+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MB.h"; sourceTree = "<group>"; };
+		E95C6A611F5EAF8800AA0101 /* NSString+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MB.m"; sourceTree = "<group>"; };
+		E95C6A621F5EAF8900AA0101 /* UIButton+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+MB.h"; sourceTree = "<group>"; };
+		E95C6A631F5EAF8900AA0101 /* UIButton+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+MB.m"; sourceTree = "<group>"; };
+		E95C6A641F5EAF8900AA0101 /* UIColor+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MB.h"; sourceTree = "<group>"; };
+		E95C6A651F5EAF8900AA0101 /* UIColor+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MB.m"; sourceTree = "<group>"; };
+		E95C6A661F5EAF8900AA0101 /* UIFont+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+MB.h"; sourceTree = "<group>"; };
+		E95C6A671F5EAF8900AA0101 /* UIFont+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+MB.m"; sourceTree = "<group>"; };
+		E95C6A681F5EAF8900AA0101 /* UIFont+TSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+TSM.h"; sourceTree = "<group>"; };
+		E95C6A691F5EAF8900AA0101 /* UIFont+TSM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+TSM.m"; sourceTree = "<group>"; };
+		E95C6A6A1F5EAF8900AA0101 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		E95C6A6B1F5EAF8900AA0101 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		E95C6A6C1F5EAF8900AA0101 /* UIImage+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MB.h"; sourceTree = "<group>"; };
+		E95C6A6D1F5EAF8900AA0101 /* UIImage+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MB.m"; sourceTree = "<group>"; };
+		E95C6A6E1F5EAF8900AA0101 /* UITableView+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MB.h"; sourceTree = "<group>"; };
+		E95C6A6F1F5EAF8900AA0101 /* UITableView+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MB.m"; sourceTree = "<group>"; };
+		E95C6A701F5EAF8900AA0101 /* UITextField+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+MB.h"; sourceTree = "<group>"; };
+		E95C6A711F5EAF8900AA0101 /* UITextField+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+MB.m"; sourceTree = "<group>"; };
+		E95C6A721F5EAF8900AA0101 /* UIView+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MB.h"; sourceTree = "<group>"; };
+		E95C6A731F5EAF8900AA0101 /* UIView+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MB.m"; sourceTree = "<group>"; };
+		E95C6A741F5EAF8900AA0101 /* UIViewController+MB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MB.h"; sourceTree = "<group>"; };
+		E95C6A751F5EAF8900AA0101 /* UIViewController+MB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MB.m"; sourceTree = "<group>"; };
+		E95C6A771F5EAF8900AA0101 /* AllConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllConstants.h; sourceTree = "<group>"; };
+		E95C6A781F5EAF8900AA0101 /* TSMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMConfig.h; sourceTree = "<group>"; };
+		E95C6A7B1F5EAF8900AA0101 /* MBDataBaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataBaseHandler.h; sourceTree = "<group>"; };
+		E95C6A7C1F5EAF8900AA0101 /* MBDataBaseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataBaseHandler.m; sourceTree = "<group>"; };
+		E95C6A7D1F5EAF8900AA0101 /* MBDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDataHandler.h; sourceTree = "<group>"; };
+		E95C6A7E1F5EAF8900AA0101 /* MBDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDataHandler.m; sourceTree = "<group>"; };
+		E95C6A801F5EAF8900AA0101 /* MBValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBValidator.h; sourceTree = "<group>"; };
+		E95C6A811F5EAF8900AA0101 /* MBValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBValidator.m; sourceTree = "<group>"; };
+		E95C6A831F5EAF8900AA0101 /* TSMAPICleint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMAPICleint.h; sourceTree = "<group>"; };
+		E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMAPICleint.m; sourceTree = "<group>"; };
+		E95C6A871F5EAF8900AA0101 /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
+		E95C6A881F5EAF8900AA0101 /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
+		E95C6AA01F5EAF8E00AA0101 /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
+		E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
+		E95C6AA31F5EAFB900AA0101 /* TSMTraining.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMTraining.pch; sourceTree = "<group>"; };
+		E95C6AA81F5ECA6400AA0101 /* CRMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMData.h; sourceTree = "<group>"; };
+		E95C6AA91F5ECA6400AA0101 /* CRMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMData.m; sourceTree = "<group>"; };
+		E9D01EF01F5EDA150043BC89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E95C6A051F5EAAC100AA0101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42FEA641C900AE95BEDA9AA1 /* libPods-TSMTraining.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A211F5EAAC100AA0101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A2C1F5EAAC100AA0101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F0539770D7C5EAB3DE76072 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */,
+				2BCD85B492B85405EC4482E0 /* libPods-TSMTrainingTests.a */,
+				B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7871BF2AABDC9ABA55922BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */,
+				BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E95C69FF1F5EAAC100AA0101 = {
+			isa = PBXGroup;
+			children = (
+				E95C6A0A1F5EAAC100AA0101 /* TSMTraining */,
+				E95C6A271F5EAAC100AA0101 /* TSMTrainingTests */,
+				E95C6A321F5EAAC100AA0101 /* TSMTrainingUITests */,
+				E95C6A091F5EAAC100AA0101 /* Products */,
+				C7871BF2AABDC9ABA55922BD /* Pods */,
+				6F0539770D7C5EAB3DE76072 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E95C6A091F5EAAC100AA0101 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A081F5EAAC100AA0101 /* TSMTraining.app */,
+				E95C6A241F5EAAC100AA0101 /* TSMTrainingTests.xctest */,
+				E95C6A2F1F5EAAC100AA0101 /* TSMTrainingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E95C6A0A1F5EAAC100AA0101 /* TSMTraining */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A0E1F5EAAC100AA0101 /* AppDelegate.h */,
+				E9D01EF01F5EDA150043BC89 /* AppDelegate.m */,
+				E95C6A111F5EAAC100AA0101 /* ViewController.h */,
+				E95C6A121F5EAAC100AA0101 /* ViewController.m */,
+				E95C6A141F5EAAC100AA0101 /* Main.storyboard */,
+				E95C6AA31F5EAFB900AA0101 /* TSMTraining.pch */,
+				E95C6A1A1F5EAAC100AA0101 /* Assets.xcassets */,
+				E95C6A1C1F5EAAC100AA0101 /* LaunchScreen.storyboard */,
+				E95C6A1F1F5EAAC100AA0101 /* Info.plist */,
+				E95C6A171F5EAAC100AA0101 /* TSMTraining.xcdatamodeld */,
+				E95C6A9F1F5EAF8E00AA0101 /* ApiManager */,
+				E95C6A501F5EAF8800AA0101 /* AppLibrary */,
+				E95C6A451F5EAF8100AA0101 /* Controllers */,
+				E95C6A0B1F5EAAC100AA0101 /* Supporting Files */,
+			);
+			path = TSMTraining;
+			sourceTree = "<group>";
+		};
+		E95C6A0B1F5EAAC100AA0101 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A0C1F5EAAC100AA0101 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E95C6A271F5EAAC100AA0101 /* TSMTrainingTests */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A281F5EAAC100AA0101 /* TSMTrainingTests.m */,
+				E95C6A2A1F5EAAC100AA0101 /* Info.plist */,
+			);
+			path = TSMTrainingTests;
+			sourceTree = "<group>";
+		};
+		E95C6A321F5EAAC100AA0101 /* TSMTrainingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A331F5EAAC100AA0101 /* TSMTrainingUITests.m */,
+				E95C6A351F5EAAC100AA0101 /* Info.plist */,
+			);
+			path = TSMTrainingUITests;
+			sourceTree = "<group>";
+		};
+		E95C6A451F5EAF8100AA0101 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A4B1F5EAF8100AA0101 /* TSMSignIn.h */,
+				E95C6A4C1F5EAF8100AA0101 /* TSMSignIn.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E95C6A501F5EAF8800AA0101 /* AppLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A511F5EAF8800AA0101 /* Base Classes */,
+				E95C6A551F5EAF8800AA0101 /* Categories */,
+				E95C6A761F5EAF8900AA0101 /* Constants */,
+				E95C6A791F5EAF8900AA0101 /* Helpers */,
+				E95C6A821F5EAF8900AA0101 /* HttpClient */,
+				E95C6A851F5EAF8900AA0101 /* Models */,
+			);
+			path = AppLibrary;
+			sourceTree = "<group>";
+		};
+		E95C6A511F5EAF8800AA0101 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A521F5EAF8800AA0101 /* BaseViewController */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
+		E95C6A521F5EAF8800AA0101 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A531F5EAF8800AA0101 /* TSMViewController.h */,
+				E95C6A541F5EAF8800AA0101 /* TSMViewController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		E95C6A551F5EAF8800AA0101 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A561F5EAF8800AA0101 /* NSArray+MB.h */,
+				E95C6A571F5EAF8800AA0101 /* NSArray+MB.m */,
+				E95C6A581F5EAF8800AA0101 /* NSDate+MB.h */,
+				E95C6A591F5EAF8800AA0101 /* NSDate+MB.m */,
+				E95C6A5A1F5EAF8800AA0101 /* NSDateFormatter+MB.h */,
+				E95C6A5B1F5EAF8800AA0101 /* NSDateFormatter+MB.m */,
+				E95C6A5C1F5EAF8800AA0101 /* NSMutableAttributedString+MB.h */,
+				E95C6A5D1F5EAF8800AA0101 /* NSMutableAttributedString+MB.m */,
+				E95C6A5E1F5EAF8800AA0101 /* NSObject+MB.h */,
+				E95C6A5F1F5EAF8800AA0101 /* NSObject+MB.m */,
+				E95C6A601F5EAF8800AA0101 /* NSString+MB.h */,
+				E95C6A611F5EAF8800AA0101 /* NSString+MB.m */,
+				E95C6A621F5EAF8900AA0101 /* UIButton+MB.h */,
+				E95C6A631F5EAF8900AA0101 /* UIButton+MB.m */,
+				E95C6A641F5EAF8900AA0101 /* UIColor+MB.h */,
+				E95C6A651F5EAF8900AA0101 /* UIColor+MB.m */,
+				E95C6A661F5EAF8900AA0101 /* UIFont+MB.h */,
+				E95C6A671F5EAF8900AA0101 /* UIFont+MB.m */,
+				E95C6A681F5EAF8900AA0101 /* UIFont+TSM.h */,
+				E95C6A691F5EAF8900AA0101 /* UIFont+TSM.m */,
+				E95C6A6A1F5EAF8900AA0101 /* UIImage+ImageEffects.h */,
+				E95C6A6B1F5EAF8900AA0101 /* UIImage+ImageEffects.m */,
+				E95C6A6C1F5EAF8900AA0101 /* UIImage+MB.h */,
+				E95C6A6D1F5EAF8900AA0101 /* UIImage+MB.m */,
+				E95C6A6E1F5EAF8900AA0101 /* UITableView+MB.h */,
+				E95C6A6F1F5EAF8900AA0101 /* UITableView+MB.m */,
+				E95C6A701F5EAF8900AA0101 /* UITextField+MB.h */,
+				E95C6A711F5EAF8900AA0101 /* UITextField+MB.m */,
+				E95C6A721F5EAF8900AA0101 /* UIView+MB.h */,
+				E95C6A731F5EAF8900AA0101 /* UIView+MB.m */,
+				E95C6A741F5EAF8900AA0101 /* UIViewController+MB.h */,
+				E95C6A751F5EAF8900AA0101 /* UIViewController+MB.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E95C6A761F5EAF8900AA0101 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A771F5EAF8900AA0101 /* AllConstants.h */,
+				E95C6A781F5EAF8900AA0101 /* TSMConfig.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		E95C6A791F5EAF8900AA0101 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A7A1F5EAF8900AA0101 /* DataHandler */,
+				E95C6A7F1F5EAF8900AA0101 /* Validator */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E95C6A7A1F5EAF8900AA0101 /* DataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A7B1F5EAF8900AA0101 /* MBDataBaseHandler.h */,
+				E95C6A7C1F5EAF8900AA0101 /* MBDataBaseHandler.m */,
+				E95C6A7D1F5EAF8900AA0101 /* MBDataHandler.h */,
+				E95C6A7E1F5EAF8900AA0101 /* MBDataHandler.m */,
+			);
+			path = DataHandler;
+			sourceTree = "<group>";
+		};
+		E95C6A7F1F5EAF8900AA0101 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A801F5EAF8900AA0101 /* MBValidator.h */,
+				E95C6A811F5EAF8900AA0101 /* MBValidator.m */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		E95C6A821F5EAF8900AA0101 /* HttpClient */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A831F5EAF8900AA0101 /* TSMAPICleint.h */,
+				E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */,
+			);
+			path = HttpClient;
+			sourceTree = "<group>";
+		};
+		E95C6A851F5EAF8900AA0101 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6AA41F5EC78300AA0101 /* BO */,
+				E95C6A861F5EAF8900AA0101 /* DTO */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E95C6A861F5EAF8900AA0101 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6A871F5EAF8900AA0101 /* OfflineObject.h */,
+				E95C6A881F5EAF8900AA0101 /* OfflineObject.m */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		E95C6A9F1F5EAF8E00AA0101 /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6AA01F5EAF8E00AA0101 /* ApiManager.h */,
+				E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */,
+			);
+			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		E95C6AA41F5EC78300AA0101 /* BO */ = {
+			isa = PBXGroup;
+			children = (
+				E95C6AA81F5ECA6400AA0101 /* CRMData.h */,
+				E95C6AA91F5ECA6400AA0101 /* CRMData.m */,
+			);
+			path = BO;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E95C6A071F5EAAC100AA0101 /* TSMTraining */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95C6A381F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTraining" */;
+			buildPhases = (
+				BE3558C10B8399DBB6E92E38 /* [CP] Check Pods Manifest.lock */,
+				E95C6A041F5EAAC100AA0101 /* Sources */,
+				E95C6A051F5EAAC100AA0101 /* Frameworks */,
+				E95C6A061F5EAAC100AA0101 /* Resources */,
+				7E1478E765CD8232DF4A5780 /* [CP] Embed Pods Frameworks */,
+				DE55551D1E42CCA0AC7D6F72 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSMTraining;
+			productName = TSMTraining;
+			productReference = E95C6A081F5EAAC100AA0101 /* TSMTraining.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E95C6A231F5EAAC100AA0101 /* TSMTrainingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95C6A3B1F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTrainingTests" */;
+			buildPhases = (
+				E95C6A201F5EAAC100AA0101 /* Sources */,
+				E95C6A211F5EAAC100AA0101 /* Frameworks */,
+				E95C6A221F5EAAC100AA0101 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E95C6A261F5EAAC100AA0101 /* PBXTargetDependency */,
+			);
+			name = TSMTrainingTests;
+			productName = TSMTrainingTests;
+			productReference = E95C6A241F5EAAC100AA0101 /* TSMTrainingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E95C6A2E1F5EAAC100AA0101 /* TSMTrainingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95C6A3E1F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTrainingUITests" */;
+			buildPhases = (
+				E95C6A2B1F5EAAC100AA0101 /* Sources */,
+				E95C6A2C1F5EAAC100AA0101 /* Frameworks */,
+				E95C6A2D1F5EAAC100AA0101 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E95C6A311F5EAAC100AA0101 /* PBXTargetDependency */,
+			);
+			name = TSMTrainingUITests;
+			productName = TSMTrainingUITests;
+			productReference = E95C6A2F1F5EAAC100AA0101 /* TSMTrainingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E95C6A001F5EAAC100AA0101 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					E95C6A071F5EAAC100AA0101 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					E95C6A231F5EAAC100AA0101 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E95C6A071F5EAAC100AA0101;
+					};
+					E95C6A2E1F5EAAC100AA0101 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E95C6A071F5EAAC100AA0101;
+					};
+				};
+			};
+			buildConfigurationList = E95C6A031F5EAAC100AA0101 /* Build configuration list for PBXProject "TSMTraining" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E95C69FF1F5EAAC100AA0101;
+			productRefGroup = E95C6A091F5EAAC100AA0101 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E95C6A071F5EAAC100AA0101 /* TSMTraining */,
+				E95C6A231F5EAAC100AA0101 /* TSMTrainingTests */,
+				E95C6A2E1F5EAAC100AA0101 /* TSMTrainingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E95C6A061F5EAAC100AA0101 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95C6A1E1F5EAAC100AA0101 /* LaunchScreen.storyboard in Resources */,
+				E95C6A1B1F5EAAC100AA0101 /* Assets.xcassets in Resources */,
+				E95C6A161F5EAAC100AA0101 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A221F5EAAC100AA0101 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A2D1F5EAAC100AA0101 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E1478E765CD8232DF4A5780 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE3558C10B8399DBB6E92E38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE55551D1E42CCA0AC7D6F72 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E95C6A041F5EAAC100AA0101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95C6A9A1F5EAF8900AA0101 /* MBDataBaseHandler.m in Sources */,
+				E95C6A911F5EAF8900AA0101 /* UIColor+MB.m in Sources */,
+				E95C6A981F5EAF8900AA0101 /* UIView+MB.m in Sources */,
+				E95C6A8B1F5EAF8900AA0101 /* NSDate+MB.m in Sources */,
+				E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */,
+				E95C6A191F5EAAC100AA0101 /* TSMTraining.xcdatamodeld in Sources */,
+				E95C6A931F5EAF8900AA0101 /* UIFont+TSM.m in Sources */,
+				E95C6A8A1F5EAF8900AA0101 /* NSArray+MB.m in Sources */,
+				E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */,
+				E95C6A961F5EAF8900AA0101 /* UITableView+MB.m in Sources */,
+				E95C6A8C1F5EAF8900AA0101 /* NSDateFormatter+MB.m in Sources */,
+				E95C6A8D1F5EAF8900AA0101 /* NSMutableAttributedString+MB.m in Sources */,
+				E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */,
+				E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */,
+				E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */,
+				E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */,
+				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
+				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
+				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
+				E95C6A9E1F5EAF8900AA0101 /* OfflineObject.m in Sources */,
+				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
+				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,
+				E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */,
+				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
+				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,
+				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,
+				E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */,
+				E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */,
+				E95C6A891F5EAF8900AA0101 /* TSMViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A201F5EAAC100AA0101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95C6A291F5EAAC100AA0101 /* TSMTrainingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E95C6A2B1F5EAAC100AA0101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95C6A341F5EAAC100AA0101 /* TSMTrainingUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E95C6A261F5EAAC100AA0101 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E95C6A071F5EAAC100AA0101 /* TSMTraining */;
+			targetProxy = E95C6A251F5EAAC100AA0101 /* PBXContainerItemProxy */;
+		};
+		E95C6A311F5EAAC100AA0101 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E95C6A071F5EAAC100AA0101 /* TSMTraining */;
+			targetProxy = E95C6A301F5EAAC100AA0101 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E95C6A141F5EAAC100AA0101 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E95C6A151F5EAAC100AA0101 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E95C6A1C1F5EAAC100AA0101 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E95C6A1D1F5EAAC100AA0101 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E95C6A361F5EAAC100AA0101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E95C6A371F5EAAC100AA0101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E95C6A391F5EAAC100AA0101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
+				INFOPLIST_FILE = TSMTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E95C6A3A1F5EAAC100AA0101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
+				INFOPLIST_FILE = TSMTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E95C6A3C1F5EAAC100AA0101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TSMTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSMTraining.app/TSMTraining";
+			};
+			name = Debug;
+		};
+		E95C6A3D1F5EAAC100AA0101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TSMTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TSMTraining.app/TSMTraining";
+			};
+			name = Release;
+		};
+		E95C6A3F1F5EAAC100AA0101 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TSMTrainingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTrainingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TSMTraining;
+			};
+			name = Debug;
+		};
+		E95C6A401F5EAAC100AA0101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TSMTrainingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTrainingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TSMTraining;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E95C6A031F5EAAC100AA0101 /* Build configuration list for PBXProject "TSMTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95C6A361F5EAAC100AA0101 /* Debug */,
+				E95C6A371F5EAAC100AA0101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95C6A381F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95C6A391F5EAAC100AA0101 /* Debug */,
+				E95C6A3A1F5EAAC100AA0101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95C6A3B1F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTrainingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95C6A3C1F5EAAC100AA0101 /* Debug */,
+				E95C6A3D1F5EAAC100AA0101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E95C6A3E1F5EAAC100AA0101 /* Build configuration list for PBXNativeTarget "TSMTrainingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E95C6A3F1F5EAAC100AA0101 /* Debug */,
+				E95C6A401F5EAAC100AA0101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E95C6A171F5EAAC100AA0101 /* TSMTraining.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E95C6A181F5EAAC100AA0101 /* TSMTraining.xcdatamodel */,
+			);
+			currentVersion = E95C6A181F5EAAC100AA0101 /* TSMTraining.xcdatamodel */;
+			path = TSMTraining.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E95C6A001F5EAAC100AA0101 /* Project object */;
+}

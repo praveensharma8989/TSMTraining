@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="OfflineObject" representedClassName="OfflineObject" syncable="YES" codeGenerationType="class">
+        <attribute name="isOfflineUpdated" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="objClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objData" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="objName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="OfflineObject" positionX="-63" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>
