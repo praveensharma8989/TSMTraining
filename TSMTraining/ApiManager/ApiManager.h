@@ -12,12 +12,12 @@ typedef void(^APIRequestCompletion)(NSURLSessionDataTask *task,id JSON,NSError *
 
 @interface ApiManager : NSObject
 
--(void)CallHelloRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block;
+void CallHelloRequest(id param, APIRequestCompletion block);
 
--(void)CallSessionRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block;
+void CallSessionRequest(id param, APIRequestCompletion block);
 
--(void)CallAttendanceRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block;
+void CallAttendanceRequest(id param, APIRequestCompletion block);
 
--(void)CallScoreRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block;
+void CallScoreRequest(id param, APIRequestCompletion block);
 
 @end

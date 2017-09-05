@@ -43,7 +43,7 @@
 @property (nonatomic, readonly) NSString *longTimeString;
 
 @property (nonatomic, readonly) NSString *timeString24hrs;
--(NSString*)printAbleStringForDifference;
+
 
 
 // Comparing dates

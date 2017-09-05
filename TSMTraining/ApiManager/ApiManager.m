@@ -11,7 +11,7 @@
 
 @implementation ApiManager
 
--(void)CallHelloRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block{
+void CallHelloRequest(id param, APIRequestCompletion block){
     
     if([APP_DELEGATE connectedToInternet]){
         [[TSMAPICleint sharedClient] POST:HelloServlet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -32,7 +32,7 @@
 }
 
 
--(void)CallSessionRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block{
+void CallSessionRequest(id param, APIRequestCompletion block){
     
     if([APP_DELEGATE connectedToInternet]){
         [[TSMAPICleint sharedClient] POST:Session parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -53,7 +53,7 @@
 }
 
 
--(void)CallAttendanceRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block{
+void CallAttendanceRequest(id param, APIRequestCompletion block){
     
     if([APP_DELEGATE connectedToInternet]){
         [[TSMAPICleint sharedClient] POST:Attendance parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -74,7 +74,7 @@
 }
 
 
--(void)CallScoreRequest :(NSDictionary *)param andBlock:(APIRequestCompletion)block{
+void CallScoreRequest(id param, APIRequestCompletion block){
     
     if([APP_DELEGATE connectedToInternet]){
         [[TSMAPICleint sharedClient] POST:Score parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
