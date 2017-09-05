@@ -14,22 +14,16 @@
 
 @implementation AppDelegate
 
++(instancetype)sharedDelegate
+{
+    return (id)[UIApplication sharedApplication].delegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    NSArray *param = [NSArray arrayWithObject:@{@"crm_id":@"433326",
-                                                @"crm_password":@"123456"}];
     
     
-    
-    CallHelloRequest(param, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
-       
-        if(JSON){
-            
-        }
-        
-    });
-    
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"TSMTraining"];
     // Override point for customization after application launch.
     return YES;
 }

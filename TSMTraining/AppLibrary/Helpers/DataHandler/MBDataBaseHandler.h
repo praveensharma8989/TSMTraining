@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OfflineObject.h"
-//#import "MBModels.h"
+#import "CRMData.h"
 
 typedef enum
 {
@@ -20,8 +20,8 @@ typedef enum
 
 
 + (void)clearAllDataBase;
-+ (void) deleteAllRecordsForType:(OFFLINEMODE)type;
-+ (void) saveCRMdata :(CRMDataArray*)crmDataArray;
-+ (CRMDataArray *)getCRMData;
++ (void)deleteAllRecordsForType:(OFFLINEMODE)type;
++ (void)saveCRMdata:(CRMDataArray*)crmDataArray;
++ (CRMDataArray*)getCRMData;
 
 @end

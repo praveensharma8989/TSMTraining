@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		42FEA641C900AE95BEDA9AA1 /* libPods-TSMTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */; };
+		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
+		79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489D1F5F104700818441 /* SpinerLayer.m */; };
+		79EB48A21F5F104700818441 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489F1F5F104700818441 /* Transition.m */; };
+		79EB48A51F5F2EE900818441 /* TSMLandingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48A41F5F2EE900818441 /* TSMLandingTabBar.m */; };
+		79EB48A81F5F32D200818441 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48A71F5F32D200818441 /* HomeVC.m */; };
+		79EB48AB1F5F32FC00818441 /* ScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48AA1F5F32FC00818441 /* ScoreVC.m */; };
+		79EB48AE1F5F331100818441 /* SessionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48AD1F5F331100818441 /* SessionVC.m */; };
+		79EB48B11F5F332700818441 /* AttendanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B01F5F332700818441 /* AttendanceVC.m */; };
+		79EB48B41F5F333800818441 /* SyncVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B31F5F333800818441 /* SyncVC.m */; };
+		79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B61F5F335000818441 /* SessionCloseVC.m */; };
 		E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A0C1F5EAAC100AA0101 /* main.m */; };
 		E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A121F5EAAC100AA0101 /* ViewController.m */; };
 		E95C6A161F5EAAC100AA0101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6A141F5EAAC100AA0101 /* Main.storyboard */; };
@@ -64,6 +74,26 @@
 /* Begin PBXFileReference section */
 		0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTraining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCD85B492B85405EC4482E0 /* libPods-TSMTrainingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79EB489A1F5F104700818441 /* MagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicButton.h; sourceTree = "<group>"; };
+		79EB489B1F5F104700818441 /* MagicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicButton.m; sourceTree = "<group>"; };
+		79EB489C1F5F104700818441 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
+		79EB489D1F5F104700818441 /* SpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinerLayer.m; sourceTree = "<group>"; };
+		79EB489E1F5F104700818441 /* Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transition.h; sourceTree = "<group>"; };
+		79EB489F1F5F104700818441 /* Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transition.m; sourceTree = "<group>"; };
+		79EB48A31F5F2EE900818441 /* TSMLandingTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMLandingTabBar.h; sourceTree = "<group>"; };
+		79EB48A41F5F2EE900818441 /* TSMLandingTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMLandingTabBar.m; sourceTree = "<group>"; };
+		79EB48A61F5F32D200818441 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		79EB48A71F5F32D200818441 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		79EB48A91F5F32FC00818441 /* ScoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreVC.h; sourceTree = "<group>"; };
+		79EB48AA1F5F32FC00818441 /* ScoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreVC.m; sourceTree = "<group>"; };
+		79EB48AC1F5F331100818441 /* SessionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionVC.h; sourceTree = "<group>"; };
+		79EB48AD1F5F331100818441 /* SessionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionVC.m; sourceTree = "<group>"; };
+		79EB48AF1F5F332700818441 /* AttendanceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceVC.h; sourceTree = "<group>"; };
+		79EB48B01F5F332700818441 /* AttendanceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceVC.m; sourceTree = "<group>"; };
+		79EB48B21F5F333800818441 /* SyncVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncVC.h; sourceTree = "<group>"; };
+		79EB48B31F5F333800818441 /* SyncVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncVC.m; sourceTree = "<group>"; };
+		79EB48B51F5F335000818441 /* SessionCloseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCloseVC.h; sourceTree = "<group>"; };
+		79EB48B61F5F335000818441 /* SessionCloseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCloseVC.m; sourceTree = "<group>"; };
 		B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.release.xcconfig"; sourceTree = "<group>"; };
 		C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +205,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		79EB48991F5F104700818441 /* MagicButton */ = {
+			isa = PBXGroup;
+			children = (
+				79EB489A1F5F104700818441 /* MagicButton.h */,
+				79EB489B1F5F104700818441 /* MagicButton.m */,
+				79EB489C1F5F104700818441 /* SpinerLayer.h */,
+				79EB489D1F5F104700818441 /* SpinerLayer.m */,
+				79EB489E1F5F104700818441 /* Transition.h */,
+				79EB489F1F5F104700818441 /* Transition.m */,
+			);
+			path = MagicButton;
+			sourceTree = "<group>";
+		};
 		C7871BF2AABDC9ABA55922BD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +273,7 @@
 		E95C6A0B1F5EAAC100AA0101 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				79EB48991F5F104700818441 /* MagicButton */,
 				E95C6A0C1F5EAAC100AA0101 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -258,6 +302,20 @@
 			children = (
 				E95C6A4B1F5EAF8100AA0101 /* TSMSignIn.h */,
 				E95C6A4C1F5EAF8100AA0101 /* TSMSignIn.m */,
+				79EB48A31F5F2EE900818441 /* TSMLandingTabBar.h */,
+				79EB48A41F5F2EE900818441 /* TSMLandingTabBar.m */,
+				79EB48A61F5F32D200818441 /* HomeVC.h */,
+				79EB48A71F5F32D200818441 /* HomeVC.m */,
+				79EB48A91F5F32FC00818441 /* ScoreVC.h */,
+				79EB48AA1F5F32FC00818441 /* ScoreVC.m */,
+				79EB48AC1F5F331100818441 /* SessionVC.h */,
+				79EB48AD1F5F331100818441 /* SessionVC.m */,
+				79EB48AF1F5F332700818441 /* AttendanceVC.h */,
+				79EB48B01F5F332700818441 /* AttendanceVC.m */,
+				79EB48B21F5F333800818441 /* SyncVC.h */,
+				79EB48B31F5F333800818441 /* SyncVC.m */,
+				79EB48B51F5F335000818441 /* SessionCloseVC.h */,
+				79EB48B61F5F335000818441 /* SessionCloseVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -566,13 +624,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TSMTraining-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE55551D1E42CCA0AC7D6F72 /* [CP] Copy Pods Resources */ = {
@@ -581,9 +642,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/CSNotificationView/CSNotificationView.bundle,
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -598,22 +663,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				E95C6A9A1F5EAF8900AA0101 /* MBDataBaseHandler.m in Sources */,
+				79EB48B41F5F333800818441 /* SyncVC.m in Sources */,
 				E95C6A911F5EAF8900AA0101 /* UIColor+MB.m in Sources */,
 				E95C6A981F5EAF8900AA0101 /* UIView+MB.m in Sources */,
 				E95C6A8B1F5EAF8900AA0101 /* NSDate+MB.m in Sources */,
 				E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */,
+				79EB48B11F5F332700818441 /* AttendanceVC.m in Sources */,
+				79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */,
+				79EB48A01F5F104700818441 /* MagicButton.m in Sources */,
 				E95C6A191F5EAAC100AA0101 /* TSMTraining.xcdatamodeld in Sources */,
 				E95C6A931F5EAF8900AA0101 /* UIFont+TSM.m in Sources */,
 				E95C6A8A1F5EAF8900AA0101 /* NSArray+MB.m in Sources */,
 				E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */,
 				E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */,
 				E95C6A961F5EAF8900AA0101 /* UITableView+MB.m in Sources */,
+				79EB48A81F5F32D200818441 /* HomeVC.m in Sources */,
 				E95C6A8C1F5EAF8900AA0101 /* NSDateFormatter+MB.m in Sources */,
 				E95C6A8D1F5EAF8900AA0101 /* NSMutableAttributedString+MB.m in Sources */,
 				E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */,
 				E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */,
+				79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */,
 				E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */,
+				79EB48AB1F5F32FC00818441 /* ScoreVC.m in Sources */,
+				79EB48A21F5F104700818441 /* Transition.m in Sources */,
 				E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */,
+				79EB48A51F5F2EE900818441 /* TSMLandingTabBar.m in Sources */,
 				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
@@ -622,6 +696,7 @@
 				E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */,
 				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
 				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,
+				79EB48AE1F5F331100818441 /* SessionVC.m in Sources */,
 				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,
 				E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */,
 				E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */,

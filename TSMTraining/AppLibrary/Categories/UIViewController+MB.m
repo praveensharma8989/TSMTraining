@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+MB.h"
+#import <CSNotificationView.h>
 #import <objc/runtime.h>
 
 static char const * const ObjectTagKey = "IsNotificationErrorVisible";
@@ -27,76 +28,76 @@ static char const * const ObjectTagKey = "IsNotificationErrorVisible";
 
 // Navigation Error logging
 
-//-(void)MB_showErrorMessageWithText:(NSString*)message{
-//    
-//    NSNumber *number = [self isNotificationErrorVisible];
-//    BOOL status = [number boolValue];
-//    
-//    if (!status) {
-//        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
-//        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:message];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
-//        });
-//    }
-//}
-//
-//-(void)MB_showSuccessMessageWithText:(NSString*)message{
-//    
-//    NSNumber *number = [self isNotificationErrorVisible];
-//    BOOL status = [number boolValue];
-//    
-//    if (!status) {
-//        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
-//        [CSNotificationView showInViewController:self style:CSNotificationViewStyleSuccess message:message];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
-//        });
-//    }
-//    
-//}
-//
-//-(void)MB_showErrorMessageOnWindowWithText:(NSString*)message{
-//    
-//    NSNumber *number = [self isNotificationErrorVisible];
-//    BOOL status = [number boolValue];
-//    
-//    if (!status) {
-//        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
-//        [CSNotificationView showInViewController:[[AppDelegate sharedDelegate].window rootViewController] style:CSNotificationViewStyleError message:message];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
-//        });
-//    }
-//}
-//
-//-(void)MB_showSuccessMessageOnWindowWithText:(NSString*)message{
-//    
-//    NSNumber *number = [self isNotificationErrorVisible];
-//    BOOL status = [number boolValue];
-//    
-//    if (!status) {
-//        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
-//        [CSNotificationView showInViewController:[[AppDelegate sharedDelegate].window rootViewController] style:CSNotificationViewStyleSuccess message:message];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
-//        });
-//    }
-//}
-//
-//-(void)MB_showMessageWithAlertView:(NSString *)title Message:(NSString *)message
-//{
+-(void)MB_showErrorMessageWithText:(NSString*)message{
+    
+    NSNumber *number = [self isNotificationErrorVisible];
+    BOOL status = [number boolValue];
+    
+    if (!status) {
+        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleError message:message];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
+        });
+    }
+}
+
+-(void)MB_showSuccessMessageWithText:(NSString*)message{
+    
+    NSNumber *number = [self isNotificationErrorVisible];
+    BOOL status = [number boolValue];
+    
+    if (!status) {
+        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
+        [CSNotificationView showInViewController:self style:CSNotificationViewStyleSuccess message:message];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
+        });
+    }
+    
+}
+
+-(void)MB_showErrorMessageOnWindowWithText:(NSString*)message{
+    
+    NSNumber *number = [self isNotificationErrorVisible];
+    BOOL status = [number boolValue];
+    
+    if (!status) {
+        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
+        [CSNotificationView showInViewController:[[AppDelegate sharedDelegate].window rootViewController] style:CSNotificationViewStyleError message:message];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
+        });
+    }
+}
+
+-(void)MB_showSuccessMessageOnWindowWithText:(NSString*)message{
+    
+    NSNumber *number = [self isNotificationErrorVisible];
+    BOOL status = [number boolValue];
+    
+    if (!status) {
+        [self setIsNotificationErrorVisible:[NSNumber numberWithBool:YES]];
+        [CSNotificationView showInViewController:[[AppDelegate sharedDelegate].window rootViewController] style:CSNotificationViewStyleSuccess message:message];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kCSNotificationViewDefaultShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self setIsNotificationErrorVisible:[NSNumber numberWithBool:NO]];
+        });
+    }
+}
+
+-(void)MB_showMessageWithAlertView:(NSString *)title Message:(NSString *)message
+{
 //    UIAlertView *alr = [UIAlertView bk_alertViewWithTitle:title message:message];
 //    
 //    [alr bk_setCancelButtonWithTitle:@"Ok" handler:^{
+        //
+//    }];
+    
+//    [alr bk_setCancelBlock:^{
 //        //
 //    }];
-//    
-////    [alr bk_setCancelBlock:^{
-////        //
-////    }];
-//    
+    
 //    [alr show];
-//}
+}
 
 @end

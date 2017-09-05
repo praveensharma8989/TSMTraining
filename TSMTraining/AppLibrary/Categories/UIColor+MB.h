@@ -20,6 +20,9 @@
 
 +(instancetype)defaultCyanColor;
 
++(instancetype)appBlueColor;
+
 +(UIColor *) colorFromHexString:(NSString *)hexString;
+
 
 @end

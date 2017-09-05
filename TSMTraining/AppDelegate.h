@@ -15,6 +15,8 @@
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
++(instancetype)sharedDelegate;
+
 - (void)saveContext;
 
 -(BOOL)connectedToInternet;

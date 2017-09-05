@@ -16,7 +16,13 @@
 #import "NSArray+MB.h"
 
 #import "NSDateFormatter+MB.h"
+#import "UIColor+MB.h"
+#import "UIViewController+MB.h"
+#import "MBValidator.h"
 
 
+#import "MagicButton.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "MBDataBaseHandler.h"
 
 #import "CRMData.h"  

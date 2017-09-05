@@ -40,7 +40,7 @@
 }
 
 
-+(void)saveCRMdata :(CRMDataArray*)crmDataArray{
++(void)saveCRMdata:(CRMDataArray*)crmDataArray{
     
     [self deleteAllRecordsForType:CRMUserData];
     
@@ -48,12 +48,14 @@
         return;
     }
     
-    OfflineObject *object = [OfflineObject MR_createEntity];
-    object.objData = crmDataArray.toJSONString;
-    object.objType = [NSNumber numberWithInt:CRMUserData];
-    object.objClass = NSStringFromClass([crmDataArray class]);
     
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+    
+        OfflineObject *object = [OfflineObject MR_createEntity];
+        object.objData = crmDataArray.toJSONString;
+        object.objType = [NSNumber numberWithInt:CRMUserData];
+        object.objClass = NSStringFromClass([crmDataArray class]);
+    }];
     
 }
 
@@ -69,7 +71,7 @@
         return crmDataArray;
     }
     
-    return [[CRMDataArray alloc] initWithDictionary:[NSDictionary new] error:nil];
+    return nil;
     
 }
 

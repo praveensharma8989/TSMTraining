@@ -9,6 +9,6 @@ target 'TSMTraining' do
         pod 'Reachability'
         pod 'AFNetworking'
         pod 'IQKeyboardManager'
-        
-
+        pod 'CSNotificationView'
+        pod 'BlocksKit'
 end

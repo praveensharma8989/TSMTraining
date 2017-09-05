@@ -18,6 +18,29 @@
 
 #define Score @"Score"
 
+
+#define CRMID @"CRMID"
+#define CRMPASSWORD @"CRMPASSWORD"
+
+
+
+#define TapTap [self.view endEditing:YES]
+
+#define SHOWERRORALERT(msg) [[[UIAlertView alloc]initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show]
+
+//NSUserDefaults MACROS
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define SAVE_USER_DEFAULTS(VALUE,KEY) [[NSUserDefaults standardUserDefaults] setObject:VALUE forKey:KEY]; [[NSUserDefaults standardUserDefaults] synchronize]
+#define GET_USER_DEFAULTS(KEY) [[NSUserDefaults standardUserDefaults] objectForKey:KEY]
+#define REMOVE_USER_DEFAULTSFOR(KEY) [[NSUserDefaults standardUserDefaults] removeObjectForKey:KEY]
+
+
+// Remove white space.
+#define REMOVE_WHITE_SPACE(text) [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
+
+#define Int_To_String(intValue) [NSString stringWithFormat:@"%ld",(long)intValue]
+
+
 #ifndef AllConstants_h
 #define AllConstants_h
 

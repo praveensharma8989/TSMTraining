@@ -12,14 +12,14 @@
 
 -(id)MB_getController:(NSString*)identifier;
 
-//-(void)MB_showErrorMessageWithText:(NSString*)message;
-//
-//-(void)MB_showSuccessMessageWithText:(NSString*)message;
-//
-//-(void)MB_showErrorMessageOnWindowWithText:(NSString*)message;
-//
-//-(void)MB_showSuccessMessageOnWindowWithText:(NSString*)message;
-//
-//-(void)MB_showMessageWithAlertView:(NSString *)title Message:(NSString *)message;
+-(void)MB_showErrorMessageWithText:(NSString*)message;
+
+-(void)MB_showSuccessMessageWithText:(NSString*)message;
+
+-(void)MB_showErrorMessageOnWindowWithText:(NSString*)message;
+
+-(void)MB_showSuccessMessageOnWindowWithText:(NSString*)message;
+
+-(void)MB_showMessageWithAlertView:(NSString *)title Message:(NSString *)message;
 
 @end

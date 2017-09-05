@@ -12,7 +12,7 @@
 
 
 +(instancetype)defaultBlueColor{
-    return [UIColor colorWithRed:0.110 green:0.396 blue:0.976 alpha:0.840];
+    return [UIColor colorWithRed:0.74 green:0.104 blue:0.172 alpha:0.840];
 }
 
 +(instancetype)defaultBackgroundColor{
@@ -29,6 +29,10 @@
 
 +(instancetype)defaultCyanColor{
     return [UIColor colorWithRed:(0/255.0f) green:(184/255.0f) blue:(201/255.0f) alpha:1.000];
+}
+
++(instancetype)appBlueColor{
+    return [UIColor colorWithRed:33.0f/255.0f green:64.0f/255.0f blue:154.0f/255.0f alpha:1.0f];
 }
 
 +(UIColor *) colorFromHexString:(NSString *)hexString {
