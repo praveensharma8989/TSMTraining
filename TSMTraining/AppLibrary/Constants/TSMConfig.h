@@ -24,5 +24,6 @@
 #import "MagicButton.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "MBDataBaseHandler.h"
+#import "GlobalFunctionHandler.h"
 
 #import "CRMData.h"  

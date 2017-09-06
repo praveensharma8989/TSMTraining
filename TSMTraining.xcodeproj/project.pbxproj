@@ -52,6 +52,7 @@
 		E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA91F5ECA6400AA0101 /* CRMData.m */; };
 		E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D01EF01F5EDA150043BC89 /* AppDelegate.m */; };
 		E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0B1A41F5EE087000DE22A /* OfflineObject.m */; };
+		E9FA528B1F5FCC07004A9B50 /* GlobalFunctionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FA528A1F5FCC07004A9B50 /* GlobalFunctionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,8 @@
 		E9D01EF01F5EDA150043BC89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E9E0B1A41F5EE087000DE22A /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
 		E9E0B1A51F5EE087000DE22A /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
+		E9FA52891F5FCC07004A9B50 /* GlobalFunctionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctionHandler.h; sourceTree = "<group>"; };
+		E9FA528A1F5FCC07004A9B50 /* GlobalFunctionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +406,8 @@
 			children = (
 				E95C6A7A1F5EAF8900AA0101 /* DataHandler */,
 				E95C6A7F1F5EAF8900AA0101 /* Validator */,
+				E9FA52891F5FCC07004A9B50 /* GlobalFunctionHandler.h */,
+				E9FA528A1F5FCC07004A9B50 /* GlobalFunctionHandler.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -633,7 +638,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DE55551D1E42CCA0AC7D6F72 /* [CP] Copy Pods Resources */ = {
@@ -643,7 +648,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/CSNotificationView/CSNotificationView.bundle,
+				"$PODS_CONFIGURATION_BUILD_DIR/CSNotificationView/CSNotificationView.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -685,6 +690,7 @@
 				79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */,
 				E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */,
 				79EB48AB1F5F32FC00818441 /* ScoreVC.m in Sources */,
+				E9FA528B1F5FCC07004A9B50 /* GlobalFunctionHandler.m in Sources */,
 				79EB48A21F5F104700818441 /* Transition.m in Sources */,
 				E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */,
 				79EB48A51F5F2EE900818441 /* TSMLandingTabBar.m in Sources */,

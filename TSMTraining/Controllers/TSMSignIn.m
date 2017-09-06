@@ -86,6 +86,8 @@
                     
                     [MBDataBaseHandler saveCRMdata:dataArray];
                     
+                    [GlobalFunctionHandler getUserDetail:dataArray withUserId:crmID];
+                    
                     [_loginBtn stopAnimation:^{
                        
                         [self moveToLandingViewController];
