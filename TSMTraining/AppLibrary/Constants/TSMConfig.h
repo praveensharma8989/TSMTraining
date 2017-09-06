@@ -22,8 +22,14 @@
 
 
 #import "MagicButton.h"
+
+
+#import "CRMData.h"  
+#import "ScoreData.h"
+#import "AttendanceData.h"
+#import "SessionData.h"
+
+
 #import <MagicalRecord/MagicalRecord.h>
 #import "MBDataBaseHandler.h"
 #import "GlobalFunctionHandler.h"
-
-#import "CRMData.h"  

@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self setupInitialScreen];
     
     // Do any additional setup after loading the view.
 }
@@ -37,12 +37,15 @@
 
 -(void)setupInitialScreen{
     
+    [self setTitle:@"Home" isBold:YES];
+    [self setNavigation];
+    [self addGrayLogOutButton];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
     
-    _CRMId.text = userData.crm_id;
     _CRMName.text = userData.crm_name;
-    _StateOffice.text = userData.state_office;
+    _CRMId.text = [NSString stringWithFormat:@"CRM ID : %@", userData.crm_id];
+    _StateOffice.text = [NSString stringWithFormat:@"State Office : %@", userData.state_office];
     
 }
 

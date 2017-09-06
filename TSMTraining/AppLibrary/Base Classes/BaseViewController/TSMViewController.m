@@ -8,7 +8,7 @@
 
 #import "TSMViewController.h"
 
-@interface TSMViewController ()
+@interface TSMViewController ()<UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -26,7 +26,7 @@
 
 -(void)setTitle:(NSString *)title isBold:(BOOL)isBold{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-    [label setFont:[UIFont TSM_AppFontWithType:(isBold) ? Bold :Regular WithSize:18]];
+    [label setFont:[UIFont TSM_AppFontWithType:(isBold) ? Bold :Regular WithSize:24]];
     [label setText:title];
     [label setShadowColor:[UIColor clearColor]];
     [label setTextColor:[UIColor whiteColor]];
@@ -41,6 +41,67 @@
     [self.navigationController.navigationBar setTranslucent:NO];
 }
 
+-(void)setNavigation{
+
+    [self.navigationController.navigationBar setTintColor:[UIColor defaultBlueColor]];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor defaultBlueColor]];
+    
+}
+
+-(void)addGrayBackButton{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBack:)];
+    [item setTintColor:[UIColor grayColor]];
+    self.navigationItem.leftBarButtonItem = item;
+
+}
+
+-(void)addGrayLogOutButton{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"logout") style:UIBarButtonItemStylePlain target:self action:@selector(action_Logout)];
+    [item setTintColor:[UIColor grayColor]];
+    if (self.tabBarController) {
+        self.tabBarController.navigationItem.rightBarButtonItem = item;
+    }else{
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    
+}
+
+-(IBAction)action_MoveToBack:(id)sender{
+    ENDEDITING;
+    POP;
+}
+
+-(IBAction)action_DismissController:(id)sender{
+    DISMISSCONTROLLER;
+}
+
+-(void)action_Logout{
+    
+    REMOVE_USER_DEFAULTSFOR(CRMID);
+    REMOVE_USER_DEFAULTSFOR(CRMPASSWORD);
+    [MBDataBaseHandler clearAllDataBase];
+    [self moveToSignInScreen];
+}
+
+-(void)moveToSignInScreen{
+
+    UIStoryboard * storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    UINavigationController * landingViewController=[storyboard instantiateViewControllerWithIdentifier:@"TSMSignIn"];
+    
+    landingViewController.transitioningDelegate = self;
+    
+    UINavigationController * navigationController=[[UINavigationController alloc]initWithRootViewController:landingViewController];
+    
+    navigationController.transitioningDelegate = self;
+    
+    [navigationController setNavigationBarHidden:NO];
+    
+    [AppDelegate sharedDelegate].window.rootViewController = navigationController;
+    
+    [[AppDelegate sharedDelegate].window makeKeyAndVisible];
+ 
+}
 
 /*
 #pragma mark - Navigation

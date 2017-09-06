@@ -8,6 +8,14 @@
 
 #import "TSMViewController.h"
 
+typedef enum
+{
+    RegistrationBtn = 0,
+    SessionBtn,
+    AttendanceBtn,
+    ScoreBtn
+} BtnCLickType;
+
 @interface SyncVC : TSMViewController
 
 @end

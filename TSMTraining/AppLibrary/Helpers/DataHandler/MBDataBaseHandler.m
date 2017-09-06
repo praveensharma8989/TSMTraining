@@ -59,6 +59,66 @@
     
 }
 
++(void)saveSessiondata:(SessionDataArray *)sessionDataArray{
+    
+    [self deleteAllRecordsForType:SESSIONDATAARRAY];
+    
+    if(!sessionDataArray){
+        return;
+    }
+    
+    
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        OfflineObject *object = [OfflineObject MR_createEntityInContext:localContext];
+        object.objData = sessionDataArray.toJSONString;
+        object.objType = [NSNumber numberWithInt:SESSIONDATAARRAY];
+        object.objClass = NSStringFromClass([sessionDataArray class]);
+    }];
+    
+}
+
++(void)saveAttendancedata:(AttendanceDataArray *)AttendanceDataArray{
+    
+    [self deleteAllRecordsForType:ATTENDANCEDATAARRAY];
+    
+    if(!AttendanceDataArray){
+        return;
+    }
+    
+    
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        OfflineObject *object = [OfflineObject MR_createEntityInContext:localContext];
+        object.objData = AttendanceDataArray.toJSONString;
+        object.objType = [NSNumber numberWithInt:ATTENDANCEDATAARRAY];
+        object.objClass = NSStringFromClass([AttendanceDataArray class]);
+    }];
+    
+}
+
++(void)saveScoredata:(ScoreDataArray *)scoreDataArray{
+    
+    [self deleteAllRecordsForType:SCOREDATAARRAY];
+    
+    if(!scoreDataArray){
+        return;
+    }
+    
+    
+    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        
+        OfflineObject *object = [OfflineObject MR_createEntityInContext:localContext];
+        object.objData = scoreDataArray.toJSONString;
+        object.objType = [NSNumber numberWithInt:SCOREDATAARRAY];
+        object.objClass = NSStringFromClass([scoreDataArray class]);
+    }];
+    
+}
+
+
+
+
 
 +(CRMDataArray *)getCRMData{
     
@@ -75,6 +135,57 @@
     return nil;
     
 }
+
++(SessionDataArray *)getSessionDataArray{
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SESSIONDATAARRAY]];
+    
+    NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
+    
+    if(array.count > 0){
+        OfflineObject *object = array[0];
+        SessionDataArray *sessionDataArray = [[SessionDataArray alloc] initWithString:object.objData error:nil];
+        return sessionDataArray;
+    }
+    
+    return nil;
+    
+}
+
++(AttendanceDataArray *)getAttendanceDataArray{
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:ATTENDANCEDATAARRAY]];
+    
+    NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
+    
+    if(array.count > 0){
+        OfflineObject *object = array[0];
+        AttendanceDataArray *attendanceDataArray = [[AttendanceDataArray alloc] initWithString:object.objData error:nil];
+        return attendanceDataArray;
+    }
+    
+    return nil;
+    
+}
+
++(ScoreDataArray *)getScoreDataArray{
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SCOREDATAARRAY]];
+    
+    NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
+    
+    if(array.count > 0){
+        OfflineObject *object = array[0];
+        ScoreDataArray *scoreDataArray = [[ScoreDataArray alloc] initWithString:object.objData error:nil];
+        return scoreDataArray;
+    }
+    
+    return nil;
+    
+}
+
+
+
 
 
 @end

@@ -12,16 +12,31 @@
 
 @end
 
-@implementation SessionVC
+@implementation SessionVC{
+
+    CRMData *userData;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupInitialScreen];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setupInitialScreen{
+    
+    [self setTitle:@"Session" isBold:YES];
+    [self setNavigation];
+    [self addGrayLogOutButton];
+    CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
+    userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
+    
 }
 
 /*

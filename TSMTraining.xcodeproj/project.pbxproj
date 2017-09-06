@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		42FEA641C900AE95BEDA9AA1 /* libPods-TSMTraining.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */; };
+		79AC26F41F607E4E0032B5AE /* SessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26F31F607E4E0032B5AE /* SessionData.m */; };
+		79AC26FD1F607FE60032B5AE /* AttendanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FC1F607FE60032B5AE /* AttendanceData.m */; };
+		79AC27001F6080B70032B5AE /* ScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FF1F6080B70032B5AE /* ScoreData.m */; };
 		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
 		79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489D1F5F104700818441 /* SpinerLayer.m */; };
 		79EB48A21F5F104700818441 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489F1F5F104700818441 /* Transition.m */; };
@@ -75,6 +78,12 @@
 /* Begin PBXFileReference section */
 		0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTraining.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCD85B492B85405EC4482E0 /* libPods-TSMTrainingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79AC26F21F607E4E0032B5AE /* SessionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionData.h; sourceTree = "<group>"; };
+		79AC26F31F607E4E0032B5AE /* SessionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionData.m; sourceTree = "<group>"; };
+		79AC26FB1F607FE60032B5AE /* AttendanceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceData.h; sourceTree = "<group>"; };
+		79AC26FC1F607FE60032B5AE /* AttendanceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceData.m; sourceTree = "<group>"; };
+		79AC26FE1F6080B70032B5AE /* ScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreData.h; sourceTree = "<group>"; };
+		79AC26FF1F6080B70032B5AE /* ScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreData.m; sourceTree = "<group>"; };
 		79EB489A1F5F104700818441 /* MagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicButton.h; sourceTree = "<group>"; };
 		79EB489B1F5F104700818441 /* MagicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicButton.m; sourceTree = "<group>"; };
 		79EB489C1F5F104700818441 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
@@ -473,6 +482,12 @@
 			children = (
 				E95C6AA81F5ECA6400AA0101 /* CRMData.h */,
 				E95C6AA91F5ECA6400AA0101 /* CRMData.m */,
+				79AC26F21F607E4E0032B5AE /* SessionData.h */,
+				79AC26F31F607E4E0032B5AE /* SessionData.m */,
+				79AC26FB1F607FE60032B5AE /* AttendanceData.h */,
+				79AC26FC1F607FE60032B5AE /* AttendanceData.m */,
+				79AC26FE1F6080B70032B5AE /* ScoreData.h */,
+				79AC26FF1F6080B70032B5AE /* ScoreData.m */,
 			);
 			path = BO;
 			sourceTree = "<group>";
@@ -648,7 +663,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/CSNotificationView/CSNotificationView.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/CSNotificationView/CSNotificationView.bundle,
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -688,7 +703,10 @@
 				E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */,
 				E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */,
 				79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */,
+				79AC27001F6080B70032B5AE /* ScoreData.m in Sources */,
 				E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */,
+				79AC26FD1F607FE60032B5AE /* AttendanceData.m in Sources */,
+				79AC26F41F607E4E0032B5AE /* SessionData.m in Sources */,
 				79EB48AB1F5F32FC00818441 /* ScoreVC.m in Sources */,
 				E9FA528B1F5FCC07004A9B50 /* GlobalFunctionHandler.m in Sources */,
 				79EB48A21F5F104700818441 /* Transition.m in Sources */,

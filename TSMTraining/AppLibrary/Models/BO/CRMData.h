@@ -8,7 +8,7 @@
 
 #import <JSONModel/JSONModel.h>
 
-@protocol CRMData
+@protocol CRMData <NSObject>
 @end
 
 @interface CRMData : JSONModel

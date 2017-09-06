@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "OfflineObject.h"
-#import "CRMData.h"
 
 typedef enum
 {
     CRMUserData = 0,
+    SESSIONDATAARRAY,
+    ATTENDANCEDATAARRAY,
+    SCOREDATAARRAY
 } OFFLINEMODE;
 
 
@@ -21,7 +23,16 @@ typedef enum
 
 + (void)clearAllDataBase;
 + (void)deleteAllRecordsForType:(OFFLINEMODE)type;
+
 + (void)saveCRMdata:(CRMDataArray*)crmDataArray;
++ (void)saveSessiondata:(SessionDataArray*)sessionDataArray;
++ (void)saveAttendancedata:(AttendanceDataArray*)AttendanceDataArray;
++ (void)saveScoredata:(ScoreDataArray*)scoreDataArray;
+
+
 + (CRMDataArray*)getCRMData;
++ (SessionDataArray*)getSessionDataArray;
++ (AttendanceDataArray*)getAttendanceDataArray;
++ (ScoreDataArray*)getScoreDataArray;
 
 @end

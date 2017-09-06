@@ -12,7 +12,7 @@
 
 
 +(instancetype)defaultBlueColor{
-    return [UIColor colorWithRed:0.74 green:0.104 blue:0.172 alpha:0.840];
+    return [UIColor colorWithRed:74.0f/255.0f green:104.0f/255.0f blue:172.0f/255.0f alpha:1.0];
 }
 
 +(instancetype)defaultBackgroundColor{
