@@ -40,7 +40,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:attribute forState:UIControlStateNormal];
     
     self.tabBar.tintColor = [UIColor whiteColor];
-    self.selectedIndex = 0;
+    self.selectedIndex = 1;
     self.tabBar.autoresizesSubviews = YES;
     self.tabBar.clipsToBounds = YES;
     self.tabBar.translucent=NO;

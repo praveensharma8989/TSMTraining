@@ -26,6 +26,14 @@
 
 #define TapTap [self.view endEditing:YES]
 
+#define SCREEN_SIZE [[UIScreen mainScreen] bounds].size
+
+#define HEIGHT self.view.frame.size.height
+#define WIDTH self.view.frame.size.width
+
+#define CELLHEIGHT self.contentView.frame.size.height
+#define CELLWIDTH self.contentView.frame.size.width
+
 #define SHOWERRORALERT(msg) [[[UIAlertView alloc]initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil] show]
 
 //NSUserDefaults MACROS
@@ -46,10 +54,22 @@
 #define DISMISSCONTROLLER [self dismissViewControllerAnimated:YES completion:nil]
 
 
+// Image and font constant
+#define flowerImage @"flower50X73"
+#define fontRegular @"HelveticaNeue"
+#define fontBold @"HelveticaNeue-Bold"
+#define fontMedium @"HelveticaNeue-Medium"
+#define fontLight @"HelveticaNeue-Light"
+
 // Remove white space.
 #define REMOVE_WHITE_SPACE(text) [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
 
 #define Int_To_String(intValue) [NSString stringWithFormat:@"%ld",(long)intValue]
+
+
+#define K_SELECT_CELL @"selectTableViewCell"
+#define K_USER_SELECT @"UserSelectTableViewCell"
+#define K_Seeion_Name_cell @"SessionCloseTableViewCell"
 
 
 #ifndef AllConstants_h

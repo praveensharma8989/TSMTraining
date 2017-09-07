@@ -14,7 +14,10 @@ typedef enum
     CRMUserData = 0,
     SESSIONDATAARRAY,
     ATTENDANCEDATAARRAY,
-    SCOREDATAARRAY
+    SCOREDATAARRAY,
+    SESSIONDATA,
+    ATTENDANCEDATA,
+    SCOREDATA
 } OFFLINEMODE;
 
 
@@ -25,14 +28,22 @@ typedef enum
 + (void)deleteAllRecordsForType:(OFFLINEMODE)type;
 
 + (void)saveCRMdata:(CRMDataArray*)crmDataArray;
-+ (void)saveSessiondata:(SessionDataArray*)sessionDataArray;
-+ (void)saveAttendancedata:(AttendanceDataArray*)AttendanceDataArray;
-+ (void)saveScoredata:(ScoreDataArray*)scoreDataArray;
++ (void)saveSessiondataArray:(SessionDataArray*)sessionDataArray;
++ (void)saveAttendancedataArray:(AttendanceDataArray*)AttendanceDataArray;
++ (void)saveScoredataArray:(ScoreDataArray*)scoreDataArray;
++ (void)saveSessiondata:(SessionData*)sessionData;
++ (void)saveAttendancedata:(AttendanceData*)AttendanceData;
++ (void)saveScoredata:(ScoreData*)scoreData;
+
 
 
 + (CRMDataArray*)getCRMData;
 + (SessionDataArray*)getSessionDataArray;
 + (AttendanceDataArray*)getAttendanceDataArray;
 + (ScoreDataArray*)getScoreDataArray;
++ (SessionData*)getSessionData;
++ (AttendanceData*)getAttendanceData;
++ (ScoreData*)getScoreData;
+
 
 @end

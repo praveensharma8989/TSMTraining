@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -249,9 +249,57 @@
                     <view key="view" contentMode="scaleToFill" id="MXR-bH-tGv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hYD-cq-GZK">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SessionCloseTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionCloseTableViewCell" id="8Ax-7Q-KGJ" customClass="SessionCloseTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ax-7Q-KGJ" id="zQj-fJ-6X8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9V-Hu-dPZ">
+                                                    <rect key="frame" x="18.5" y="0.5" width="337.5" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="cmT-1q-ICX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="t9V-Hu-dPZ" firstAttribute="centerX" secondItem="zQj-fJ-6X8" secondAttribute="centerX" id="53V-pc-xy5"/>
+                                                <constraint firstItem="t9V-Hu-dPZ" firstAttribute="width" secondItem="zQj-fJ-6X8" secondAttribute="width" multiplier="0.9" id="DO3-gE-7px"/>
+                                                <constraint firstItem="t9V-Hu-dPZ" firstAttribute="centerY" secondItem="zQj-fJ-6X8" secondAttribute="centerY" id="pbF-oV-LaO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sessionName" destination="t9V-Hu-dPZ" id="n9W-uL-eF1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Bie-4u-ZEa" id="nuZ-Bl-TgI"/>
+                                    <outlet property="delegate" destination="Bie-4u-ZEa" id="oB1-1M-CEo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hYD-cq-GZK" firstAttribute="leading" secondItem="MXR-bH-tGv" secondAttribute="leading" id="K5o-Q8-dYT"/>
+                            <constraint firstItem="hYD-cq-GZK" firstAttribute="top" secondItem="2CZ-MZ-Yvb" secondAttribute="bottom" id="MI7-l1-6De"/>
+                            <constraint firstItem="I3S-qU-N7u" firstAttribute="top" secondItem="hYD-cq-GZK" secondAttribute="bottom" id="PsO-ZJ-jns"/>
+                            <constraint firstAttribute="trailing" secondItem="hYD-cq-GZK" secondAttribute="trailing" id="mx1-El-7OC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Session" image="session" id="vGd-NE-66c"/>
+                    <connections>
+                        <outlet property="tableView" destination="hYD-cq-GZK" id="LcE-12-dA2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbi-j7-jvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

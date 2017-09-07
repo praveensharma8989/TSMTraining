@@ -21,6 +21,15 @@
 		79EB48B11F5F332700818441 /* AttendanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B01F5F332700818441 /* AttendanceVC.m */; };
 		79EB48B41F5F333800818441 /* SyncVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B31F5F333800818441 /* SyncVC.m */; };
 		79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B61F5F335000818441 /* SessionCloseVC.m */; };
+		E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD791F612D8200738F78 /* selectTableViewCell.m */; };
+		E91BCD7C1F612D8200738F78 /* selectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */; };
+		E91BCD831F614CCE00738F78 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */; };
+		E91BCD841F614CCE00738F78 /* UserSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */; };
+		E91BCD871F61560100738F78 /* SessionCloseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */; };
+		E91BCDA41F61697E00738F78 /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD9D1F61697E00738F78 /* IQActionSheetPickerView.m */; };
+		E91BCDA51F61697E00738F78 /* IQActionSheetTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD9F1F61697E00738F78 /* IQActionSheetTitleBarButtonItem.m */; };
+		E91BCDA61F61697E00738F78 /* IQActionSheetToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCDA11F61697E00738F78 /* IQActionSheetToolbar.m */; };
+		E91BCDA71F61697E00738F78 /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCDA31F61697E00738F78 /* IQActionSheetViewController.m */; };
 		E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A0C1F5EAAC100AA0101 /* main.m */; };
 		E95C6A131F5EAAC100AA0101 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A121F5EAAC100AA0101 /* ViewController.m */; };
 		E95C6A161F5EAAC100AA0101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E95C6A141F5EAAC100AA0101 /* Main.storyboard */; };
@@ -107,6 +116,22 @@
 		B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.release.xcconfig"; sourceTree = "<group>"; };
 		C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		E91BCD781F612D8200738F78 /* selectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectTableViewCell.h; sourceTree = "<group>"; };
+		E91BCD791F612D8200738F78 /* selectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectTableViewCell.m; sourceTree = "<group>"; };
+		E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectTableViewCell.xib; sourceTree = "<group>"; };
+		E91BCD801F614CCE00738F78 /* UserSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectTableViewCell.h; sourceTree = "<group>"; };
+		E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
+		E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSelectTableViewCell.xib; sourceTree = "<group>"; };
+		E91BCD851F61560100738F78 /* SessionCloseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCloseTableViewCell.h; sourceTree = "<group>"; };
+		E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCloseTableViewCell.m; sourceTree = "<group>"; };
+		E91BCD9C1F61697E00738F78 /* IQActionSheetPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetPickerView.h; sourceTree = "<group>"; };
+		E91BCD9D1F61697E00738F78 /* IQActionSheetPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetPickerView.m; sourceTree = "<group>"; };
+		E91BCD9E1F61697E00738F78 /* IQActionSheetTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetTitleBarButtonItem.h; sourceTree = "<group>"; };
+		E91BCD9F1F61697E00738F78 /* IQActionSheetTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetTitleBarButtonItem.m; sourceTree = "<group>"; };
+		E91BCDA01F61697E00738F78 /* IQActionSheetToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetToolbar.h; sourceTree = "<group>"; };
+		E91BCDA11F61697E00738F78 /* IQActionSheetToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetToolbar.m; sourceTree = "<group>"; };
+		E91BCDA21F61697E00738F78 /* IQActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetViewController.h; sourceTree = "<group>"; };
+		E91BCDA31F61697E00738F78 /* IQActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetViewController.m; sourceTree = "<group>"; };
 		E95C6A081F5EAAC100AA0101 /* TSMTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSMTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95C6A0C1F5EAAC100AA0101 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E95C6A0E1F5EAAC100AA0101 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,6 +264,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E91BCD771F6127B500738F78 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E91BCD781F612D8200738F78 /* selectTableViewCell.h */,
+				E91BCD791F612D8200738F78 /* selectTableViewCell.m */,
+				E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */,
+				E91BCD801F614CCE00738F78 /* UserSelectTableViewCell.h */,
+				E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */,
+				E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */,
+				E91BCD851F61560100738F78 /* SessionCloseTableViewCell.h */,
+				E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		E91BCD9B1F61697E00738F78 /* IQActionSheetPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				E91BCD9C1F61697E00738F78 /* IQActionSheetPickerView.h */,
+				E91BCD9D1F61697E00738F78 /* IQActionSheetPickerView.m */,
+				E91BCD9E1F61697E00738F78 /* IQActionSheetTitleBarButtonItem.h */,
+				E91BCD9F1F61697E00738F78 /* IQActionSheetTitleBarButtonItem.m */,
+				E91BCDA01F61697E00738F78 /* IQActionSheetToolbar.h */,
+				E91BCDA11F61697E00738F78 /* IQActionSheetToolbar.m */,
+				E91BCDA21F61697E00738F78 /* IQActionSheetViewController.h */,
+				E91BCDA31F61697E00738F78 /* IQActionSheetViewController.m */,
+			);
+			path = IQActionSheetPickerView;
+			sourceTree = "<group>";
+		};
 		E95C69FF1F5EAAC100AA0101 = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +390,7 @@
 		E95C6A501F5EAF8800AA0101 /* AppLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				E91BCD771F6127B500738F78 /* Custom Cell */,
 				E95C6A511F5EAF8800AA0101 /* Base Classes */,
 				E95C6A551F5EAF8800AA0101 /* Categories */,
 				E95C6A761F5EAF8900AA0101 /* Constants */,
@@ -348,6 +404,7 @@
 		E95C6A511F5EAF8800AA0101 /* Base Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E91BCD9B1F61697E00738F78 /* IQActionSheetPickerView */,
 				E95C6A521F5EAF8800AA0101 /* BaseViewController */,
 			);
 			path = "Base Classes";
@@ -603,6 +660,8 @@
 				E95C6A1E1F5EAAC100AA0101 /* LaunchScreen.storyboard in Resources */,
 				E95C6A1B1F5EAAC100AA0101 /* Assets.xcassets in Resources */,
 				E95C6A161F5EAAC100AA0101 /* Main.storyboard in Resources */,
+				E91BCD841F614CCE00738F78 /* UserSelectTableViewCell.xib in Resources */,
+				E91BCD7C1F612D8200738F78 /* selectTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +743,7 @@
 			files = (
 				E95C6A9A1F5EAF8900AA0101 /* MBDataBaseHandler.m in Sources */,
 				79EB48B41F5F333800818441 /* SyncVC.m in Sources */,
+				E91BCDA71F61697E00738F78 /* IQActionSheetViewController.m in Sources */,
 				E95C6A911F5EAF8900AA0101 /* UIColor+MB.m in Sources */,
 				E95C6A981F5EAF8900AA0101 /* UIView+MB.m in Sources */,
 				E95C6A8B1F5EAF8900AA0101 /* NSDate+MB.m in Sources */,
@@ -699,6 +759,7 @@
 				E95C6A961F5EAF8900AA0101 /* UITableView+MB.m in Sources */,
 				79EB48A81F5F32D200818441 /* HomeVC.m in Sources */,
 				E95C6A8C1F5EAF8900AA0101 /* NSDateFormatter+MB.m in Sources */,
+				E91BCDA61F61697E00738F78 /* IQActionSheetToolbar.m in Sources */,
 				E95C6A8D1F5EAF8900AA0101 /* NSMutableAttributedString+MB.m in Sources */,
 				E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */,
 				E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */,
@@ -711,18 +772,23 @@
 				E9FA528B1F5FCC07004A9B50 /* GlobalFunctionHandler.m in Sources */,
 				79EB48A21F5F104700818441 /* Transition.m in Sources */,
 				E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */,
+				E91BCDA51F61697E00738F78 /* IQActionSheetTitleBarButtonItem.m in Sources */,
 				79EB48A51F5F2EE900818441 /* TSMLandingTabBar.m in Sources */,
+				E91BCDA41F61697E00738F78 /* IQActionSheetPickerView.m in Sources */,
 				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
 				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
 				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,
+				E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */,
 				E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */,
 				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
 				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,
+				E91BCD871F61560100738F78 /* SessionCloseTableViewCell.m in Sources */,
 				79EB48AE1F5F331100818441 /* SessionVC.m in Sources */,
 				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,
 				E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */,
+				E91BCD831F614CCE00738F78 /* UserSelectTableViewCell.m in Sources */,
 				E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */,
 				E95C6A891F5EAF8900AA0101 /* TSMViewController.m in Sources */,
 			);
