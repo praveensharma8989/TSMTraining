@@ -77,10 +77,22 @@
 
 -(void)action_Logout{
     
-    REMOVE_USER_DEFAULTSFOR(CRMID);
-    REMOVE_USER_DEFAULTSFOR(CRMPASSWORD);
-    [MBDataBaseHandler clearAllDataBase];
-    [self moveToSignInScreen];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Logout" message:@"Do You Want to Log Out?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        REMOVE_USER_DEFAULTSFOR(CRMID);
+        REMOVE_USER_DEFAULTSFOR(CRMPASSWORD);
+        [MBDataBaseHandler clearAllDataBase];
+        [self moveToSignInScreen];
+    }];
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:yes];
+    [alert addAction:no];
+    [self presentViewController:alert animated:yes completion:nil];
+    
+    
 }
 
 -(void)moveToSignInScreen{

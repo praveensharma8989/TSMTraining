@@ -10,6 +10,7 @@
 
 @interface SessionVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate, UISearchBarDelegate, UISearchControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *createSessionBtn;
 
 
 @end
@@ -20,9 +21,9 @@
     CRMDataArray *dataArray;
     SessionData *sessionData;
     NSInteger selectedIndexofRow;
-    NSArray *picketHeading;
-    NSMutableArray *dropDownSelectValue;
-    NSString *trainingType,*trainingLOB,*productLine,*dealerName,*crmName;
+    NSArray *picketHeading, *trainingLOBArray, *dealerNameArray;
+    NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray;
+    NSString *trainingType,*trainingLOB,*productLine,*dealerName;
 }
 
 - (void)viewDidLoad {
@@ -42,15 +43,55 @@
     [self setNavigation];
     [self addGrayLogOutButton];
     [self nibRegistration];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
-    
     sessionData = [MBDataBaseHandler getSessionData];
     
+    trainingLOBArray = [self getValueFromDataArray:dataArray withKey:@"crm_LOB" withValue:@""];
+    productLineArray = [NSMutableArray new];
+    CRMNameArray = [NSMutableArray new];
+    CRMIDArray = [NSMutableArray new];
+    
+    dealerNameArray = [self getValueFromDataArray:dataArray withKey:@"dealer_name" withValue:@""];
     
     dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Training Type", @"Select Training LOB", @"Select Product Line", @"Select Dealer Name", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
     
+}
+
+-(NSArray *)getValueFromDataArray :(CRMDataArray *)data withKey:(NSString *)key withValue:(NSString *)value{
+    
+    NSPredicate *predicate;
+    
+    if([key isEqualToString:@"crm_LOB"]){
+        
+         predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_LOB != %@)", @""];
+        
+    }else if([key isEqualToString:@"crm_product_line"]){
+        
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_LOB == %@)AND(SELF.crm_product_line != %@)", value,@""];
+        
+    }else if([key isEqualToString:@"crm_name"]){
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name == %@)", value];
+    }else if([key isEqualToString:@"crm_id"]){
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_name == %@)", value];
+    }else if([key isEqualToString:@"dealer_code"]){
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name == %@)", value];
+    }else{
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
+    }
+    
+    
+    NSArray *array =[data.data filteredArrayUsingPredicate:predicate];
+    
+    NSString *valueForKey = [NSString stringWithFormat:@"@distinctUnionOfObjects.%@",key];
+    
+    NSArray *uniqueGenres = [array valueForKeyPath:valueForKey];
+    
+    
+    return uniqueGenres;
 }
 
 -(void) nibRegistration{
@@ -67,7 +108,8 @@
             
             SessionCloseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_Seeion_Name_cell forIndexPath:indexPath];
             
-            cell.sessionName.text = @"yes";
+            cell.sessionName.text = sessionData.session_name;
+            
             return cell;
         
         }
@@ -87,8 +129,15 @@
         case 2:{
         
             UserSelectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_USER_SELECT forIndexPath:indexPath];
+            if(CRMNameArray.count >0){
+                cell.nameLbl.text = CRMNameArray[indexPath.row];
+                if([CRMIDArray[indexPath.row] isEqualToString:@""]){
+                    [cell.selectTick setImage:[UIImage imageNamed:@"blankTick"]];
+                }else{
+                    [cell.selectTick setImage:[UIImage imageNamed:@"selectTick"]];
+                }
+            }
             
-            cell.nameLbl.text = @"yes";
             return cell;
         
         }
@@ -107,8 +156,10 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     if(sessionData){
+        [self.createSessionBtn setHidden:YES];
         return 1;
     }else{
+        [self.createSessionBtn setHidden:NO];
         return 3;
     }
     
@@ -130,11 +181,11 @@
         
     }else{
         
-//        if(trainingLOB && trainingType && productLine && dealerName){
-            return 5;
-//        }else{
-//            return 0;
-//        }
+        if(dealerName && ![dealerName isEqualToString:@""]){
+            return CRMNameArray.count;
+        }else{
+            return 0;
+        }
     }
     
 }
@@ -159,7 +210,7 @@
             break;
         
         case 2:
-            return @"asdf";
+            return @" ";
             break;
         default:
             break;
@@ -170,22 +221,22 @@
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 
-    if(section == 2){
+    if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
         
-        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
         searchBar.delegate = self;
         
-        self.tableView.tableHeaderView = searchBar;
+//        self.tableView.tableHeaderView = searchBar;
         
         UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
         searchController.searchResultsDataSource = self;
         searchController.searchResultsDelegate = self;
         searchController.delegate = self;
         
-        self.tableView.dataSource      =   self;
-        self.tableView.delegate        =   self;
+//        self.tableView.dataSource      =   self;
+//        self.tableView.delegate        =   self;
         [view addSubview:searchBar];
         return view;
         
@@ -193,6 +244,14 @@
         return nil;
     }
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
+        return 44;
+    }
+    return self.tableView.sectionHeaderHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -209,11 +268,32 @@
             break;
             
         case 2:
-            
+            [self selectCrmNameWithID:indexPath];
             break;
         default:
             break;
     }
+    
+}
+
+-(void)selectCrmNameWithID:(NSIndexPath *)crmNamePosition{
+    
+    if(![CRMIDArray[crmNamePosition.row] isEqualToString:@""]){
+        
+        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:@""];
+        
+    }else{
+        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:CRMNameArray[crmNamePosition.row]];
+        
+        NSString *crmid = crmids[0];
+        
+        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:crmid];
+    }
+    
+    
+    
+    
+    [self.tableView reloadRowsAtIndexPaths:@[crmNamePosition] withRowAnimation:NO];
     
 }
 
@@ -225,11 +305,33 @@
     picker.actionToolbar.titleButton.titleFont = [UIFont systemFontOfSize:12];
     picker.actionToolbar.titleButton.titleColor = [UIColor blackColor];
     
-    [picker setTitlesForComponents:@[@[@"First", @"Second", @"Third", @"Four", @"Five"]]];
+    if(selectedIndexofRow == 0){
+        [picker setTitlesForComponents:@[@[@"Refresher", @"Produuct Training"]]];
+    }else if(selectedIndexofRow == 1){
+        
+        [picker setTitlesForComponents:@[trainingLOBArray]];
+        
+    }else if(selectedIndexofRow == 2){
+        
+        [picker setTitlesForComponents:@[productLineArray]];
+        
+    }else{
+        
+        [picker setTitlesForComponents:@[dealerNameArray]];
+        
+    }
+    
+    
     
     [picker setTag:row];
     
-    [picker show];
+    if(row == 2 && productLineArray.count == 0){
+        
+    }else{
+        [picker show];
+    }
+    
+    
 }
 
 -(void)actionSheetPickerView:(IQActionSheetPickerView *)pickerView didSelectTitles:(NSArray<NSString *> *)titles{
@@ -237,23 +339,85 @@
     [dropDownSelectValue replaceObjectAtIndex:pickerView.tag withObject:titles[0]];
     
     switch (pickerView.tag) {
-        case 0:
+        case 0:{
             trainingType = titles[0];
+        }
+        
             break;
-        case 1:
+        case 1:{
             trainingLOB = titles[0];
+            productLine = nil;
+            [dropDownSelectValue replaceObjectAtIndex:2 withObject:@"Select Product Line"];
+            productLineArray = [[self getValueFromDataArray:dataArray withKey:@"crm_product_line" withValue:trainingLOB] copy];
+        }
+            
             break;
         case 2:
             productLine = titles[0];
             break;
         case 3:
             dealerName = titles[0];
+            
+            CRMNameArray = [[self getValueFromDataArray:dataArray withKey:@"crm_name" withValue:dealerName] copy];
+            for(int i = 0; i<CRMNameArray.count;i++){
+                [CRMIDArray addObject:@""];
+            }
+            
             break;
         default:
             break;
     }
     
     [self.tableView reloadData];
+    
+}
+- (IBAction)createSessionClick:(id)sender {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"length > 0"];
+    NSArray *anotherArray = [CRMIDArray filteredArrayUsingPredicate:predicate];
+    
+    if([trainingType isEqualToString:@""] || !trainingType){
+        [self MB_showErrorMessageWithText:@"Please Select Training Type"];
+    }else if([trainingLOB isEqualToString:@""] || !trainingLOB){
+        [self MB_showErrorMessageWithText:@"Please Select Training Type"];
+    }else if([productLine isEqualToString:@""] || !productLine){
+        [self MB_showErrorMessageWithText:@"Please Select Product Line"];
+    }else if([dealerName isEqualToString:@""] || !dealerName){
+        [self MB_showErrorMessageWithText:@"Please Select Dealer Name"];
+    }else if(anotherArray.count==0 || !anotherArray){
+        [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
+    }else{
+        
+        SessionData *setSessionData = [SessionData new];
+        setSessionData.trainer_crm_id = GET_USER_DEFAULTS(CRMID);
+        NSArray *dealerCode = [self getValueFromDataArray:dataArray withKey:@"dealer_code" withValue:dealerName];
+        setSessionData.dealer_code = dealerCode[0];
+        setSessionData.dealer_name = dealerName;
+        setSessionData.training_type = trainingType;
+        setSessionData.product_line = productLine;
+        setSessionData.LOB_training = trainingLOB;
+        setSessionData.trainees_crm_ids = [anotherArray copy];
+        setSessionData.session_status = TRUE;
+        setSessionData.last_session_update = [NSString stringWithFormat:@"%@", [NSDate date]];
+        setSessionData.session_name = @"newdata";
+        
+        [MBDataBaseHandler saveSessiondata:setSessionData];
+        
+        [self MB_showSuccessMessageWithText:@"Session Create Successfully!"];
+        
+        dealerName = nil;
+        trainingType = nil;
+        trainingLOB = nil;
+        dropDownSelectValue = [picketHeading copy];
+        productLineArray = nil;
+        CRMNameArray = nil;
+        CRMIDArray = nil;
+        
+        sessionData = setSessionData;
+        
+        [self.tableView reloadData];
+        
+    }
     
 }
 

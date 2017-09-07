@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,12 +28,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoText" translatesAutoresizingMaskIntoConstraints="NO" id="kOM-72-QkR">
                                 <rect key="frame" x="56" y="303" width="262.5" height="27"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-Aj-5r4">
-                                <rect key="frame" x="56.5" y="400" width="262.5" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-IB-pmx" customClass="MagicButton">
                                 <rect key="frame" x="56" y="450" width="262.5" height="30"/>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.40784313725490196" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,7 +46,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-Aj-5r4">
+                                <rect key="frame" x="56" y="400" width="262.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -251,14 +251,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hYD-cq-GZK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SessionCloseTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionCloseTableViewCell" id="8Ax-7Q-KGJ" customClass="SessionCloseTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ax-7Q-KGJ" id="zQj-fJ-6X8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9V-Hu-dPZ">
@@ -287,23 +287,47 @@
                                     <outlet property="delegate" destination="Bie-4u-ZEa" id="oB1-1M-CEo"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33T-cQ-9zZ">
+                                <rect key="frame" x="9" y="573" width="356.5" height="40"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Dvl-DG-owD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Create Session">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createSessionClick:" destination="Bie-4u-ZEa" eventType="touchUpInside" id="mw8-kA-5P6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="top" secondItem="hYD-cq-GZK" secondAttribute="bottom" constant="5" id="0Nj-6R-bnf"/>
+                            <constraint firstItem="I3S-qU-N7u" firstAttribute="top" secondItem="33T-cQ-9zZ" secondAttribute="bottom" constant="5" id="DZc-ed-Xgb"/>
+                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="width" secondItem="MXR-bH-tGv" secondAttribute="width" multiplier="0.95" id="IKE-K2-2zg"/>
                             <constraint firstItem="hYD-cq-GZK" firstAttribute="leading" secondItem="MXR-bH-tGv" secondAttribute="leading" id="K5o-Q8-dYT"/>
                             <constraint firstItem="hYD-cq-GZK" firstAttribute="top" secondItem="2CZ-MZ-Yvb" secondAttribute="bottom" id="MI7-l1-6De"/>
-                            <constraint firstItem="I3S-qU-N7u" firstAttribute="top" secondItem="hYD-cq-GZK" secondAttribute="bottom" id="PsO-ZJ-jns"/>
+                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="centerX" secondItem="MXR-bH-tGv" secondAttribute="centerX" id="QBI-jA-MB4"/>
                             <constraint firstAttribute="trailing" secondItem="hYD-cq-GZK" secondAttribute="trailing" id="mx1-El-7OC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Session" image="session" id="vGd-NE-66c"/>
                     <connections>
+                        <outlet property="createSessionBtn" destination="33T-cQ-9zZ" id="xIB-Xa-XVu"/>
                         <outlet property="tableView" destination="hYD-cq-GZK" id="LcE-12-dA2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbi-j7-jvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="790" y="901"/>
+            <point key="canvasLocation" x="789.60000000000002" y="900.89955022488766"/>
         </scene>
         <!--Attendance-->
         <scene sceneID="4Az-Br-c37">
