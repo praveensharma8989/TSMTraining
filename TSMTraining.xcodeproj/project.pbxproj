@@ -11,6 +11,7 @@
 		79AC26F41F607E4E0032B5AE /* SessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26F31F607E4E0032B5AE /* SessionData.m */; };
 		79AC26FD1F607FE60032B5AE /* AttendanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FC1F607FE60032B5AE /* AttendanceData.m */; };
 		79AC27001F6080B70032B5AE /* ScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FF1F6080B70032B5AE /* ScoreData.m */; };
+		79B7F1061F619CA800C9C945 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */; };
 		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
 		79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489D1F5F104700818441 /* SpinerLayer.m */; };
 		79EB48A21F5F104700818441 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489F1F5F104700818441 /* Transition.m */; };
@@ -23,7 +24,6 @@
 		79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B61F5F335000818441 /* SessionCloseVC.m */; };
 		E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD791F612D8200738F78 /* selectTableViewCell.m */; };
 		E91BCD7C1F612D8200738F78 /* selectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */; };
-		E91BCD831F614CCE00738F78 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */; };
 		E91BCD841F614CCE00738F78 /* UserSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */; };
 		E91BCD871F61560100738F78 /* SessionCloseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */; };
 		E91BCDA41F61697E00738F78 /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD9D1F61697E00738F78 /* IQActionSheetPickerView.m */; };
@@ -93,6 +93,7 @@
 		79AC26FC1F607FE60032B5AE /* AttendanceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceData.m; sourceTree = "<group>"; };
 		79AC26FE1F6080B70032B5AE /* ScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreData.h; sourceTree = "<group>"; };
 		79AC26FF1F6080B70032B5AE /* ScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreData.m; sourceTree = "<group>"; };
+		79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
 		79EB489A1F5F104700818441 /* MagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicButton.h; sourceTree = "<group>"; };
 		79EB489B1F5F104700818441 /* MagicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicButton.m; sourceTree = "<group>"; };
 		79EB489C1F5F104700818441 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		E91BCD791F612D8200738F78 /* selectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectTableViewCell.m; sourceTree = "<group>"; };
 		E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = selectTableViewCell.xib; sourceTree = "<group>"; };
 		E91BCD801F614CCE00738F78 /* UserSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSelectTableViewCell.h; sourceTree = "<group>"; };
-		E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
 		E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSelectTableViewCell.xib; sourceTree = "<group>"; };
 		E91BCD851F61560100738F78 /* SessionCloseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCloseTableViewCell.h; sourceTree = "<group>"; };
 		E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCloseTableViewCell.m; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				E91BCD791F612D8200738F78 /* selectTableViewCell.m */,
 				E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */,
 				E91BCD801F614CCE00738F78 /* UserSelectTableViewCell.h */,
-				E91BCD811F614CCE00738F78 /* UserSelectTableViewCell.m */,
+				79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */,
 				E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */,
 				E91BCD851F61560100738F78 /* SessionCloseTableViewCell.h */,
 				E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */,
@@ -762,6 +762,7 @@
 				E91BCDA61F61697E00738F78 /* IQActionSheetToolbar.m in Sources */,
 				E95C6A8D1F5EAF8900AA0101 /* NSMutableAttributedString+MB.m in Sources */,
 				E95C6A971F5EAF8900AA0101 /* UITextField+MB.m in Sources */,
+				79B7F1061F619CA800C9C945 /* UserSelectTableViewCell.m in Sources */,
 				E95C6A8E1F5EAF8900AA0101 /* NSObject+MB.m in Sources */,
 				79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */,
 				79AC27001F6080B70032B5AE /* ScoreData.m in Sources */,
@@ -788,7 +789,6 @@
 				79EB48AE1F5F331100818441 /* SessionVC.m in Sources */,
 				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,
 				E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */,
-				E91BCD831F614CCE00738F78 /* UserSelectTableViewCell.m in Sources */,
 				E95C6A9B1F5EAF8900AA0101 /* MBDataHandler.m in Sources */,
 				E95C6A891F5EAF8900AA0101 /* TSMViewController.m in Sources */,
 			);
