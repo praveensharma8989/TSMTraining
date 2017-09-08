@@ -10,7 +10,11 @@
 
 #define BaseUrl @"https://wheebox.com/MobileAPIService/"
 
-#define HelloServlet @"HelloServlet"
+#define RegData @"RegData"
+
+#define ConfirmID @"ConfirmID"
+
+#define ResetPassword @"ResetPassword"
 
 #define Session @"Session"
 
@@ -71,6 +75,17 @@
 #define K_USER_SELECT @"UserSelectTableViewCell"
 #define K_Seeion_Name_cell @"SessionCloseTableViewCell"
 
+
+ #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+#define SHARED_INSTANCE(...) ({\
+static dispatch_once_t pred;\
+static id sharedObject;\
+dispatch_once(&pred, ^{\
+sharedObject = (__VA_ARGS__);\
+});\
+sharedObject;\
+})
 
 #ifndef AllConstants_h
 #define AllConstants_h

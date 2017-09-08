@@ -7,8 +7,10 @@
 //
 
 #import "SessionVC.h"
+#import <CoreLocation/CoreLocation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface SessionVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate, UISearchBarDelegate, UISearchControllerDelegate>
+@interface SessionVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate, UISearchBarDelegate, UISearchControllerDelegate,CLLocationManagerDelegate, UIImagePickerControllerDelegate, UISearchDisplayDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *createSessionBtn;
 
@@ -17,13 +19,18 @@
 
 @implementation SessionVC{
 
+    BOOL shouldShowSearchResults;
     CRMData *userData;
     CRMDataArray *dataArray;
     SessionData *sessionData;
     NSInteger selectedIndexofRow;
     NSArray *picketHeading, *trainingLOBArray, *dealerNameArray;
-    NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray;
-    NSString *trainingType,*trainingLOB,*productLine,*dealerName;
+    NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray, *filterDataArray;
+    NSString *trainingType,*trainingLOB,*productLine,*dealerName, *sessionLocation;
+    CLLocationManager *locationManager;
+    CLLocation *currentLocation;
+    UISearchBar *searchBar;
+    UISearchDisplayController *searchController;
 }
 
 - (void)viewDidLoad {
@@ -37,12 +44,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [MBAppInitializer keyboardManagerEnabled];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    [MBAppInitializer keyboardManagerDisabled];
+    
+}
+
 -(void)setupInitialScreen{
     
     [self setTitle:@"Session" isBold:YES];
-    [self setNavigation];
     [self addGrayLogOutButton];
     [self nibRegistration];
+    
+    [self checkLocationServicesAndStartUpdates];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     dataArray = [MBDataBaseHandler getCRMData];
@@ -53,6 +78,8 @@
     productLineArray = [NSMutableArray new];
     CRMNameArray = [NSMutableArray new];
     CRMIDArray = [NSMutableArray new];
+    filterDataArray = [NSMutableArray new];
+    shouldShowSearchResults = false;
     
     dealerNameArray = [self getValueFromDataArray:dataArray withKey:@"dealer_name" withValue:@""];
     
@@ -128,9 +155,15 @@
             
         case 2:{
         
+            NSArray *arraycrmName;
+            if(shouldShowSearchResults){
+                arraycrmName = filterDataArray;
+            }else{
+                arraycrmName = CRMNameArray;
+            }
             UserSelectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_USER_SELECT forIndexPath:indexPath];
             if(CRMNameArray.count >0){
-                cell.nameLbl.text = CRMNameArray[indexPath.row];
+                cell.nameLbl.text = arraycrmName[indexPath.row];
                 if([CRMIDArray[indexPath.row] isEqualToString:@""]){
                     [cell.selectTick setImage:[UIImage imageNamed:@"blankTick"]];
                 }else{
@@ -147,8 +180,6 @@
             
             break;
     }
-    
-    
     
     return nil;
 }
@@ -225,18 +256,18 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
         
-        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
+        searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
         searchBar.delegate = self;
         
-//        self.tableView.tableHeaderView = searchBar;
+        //        self.tableView.tableHeaderView = searchBar;
         
-        UISearchDisplayController *searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
         searchController.searchResultsDataSource = self;
         searchController.searchResultsDelegate = self;
         searchController.delegate = self;
         
-//        self.tableView.dataSource      =   self;
-//        self.tableView.delegate        =   self;
+        [self.navigationController setNavigationBarHidden:YES];
+        
         [view addSubview:searchBar];
         return view;
         
@@ -258,6 +289,8 @@
     
     switch (indexPath.section) {
         case 0:
+            
+            [self getPicAndLocation];
             
             break;
             
@@ -398,8 +431,17 @@
         setSessionData.LOB_training = trainingLOB;
         setSessionData.trainees_crm_ids = [anotherArray copy];
         setSessionData.session_status = TRUE;
-        setSessionData.last_session_update = [NSString stringWithFormat:@"%@", [NSDate date]];
-        setSessionData.session_name = @"newdata";
+        
+        
+        NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+        
+        NSDate *date = [NSDate date];
+        
+        NSString *stringDate = [formatter stringFromDate:date];
+        
+        setSessionData.last_session_update = stringDate;
+        
+        setSessionData.session_name = [NSString stringWithFormat:@"%@_%@_%@", stringDate, trainingLOB, dealerCode[0]];
         
         [MBDataBaseHandler saveSessiondata:setSessionData];
         
@@ -420,6 +462,283 @@
     }
     
 }
+
+- (void)locationManager:(CLLocationManager*)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined: {
+            sessionLocation = nil;
+            NSLog(@"User still thinking..");
+        } break;
+        case kCLAuthorizationStatusDenied: {
+            sessionLocation = nil;
+            NSLog(@"User hates you");
+        } break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        case kCLAuthorizationStatusAuthorizedAlways: {
+            [locationManager startUpdatingLocation]; //Will update location immediately
+        } break;
+        default:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    currentLocation = [locations objectAtIndex:0];
+    [locationManager stopUpdatingLocation];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if (!(error))
+         {
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             
+             sessionLocation = [NSString stringWithFormat:@"%@, %@, %@", placemark.subLocality, placemark.locality, placemark.country ];
+//             NSLog(@"\nCurrent Location Detected\n");
+//             NSLog(@"placemark %@",placemark);
+//             NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+//             NSString *Address = [[NSString alloc]initWithString:locatedAt];
+//             NSString *Area = [[NSString alloc]initWithString:placemark.locality];
+//             NSString *Country = [[NSString alloc]initWithString:placemark.country];
+//             NSString *CountryArea = [NSString stringWithFormat:@"%@, %@", Area,Country];
+//             NSLog(@"%@",CountryArea);
+         }
+         else
+         {
+             sessionLocation = nil;
+             NSLog(@"Geocode failed with error %@", error);
+             NSLog(@"\nCurrent Location Not Detected\n");
+             //return;
+//             CountryArea = NULL;
+         }
+         /*---- For more results
+          placemark.region);
+          placemark.country);
+          placemark.locality);
+          placemark.name);
+          placemark.ocean);
+          placemark.postalCode);
+          placemark.subLocality);
+          placemark.location);
+          ------*/
+     }];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    
+    NSLog(@"%@",error.userInfo);
+    if([CLLocationManager locationServicesEnabled]){
+        
+        NSLog(@"Location Services Enabled");
+        
+        if([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied){
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:@"Enable location permission"
+                                                  message:@"To auto detect location, please enable location services for this app"
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            
+            
+            UIAlertAction *cancelAction = [UIAlertAction
+                                           actionWithTitle:@"Dismiss"
+                                           style:UIAlertActionStyleCancel
+                                           handler:^(UIAlertAction *action)
+                                           {
+                                               NSLog(@"Cancel action");
+                                           }];
+            
+            UIAlertAction *goToSettings = [UIAlertAction
+                                           actionWithTitle:@"Settings"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction *action)
+                                           {
+                                               //Simple way to open settings module
+                                               NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                               [[UIApplication sharedApplication] openURL:url];
+                                           }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:goToSettings];
+            [self presentViewController:alertController animated:YES completion:^{
+                //            alertController.view.tintColor = [UIColor blueColor];
+            }];        }
+    }
+}
+
+
+-(void) checkLocationServicesAndStartUpdates
+{
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    
+    //Checking authorization status
+    if (![CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
+    {
+        
+        //Now if the location is denied.
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Enable location permission"
+                                              message:@"To auto detect location, please enable location services for this app"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *cancelAction = [UIAlertAction
+                                       actionWithTitle:@"Dismiss"
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                           NSLog(@"Cancel action");
+                                       }];
+        
+        UIAlertAction *goToSettings = [UIAlertAction
+                                       actionWithTitle:@"Settings"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                           //Simple way to open settings module
+                                           NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                           [[UIApplication sharedApplication] openURL:url];
+                                       }];
+        
+        [alertController addAction:cancelAction];
+        [alertController addAction:goToSettings];
+        [self presentViewController:alertController animated:YES completion:^{
+//            alertController.view.tintColor = [UIColor blueColor];
+        }];
+        
+        return;
+    }
+    else
+    {
+        //Location Services Enabled, let's start location updates
+        [locationManager startUpdatingLocation];
+    }
+}
+
+-(void)getPicAndLocation{
+    
+    [self checkLocationServicesAndStartUpdates];
+    
+    [self selectPic];
+    
+    
+}
+
+-(void) selectPic{
+    
+    if(![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        return;
+    }
+    
+    ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
+    
+    if (status != ALAuthorizationStatusAuthorized) {
+        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
+        [lib enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+            
+            UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
+            [picker setDelegate:self];
+            
+            [self presentModalViewController:picker animated:YES];
+        } failureBlock:^(NSError *error) {
+            if (error.code == ALAssetsLibraryAccessUserDeniedError) {
+                NSLog(@"user denied access, code: %zd", error.code);
+            } else {
+                NSLog(@"Other error code: %zd", error.code);
+            }
+        }];
+    }else{
+        UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [picker setDelegate:self];
+        
+        [self presentModalViewController:picker animated:YES];
+    }
+
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage]; // or you can use UIImagePickerControllerEditedImage too
+    NSData *mediaData = UIImageJPEGRepresentation(image, 0.3);
+    
+    sessionData.session_location = sessionLocation;
+    NSString *stringImage = [mediaData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    sessionData.session_image = stringImage;
+    
+    SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray
+                                          ];
+    if(sessionDataArray){
+        
+        [sessionDataArray.data addObject:sessionData];
+        
+        [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
+        
+        [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+        sessionData = nil;
+    }else{
+        
+        sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":sessionData} error:nil];
+    
+        [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
+        [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+        sessionData = nil;
+    }
+    
+    [self.tableView reloadData];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if(searchText.length==0){
+        
+        shouldShowSearchResults = NO;
+        filterDataArray = CRMNameArray;
+        
+    }else{
+        
+        shouldShowSearchResults = YES;
+        [self filterDataFromNameArray:searchText];
+        
+    }
+    
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    shouldShowSearchResults = YES;
+    [searchController.searchBar resignFirstResponder];
+    
+    
+}
+
+-(void)filterDataFromNameArray:(NSString *)string{
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@", string];
+    NSArray *array = [CRMNameArray filteredArrayUsingPredicate:predicate];
+    
+    filterDataArray = [array copy];
+    
+}
+
 
 /*
 #pragma mark - Navigation

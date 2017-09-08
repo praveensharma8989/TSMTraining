@@ -41,12 +41,6 @@
     [self.navigationController.navigationBar setTranslucent:NO];
 }
 
--(void)setNavigation{
-
-    [self.navigationController.navigationBar setTintColor:[UIColor defaultBlueColor]];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor defaultBlueColor]];
-    
-}
 
 -(void)addGrayBackButton{
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBack:)];
@@ -57,7 +51,7 @@
 
 -(void)addGrayLogOutButton{
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"logout") style:UIBarButtonItemStylePlain target:self action:@selector(action_Logout)];
-    [item setTintColor:[UIColor grayColor]];
+    [item setTintColor:[UIColor whiteColor]];
     if (self.tabBarController) {
         self.tabBarController.navigationItem.rightBarButtonItem = item;
     }else{

@@ -11,11 +11,51 @@
 
 @implementation ApiManager
 
-void CallHelloRequest(id param, APIRequestCompletion block){
+void CallRegDataRequest(id param, APIRequestCompletion block){
     
     if([APP_DELEGATE connectedToInternet]){
-        [[TSMAPICleint sharedClient] POST:HelloServlet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[TSMAPICleint sharedClient] POST:RegData parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
            
+            if(responseObject){
+                block(task, responseObject, nil);
+            }else{
+                block(task, nil, nil);
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            block(task, nil, error);
+            
+        }];
+    }
+    
+}
+
+void CallConfirmIDRequest(id param, APIRequestCompletion block){
+    
+    if([APP_DELEGATE connectedToInternet]){
+        [[TSMAPICleint sharedClient] POST:ConfirmID parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            if(responseObject){
+                block(task, responseObject, nil);
+            }else{
+                block(task, nil, nil);
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            block(task, nil, error);
+            
+        }];
+    }
+    
+}
+
+void CallResetPasswordRequest(id param, APIRequestCompletion block){
+    
+    if([APP_DELEGATE connectedToInternet]){
+        [[TSMAPICleint sharedClient] POST:ResetPassword parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
             if(responseObject){
                 block(task, responseObject, nil);
             }else{

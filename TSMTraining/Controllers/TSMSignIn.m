@@ -33,6 +33,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [MBAppInitializer keyboardManagerEnabled];
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    [MBAppInitializer keyboardManagerDisabled];
+    
+}
+
 #pragma mark - set up initial screen
 -(void)setupInitialScreen{
     
@@ -43,7 +59,7 @@
     
     if(crmID && crmPassword && dataArray && dataArray.data.count > 0){
         
-        [self moveToLandingViewController];
+        [MBAppInitializer moveToInitialViewController];
         
     }else{
     
@@ -73,7 +89,7 @@
         
         if([APP_DELEGATE connectedToInternet]){
     
-            CallHelloRequest(param, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
+            CallRegDataRequest(param, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
                 NSArray *jsoneData = JSON;
                 
@@ -90,7 +106,7 @@
                     
                     [_loginBtn stopAnimation:^{
                        
-                        [self moveToLandingViewController];
+                        [MBAppInitializer moveToLandingViewController];
                         
                     }];
                     
@@ -138,24 +154,16 @@
     return YES;
 }
 
-- (void)moveToLandingViewController
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    UIStoryboard * storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if(textField == _CRMId){
+        [_CRMPassword becomeFirstResponder];
+        
+    }else{
+        [textField resignFirstResponder];
+    }
     
-    UINavigationController * landingViewController=[storyboard instantiateViewControllerWithIdentifier:@"TSMLandingTabBar"];
-    
-    landingViewController.transitioningDelegate = self;
-    
-    UINavigationController * navigationController=[[UINavigationController alloc]initWithRootViewController:landingViewController];
-    
-    navigationController.transitioningDelegate = self;
-    
-    [navigationController setNavigationBarHidden:NO];
-    
-    [AppDelegate sharedDelegate].window.rootViewController = navigationController;
-    
-    [[AppDelegate sharedDelegate].window makeKeyAndVisible];
-    
+    return true;
 }
 
 /*

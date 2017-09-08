@@ -64,6 +64,7 @@
 		E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA91F5ECA6400AA0101 /* CRMData.m */; };
 		E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D01EF01F5EDA150043BC89 /* AppDelegate.m */; };
 		E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0B1A41F5EE087000DE22A /* OfflineObject.m */; };
+		E9E442311F62A380008F8BA5 /* MBAppInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E442301F62A380008F8BA5 /* MBAppInitializer.m */; };
 		E9FA528B1F5FCC07004A9B50 /* GlobalFunctionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E9FA528A1F5FCC07004A9B50 /* GlobalFunctionHandler.m */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,8 @@
 		E9D01EF01F5EDA150043BC89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E9E0B1A41F5EE087000DE22A /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
 		E9E0B1A51F5EE087000DE22A /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
+		E9E4422F1F62A380008F8BA5 /* MBAppInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAppInitializer.h; sourceTree = "<group>"; };
+		E9E442301F62A380008F8BA5 /* MBAppInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAppInitializer.m; sourceTree = "<group>"; };
 		E9FA52891F5FCC07004A9B50 /* GlobalFunctionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctionHandler.h; sourceTree = "<group>"; };
 		E9FA528A1F5FCC07004A9B50 /* GlobalFunctionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -470,6 +473,7 @@
 		E95C6A791F5EAF8900AA0101 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E9E4422E1F62A380008F8BA5 /* AppInitializer */,
 				E95C6A7A1F5EAF8900AA0101 /* DataHandler */,
 				E95C6A7F1F5EAF8900AA0101 /* Validator */,
 				E9FA52891F5FCC07004A9B50 /* GlobalFunctionHandler.h */,
@@ -549,6 +553,15 @@
 			path = BO;
 			sourceTree = "<group>";
 		};
+		E9E4422E1F62A380008F8BA5 /* AppInitializer */ = {
+			isa = PBXGroup;
+			children = (
+				E9E4422F1F62A380008F8BA5 /* MBAppInitializer.h */,
+				E9E442301F62A380008F8BA5 /* MBAppInitializer.m */,
+			);
+			path = AppInitializer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -618,7 +631,8 @@
 				TargetAttributes = {
 					E95C6A071F5EAAC100AA0101 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = NJG4H3H984;
+						ProvisioningStyle = Manual;
 					};
 					E95C6A231F5EAAC100AA0101 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -786,6 +800,7 @@
 				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
 				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,
 				E91BCD871F61560100738F78 /* SessionCloseTableViewCell.m in Sources */,
+				E9E442311F62A380008F8BA5 /* MBAppInitializer.m in Sources */,
 				79EB48AE1F5F331100818441 /* SessionVC.m in Sources */,
 				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,
 				E95C6A951F5EAF8900AA0101 /* UIImage+MB.m in Sources */,
@@ -940,12 +955,16 @@
 			baseConfigurationReference = C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
 				INFOPLIST_FILE = TSMTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
+				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
 			};
 			name = Debug;
 		};
@@ -954,12 +973,16 @@
 			baseConfigurationReference = BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
 				INFOPLIST_FILE = TSMTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
+				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
 			};
 			name = Release;
 		};

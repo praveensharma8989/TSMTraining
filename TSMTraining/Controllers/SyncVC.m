@@ -32,7 +32,7 @@
 -(void)setupInitialScreen{
     
     [self setTitle:@"Home" isBold:YES];
-    [self setNavigation];
+
     [self addGrayLogOutButton];
     [self ShowIndicator:NO];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];

@@ -34,7 +34,7 @@
     [self.layer setCornerRadius:5.0f];
     [self.layer setBorderColor:[UIColor blueColor].CGColor];
     [self setBackgroundColor:[UIColor whiteColor]];
-    [self setKeyboardAppearance:UIKeyboardAppearanceDark];
+//    [self setKeyboardAppearance:UIKeyboardAppearanceDark];
     UIView *userView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 30)];
     self.leftView = userView;
     self.leftViewMode = UITextFieldViewModeAlways;

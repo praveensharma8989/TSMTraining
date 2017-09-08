@@ -38,7 +38,7 @@
 -(void)setupInitialScreen{
     
     [self setTitle:@"Home" isBold:YES];
-    [self setNavigation];
+    
     [self addGrayLogOutButton];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];

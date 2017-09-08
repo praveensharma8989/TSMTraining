@@ -20,10 +20,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     
-    
-    
-    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"TSMTraining"];
+    [MBAppInitializer setup];
+
     // Override point for customization after application launch.
     return YES;
 }

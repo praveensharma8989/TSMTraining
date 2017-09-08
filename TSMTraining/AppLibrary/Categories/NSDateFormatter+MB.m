@@ -14,7 +14,7 @@
 +(instancetype)MB_defaultDateFormatterWithGMT:(BOOL)gmt{
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     //yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
 
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
