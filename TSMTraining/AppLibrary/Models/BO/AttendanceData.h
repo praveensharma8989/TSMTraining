@@ -20,9 +20,9 @@
 @property (nonatomic,strong) NSString *dealer_code;
 @property (nonatomic,strong) NSString *dealer_name;
 @property (nonatomic,strong) NSString *attendance_date;
-@property (nonatomic,strong) NSString *present_crm_ids;
+@property (nonatomic,strong) NSMutableArray *present_crm_ids;
 @property (nonatomic,strong) NSString *last_att_update;
-@property (nonatomic,strong) NSString *att_status;
+@property (nonatomic,assign) BOOL att_status;
 
 @end
 

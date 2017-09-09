@@ -18,9 +18,11 @@
     CRMDataArray *dataArray;
     CRMData *userData;
     SessionData *sessionData;
+    AttendanceData *attendanceData;
     NSString *dealerNameSelect, *sessionSelect;
     NSMutableArray *CRMNameArray, *CRMIDArray, *filterDataArray, *dropDownSelectValue;
     NSArray *dealerNameArray, *picketHeading;
+    BOOL showSession;
 }
 
 - (void)viewDidLoad {
@@ -39,9 +41,9 @@
     
     [super viewWillAppear:animated];
     
-    [self setTitle:@"Score" isBold:YES];
+    [self setupInitialScreen];
     
-    [MBAppInitializer keyboardManagerEnabled];
+    
     
 }
 
@@ -58,19 +60,22 @@
     [self nibRegistration];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [MBAppInitializer keyboardManagerEnabled];
     
     dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
     sessionData = [MBDataBaseHandler getSessionData];
+    attendanceData = [MBDataBaseHandler getAttendanceData];
     
     CRMNameArray = [NSMutableArray new];
     CRMIDArray = [NSMutableArray new];
     filterDataArray = [NSMutableArray new];
     
+    showSession = NO;
     
     dealerNameArray = [self getValueFromDataArray:dataArray withKey:@"dealer_name" withValue:@""];
     
-    dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Training Type", @"Select Training LOB", @"Select Product Line", @"Select Dealer Name", nil];
+    dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Dealer Name", @"Select Session ID", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
     
 }
@@ -83,7 +88,16 @@
 
 -(NSArray *)getValueFromDataArray :(CRMDataArray *)data withKey:(NSString *)key withValue:(NSString *)value{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
+    NSPredicate *predicate;
+    
+    if([key isEqualToString:@"crm_name"]){
+        NSArray *idsToLookFor = sessionData.trainees_crm_ids;
+        predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
+    }else{
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
+    }
+    
+    
     NSArray *array =[data.data filteredArrayUsingPredicate:predicate];
     
     NSString *valueForKey = [NSString stringWithFormat:@"@distinctUnionOfObjects.%@",key];
@@ -120,7 +134,7 @@
         case 0:{
             
             selectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_SELECT_CELL forIndexPath:indexPath];
-            cell.selectValue = dropDownSelectValue[indexPath.row];
+            cell.selectValue.text = dropDownSelectValue[indexPath.row];
             return cell;
             
         }
@@ -159,7 +173,7 @@
             break;
             
         case 1:
-            
+            [self selectCrmNameWithID:indexPath];
             break;
             
         default:
@@ -177,7 +191,7 @@
     if(row == 0){
         [picker setTitlesForComponents:@[dealerNameArray]];
     }else if(row == 1){
-        if(sessionData){
+        if(sessionData && showSession){
             [picker setTitlesForComponents:@[@[sessionData.session_name]]];
         }
     }
@@ -185,7 +199,7 @@
     
     [picker setTag:row];
     
-    if(row == 1 && sessionData){
+    if(row == 1 && !showSession){
         
     }else{
         [picker show];
@@ -201,12 +215,23 @@
     switch (pickerView.tag) {
         case 0:{
             dealerNameSelect = titles[0];
+            if([dealerNameSelect isEqualToString:sessionData.dealer_name]){
+                showSession = YES;
+            }else{
+                [dropDownSelectValue replaceObjectAtIndex:1 withObject:@"Select Session ID"];
+                showSession = NO;
+                sessionSelect = nil;
+                CRMNameArray = [NSMutableArray new];
+            }
         }
             
             break;
         case 1:{
             sessionSelect = titles[0];
-            
+            CRMNameArray = [[self getValueFromDataArray:dataArray withKey:@"crm_name" withValue:@""] copy];
+            for(int i = 0; i<CRMNameArray.count;i++){
+                [CRMIDArray addObject:@""];
+            }
         }
             
             break;
@@ -215,6 +240,104 @@
     }
     
     [self.tableView reloadData];
+    
+}
+
+-(void)selectCrmNameWithID:(NSIndexPath *)crmNamePosition{
+    
+    if(![CRMIDArray[crmNamePosition.row] isEqualToString:@""]){
+        
+        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:@""];
+        
+    }else{
+        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:CRMNameArray[crmNamePosition.row]];
+        
+        NSString *crmid = crmids[0];
+        
+        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:crmid];
+    }
+    
+    
+    
+    
+    [self.tableView reloadRowsAtIndexPaths:@[crmNamePosition] withRowAnimation:NO];
+    
+}
+- (IBAction)updateAttendance:(id)sender {
+    
+    if(!attendanceData){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"length > 0"];
+        NSArray *anotherArray = [CRMIDArray filteredArrayUsingPredicate:predicate];
+        
+        if([dealerNameSelect isEqualToString:@""] || !dealerNameSelect){
+            [self MB_showErrorMessageWithText:@"Please Select Dealer Name!"];
+        }else if([sessionSelect isEqualToString:@""] || !sessionSelect){
+            [self MB_showErrorMessageWithText:@"Please Select session!"];
+        }else if(anotherArray.count==0 || !anotherArray){
+            [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
+        }else{
+            
+            AttendanceData *setAttendanceData = [AttendanceData new];
+            setAttendanceData.trainer_id = GET_USER_DEFAULTS(CRMID);
+            setAttendanceData.trainer_name = userData.crm_name;
+            setAttendanceData.session_name = sessionData.session_name;
+            setAttendanceData.dealer_code = sessionData.dealer_code;
+            setAttendanceData.dealer_name = sessionData.dealer_name;
+            
+            NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+            
+            NSDate *date = [NSDate date];
+            
+            NSString *stringDate = [formatter stringFromDate:date];
+            
+            setAttendanceData.last_att_update = stringDate;
+            setAttendanceData.attendance_date = stringDate;
+            
+            setAttendanceData.present_crm_ids = [anotherArray copy];
+            setAttendanceData.att_status = TRUE;
+            
+            [MBDataBaseHandler saveAttendancedata:setAttendanceData];
+            
+            [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
+            
+            dealerNameSelect = nil;
+            sessionSelect = nil;
+            dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
+            CRMNameArray = [NSMutableArray new];
+            CRMIDArray = [NSMutableArray new];
+            
+            attendanceData = setAttendanceData;
+            
+            AttendanceDataArray *attendanceDataArray = [MBDataBaseHandler getAttendanceDataArray
+                                                        ];
+            
+            NSDictionary *new = [attendanceData toDictionary];
+            NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
+            
+            if(attendanceDataArray){
+                
+                [attendanceDataArray.data addObject:attendanceData];
+                
+                [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
+                
+            }else{
+                
+                attendanceDataArray = [[AttendanceDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
+                
+                [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
+                
+            }
+            
+            
+            [self.tableView reloadData];
+            
+        }
+
+    }else{
+        [self MB_showErrorMessageWithText:@"Attendace already updated!"];
+    }
+    
+    
     
 }
 

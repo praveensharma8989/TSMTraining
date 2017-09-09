@@ -120,106 +120,171 @@
     
     if([APP_DELEGATE connectedToInternet]){
         
+        [self ShowIndicator:YES];
         
+        NSDictionary *loginDtl = @{
+                                   @"crm_id": GET_USER_DEFAULTS(CRMID),
+                                   @"crm_password": GET_USER_DEFAULTS(CRMPASSWORD)
+                                   };
+        NSArray *param = [NSArray arrayWithObject:loginDtl];
+        
+        CallRegDataRequest(param, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
+            
+            NSArray *jsoneData = JSON;
+            
+            if(JSON && jsoneData.count > 0 && !error){
+                
+                CRMDataArray *dataArray = [[CRMDataArray alloc] initWithDictionary:@{@"data":jsoneData} error:nil];
+                
+                [MBDataBaseHandler saveCRMdata:dataArray];
+                
+                [self MB_showErrorMessageWithText:@"Your User Data Successfully Sync."];
+                
+            }else{
+                
+                [self MB_showErrorMessageWithText:@"There are some problem with server."];
+            
+            }
+            
+            [self ShowIndicator:NO];
+            
+        });
+
         
     }else{
         
         [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
-        
+        [self ShowIndicator:NO];
     }
 }
 
 -(void)syncSessionData{
     
-    NSArray *parama;
+    SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray];
     
-    if([APP_DELEGATE connectedToInternet]){
+    if(sessionDataArray){
         
-        [self ShowIndicator:YES];
+        NSArray *parama = sessionDataArray.data;
         
-        CallSessionRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
-           
-            if(JSON && !error){
+        if([APP_DELEGATE connectedToInternet]){
+            
+            [self ShowIndicator:YES];
+            
+            CallSessionRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                [self MB_showSuccessMessageWithText:@"Your Seesion Data Successfully Sync."];
+                if(JSON && !error){
+                    
+                    [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATAARRAY];
+                    [self MB_showSuccessMessageWithText:@"Your Seesion Data Successfully Sync."];
+                    
+                }else{
+                    
+                    [self MB_showErrorMessageWithText:@"There are some problem with server."];
+                    
+                }
                 
-            }else{
+                [self ShowIndicator:NO];
                 
-                [self MB_showErrorMessageWithText:@"There are some problem with server."];
-                
-            }
+            });
+            
+        }else{
+            
+            [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
             
             [self ShowIndicator:NO];
-            
-        });
-        
+        }
     }else{
-        
-        [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
-        
+        [self MB_showErrorMessageWithText:@"No session data for sync."];
     }
+    
+    
 }
 
 -(void)syncAttenData{
     
-    NSArray *parama;
+    AttendanceDataArray *attendanceDataArray = [MBDataBaseHandler getAttendanceDataArray];
     
-    if([APP_DELEGATE connectedToInternet]){
+    if(attendanceDataArray){
+        NSArray *parama = attendanceDataArray.data;
         
-        [self ShowIndicator:YES];
-        
-        CallAttendanceRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
+        if([APP_DELEGATE connectedToInternet]){
             
-            if(JSON && !error){
-                
-                [self MB_showSuccessMessageWithText:@"Your Attendance Data Successfully Sync."];
-                
-            }else{
-                
-                [self MB_showErrorMessageWithText:@"There are some problem with server."];
-                
-            }
+            [self ShowIndicator:YES];
             
+            CallAttendanceRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
+                
+                if(JSON && !error){
+                    
+                    [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATAARRAY];
+                    [self MB_showSuccessMessageWithText:@"Your Attendance Data Successfully Sync."];
+                    
+                }else{
+                    
+                    [self MB_showErrorMessageWithText:@"There are some problem with server."];
+                    
+                }
+                
+                [self ShowIndicator:NO];
+                
+            });
+            
+        }else{
+            
+            [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
             [self ShowIndicator:NO];
-            
-        });
+        }
         
     }else{
         
-        [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
+        [self MB_showErrorMessageWithText:@"No attendance data for sync."];
         
     }
+    
+    
 }
 
 -(void)syncScoreData{
     
-    NSArray *parama;
+    ScoreDataArray *scoreDataArray = [MBDataBaseHandler getScoreDataArray];
     
-    if([APP_DELEGATE connectedToInternet]){
+    if(scoreDataArray){
         
-        [self ShowIndicator:YES];
+        NSArray *parama = scoreDataArray.data;
         
-        CallScoreRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
-           
-            if(JSON && !error){
-                
-                [self MB_showSuccessMessageWithText:@"Your Score Data Successfully Sync."];
-                
-            }else{
-                
-                [self MB_showErrorMessageWithText:@"There are some problem with server."];
-                
-            }
+        if([APP_DELEGATE connectedToInternet]){
             
+            [self ShowIndicator:YES];
+            
+            CallScoreRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
+                
+                if(JSON && !error){
+                    
+                    [MBDataBaseHandler deleteAllRecordsForType:SCOREDATAARRAY];
+                    [self MB_showSuccessMessageWithText:@"Your Score Data Successfully Sync."];
+                    
+                }else{
+                    
+                    [self MB_showErrorMessageWithText:@"There are some problem with server."];
+                    
+                }
+                
+                [self ShowIndicator:NO];
+                
+            });
+            
+        }else{
+            
+            [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
             [self ShowIndicator:NO];
-            
-        });
+        }
         
     }else{
         
-        [self MB_showErrorMessageWithText:@"Please check your internet connection or try again later."];
+        [self MB_showErrorMessageWithText:@"No score data for sync."];
         
     }
+    
+    
 }
 
 /*

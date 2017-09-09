@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface SessionVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate, UISearchBarDelegate, UISearchControllerDelegate,CLLocationManagerDelegate, UIImagePickerControllerDelegate, UISearchDisplayDelegate>
+@interface SessionVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate, UISearchBarDelegate, UISearchControllerDelegate,CLLocationManagerDelegate, UIImagePickerControllerDelegate, UISearchResultsUpdating>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *createSessionBtn;
 
@@ -23,14 +23,14 @@
     CRMData *userData;
     CRMDataArray *dataArray;
     SessionData *sessionData;
+    AttendanceData *attendanceData;
     NSInteger selectedIndexofRow;
     NSArray *picketHeading, *trainingLOBArray, *dealerNameArray;
-    NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray, *filterDataArray;
+    NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray, *filterCRMNameArray, *filterCRMIDArray;
     NSString *trainingType,*trainingLOB,*productLine,*dealerName, *sessionLocation;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
-    UISearchBar *searchBar;
-    UISearchDisplayController *searchController;
+    UISearchController *searchControllerBar;
 }
 
 - (void)viewDidLoad {
@@ -49,7 +49,7 @@
     
     [super viewWillAppear:animated];
     
-    [self setTitle:@"Session" isBold:YES];
+    [self setupInitialScreen];
     
     [MBAppInitializer keyboardManagerEnabled];
     
@@ -70,22 +70,25 @@
     [self checkLocationServicesAndStartUpdates];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    NSString *ID = GET_USER_DEFAULTS(CRMID);
     dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
     sessionData = [MBDataBaseHandler getSessionData];
+    attendanceData = [MBDataBaseHandler getAttendanceData];
     
     trainingLOBArray = [self getValueFromDataArray:dataArray withKey:@"crm_LOB" withValue:@""];
     productLineArray = [NSMutableArray new];
     CRMNameArray = [NSMutableArray new];
     CRMIDArray = [NSMutableArray new];
-    filterDataArray = [NSMutableArray new];
+    filterCRMNameArray = [NSMutableArray new];
+    filterCRMIDArray = [NSMutableArray new];
     shouldShowSearchResults = false;
     
     dealerNameArray = [self getValueFromDataArray:dataArray withKey:@"dealer_name" withValue:@""];
     
     dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Training Type", @"Select Training LOB", @"Select Product Line", @"Select Dealer Name", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
+    
+    [MBAppInitializer keyboardManagerEnabled];
     
 }
 
@@ -157,15 +160,18 @@
         case 2:{
         
             NSArray *arraycrmName;
+            NSArray *arraycrnId;
             if(shouldShowSearchResults){
-                arraycrmName = filterDataArray;
+                arraycrmName = filterCRMNameArray;
+                arraycrnId = filterCRMIDArray;
             }else{
                 arraycrmName = CRMNameArray;
+                arraycrnId = CRMIDArray;
             }
             UserSelectTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_USER_SELECT forIndexPath:indexPath];
-            if(CRMNameArray.count >0){
+            if(arraycrmName.count >0){
                 cell.nameLbl.text = arraycrmName[indexPath.row];
-                if([CRMIDArray[indexPath.row] isEqualToString:@""]){
+                if([arraycrnId[indexPath.row] isEqualToString:@""]){
                     [cell.selectTick setImage:[UIImage imageNamed:@"blankTick"]];
                 }else{
                     [cell.selectTick setImage:[UIImage imageNamed:@"selectTick"]];
@@ -214,7 +220,7 @@
     }else{
         
         if(dealerName && ![dealerName isEqualToString:@""]){
-            return CRMNameArray.count;
+            return shouldShowSearchResults?filterCRMNameArray.count:CRMNameArray.count;
         }else{
             return 0;
         }
@@ -255,21 +261,32 @@
 
     if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
         
-        searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
-        searchBar.delegate = self;
+        [view setTintColor:[UIColor lightGrayColor]];
+        [view setBackgroundColor:[UIColor lightGrayColor]];
         
-        //        self.tableView.tableHeaderView = searchBar;
         
-        searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-        searchController.searchResultsDataSource = self;
-        searchController.searchResultsDelegate = self;
-        searchController.delegate = self;
         
-        [self.navigationController setNavigationBarHidden:YES];
+        searchControllerBar = [[UISearchController alloc] initWithSearchResultsController:nil];
         
-        [view addSubview:searchBar];
+        searchControllerBar.searchResultsUpdater = self;
+        searchControllerBar.dimsBackgroundDuringPresentation = NO;
+        searchControllerBar.searchBar.delegate = self;//        [self.navigationController setNavigationBarHidden:YES];
+        
+        searchControllerBar.hidesNavigationBarDuringPresentation = false;
+        
+//        searchControllerBar.dimsBackgroundDuringPresentation = true;
+        searchControllerBar.searchBar.searchBarStyle = UISearchBarStyleProminent;
+        
+        [searchControllerBar setNeedsStatusBarAppearanceUpdate];
+        
+//        [self.navigationController setNavigationBarHidden:YES];
+        
+        [view addSubview:searchControllerBar.searchBar];
+        
+        [searchControllerBar.searchBar sizeToFit];
+    
         return view;
         
     }else{
@@ -309,6 +326,7 @@
             break;
             
         case 2:
+            
             [self selectCrmNameWithID:indexPath];
             break;
         default:
@@ -319,21 +337,50 @@
 
 -(void)selectCrmNameWithID:(NSIndexPath *)crmNamePosition{
     
-    if(![CRMIDArray[crmNamePosition.row] isEqualToString:@""]){
+    NSArray *arraycrmName;
+    NSArray *arraycrmId;
+    
+    if(shouldShowSearchResults){
         
-        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:@""];
+        arraycrmName = filterCRMNameArray;
+        arraycrmId = filterCRMIDArray;
         
     }else{
-        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:CRMNameArray[crmNamePosition.row]];
         
-        NSString *crmid = crmids[0];
+        arraycrmName = CRMNameArray;
+        arraycrmId = CRMIDArray;
         
-        [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:crmid];
     }
     
     
-    
-    
+    if(![arraycrmId[crmNamePosition.row] isEqualToString:@""]){
+        
+        if(shouldShowSearchResults){
+            
+            NSInteger index = [CRMNameArray indexOfObject:filterCRMNameArray[crmNamePosition.row]];
+            [CRMIDArray replaceObjectAtIndex:index withObject:@""];
+            [filterCRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:@""];
+            
+        }else{
+            [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:@""];
+        }
+        
+    }else{
+        
+        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:CRMNameArray[crmNamePosition.row]];
+        NSString *crmid = crmids[0];
+        
+        if(shouldShowSearchResults){
+            
+            NSInteger index = [CRMNameArray indexOfObject:filterCRMNameArray[crmNamePosition.row]];
+            [CRMIDArray replaceObjectAtIndex:index withObject:crmid];
+            [filterCRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:crmid];
+            
+        }else{
+            [CRMIDArray replaceObjectAtIndex:crmNamePosition.row withObject:crmid];
+        }
+    }
+
     [self.tableView reloadRowsAtIndexPaths:@[crmNamePosition] withRowAnimation:NO];
     
 }
@@ -635,9 +682,16 @@
 
 -(void)getPicAndLocation{
     
-    [self checkLocationServicesAndStartUpdates];
+    if(attendanceData){
     
-    [self selectPic];
+        [self checkLocationServicesAndStartUpdates];
+        [self selectPic];
+        
+    }else{
+        [self MB_showErrorMessageWithText:@"Please Upload attendance for this session!"];
+    }
+    
+    
     
     
 }
@@ -729,6 +783,13 @@
     sessionData.session_location = sessionLocation;
     NSString *stringImage = [mediaData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     sessionData.session_image = stringImage;
+    NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+    
+    NSDate *date = [NSDate date];
+    
+    NSString *stringDate = [formatter stringFromDate:date];
+    
+    sessionData.last_session_update = stringDate;
     
     SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray
                                           ];
@@ -743,14 +804,18 @@
         [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
         
         [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+        [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
         sessionData = nil;
+        attendanceData = nil;
     }else{
         
         sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
     
         [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
         [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+        [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
         sessionData = nil;
+        attendanceData = nil;
     }
     
     [self.tableView reloadData];
@@ -761,7 +826,7 @@
     if(searchText.length==0){
         
         shouldShowSearchResults = NO;
-        filterDataArray = CRMNameArray;
+        filterCRMNameArray = CRMNameArray;
         
     }else{
         
@@ -772,24 +837,84 @@
     
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
-    shouldShowSearchResults = YES;
-    [searchController.searchBar resignFirstResponder];
-    
-    
-}
 
 -(void)filterDataFromNameArray:(NSString *)string{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@", string];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] %@", string];
     NSArray *array = [CRMNameArray filteredArrayUsingPredicate:predicate];
     
-    filterDataArray = [array copy];
+    filterCRMNameArray = [NSMutableArray new];
+    filterCRMNameArray = [array copy];
+    filterCRMIDArray = [NSMutableArray new];
+    
+    for(int i = 0; i < filterCRMNameArray.count; i++){
+        
+        NSInteger index = [CRMNameArray indexOfObject:filterCRMNameArray[i]];
+        [filterCRMIDArray addObject:CRMIDArray[index]];
+        
+    }
     
 }
 
 
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    shouldShowSearchResults = YES;
+    [searchBar resignFirstResponder];
+}
+
+
+#pragma mark - UISearchControllerDelegate
+
+// Called after the search controller's search bar has agreed to begin editing or when
+// 'active' is set to YES.
+// If you choose not to present the controller yourself or do not implement this method,
+// a default presentation is performed on your behalf.
+//
+// Implement this method if the default presentation is not adequate for your purposes.
+//
+- (void)presentSearchController:(UISearchController *)searchController {
+    
+}
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    // do something before the search controller is presented
+}
+
+- (void)didPresentSearchController:(UISearchController *)searchController {
+    // do something after the search controller is presented
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    // do something before the search controller is dismissed
+}
+
+- (void)didDismissSearchController:(UISearchController *)searchController {
+    // do something after the search controller is dismissed
+}
+
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+//    
+//    [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    NSString *searchText = searchController.searchBar.text;
+    
+    if(searchText.length==0){
+        
+        shouldShowSearchResults = NO;
+        filterCRMNameArray = [NSMutableArray new];
+        filterCRMIDArray = [NSMutableArray new];
+        
+    }else{
+        
+        shouldShowSearchResults = YES;
+        [self filterDataFromNameArray:searchText];
+        
+    }
+    [self.tableView reloadData];
+}
 /*
 #pragma mark - Navigation
 

@@ -24,7 +24,7 @@
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor defaultBlueColor]];
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"TSMTraining"];
-
+    
     [self keyboardManagerEnabled];
     
     if(GET_USER_DEFAULTS(CRMID))

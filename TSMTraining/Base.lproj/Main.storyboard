@@ -473,40 +473,55 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Bie-4u-ZEa" id="nuZ-Bl-TgI"/>
-                                    <outlet property="delegate" destination="Bie-4u-ZEa" id="oB1-1M-CEo"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33T-cQ-9zZ">
-                                <rect key="frame" x="9" y="573" width="356.5" height="40"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Dvl-DG-owD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Create Session">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="createSessionClick:" destination="Bie-4u-ZEa" eventType="touchUpInside" id="mw8-kA-5P6"/>
+                                    <outlet property="dataSource" destination="Bie-4u-ZEa" id="nuZ-Bl-TgI"/>
+                                    <outlet property="delegate" destination="Bie-4u-ZEa" id="oB1-1M-CEo"/>
                                 </connections>
-                            </button>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGk-4R-77F">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33T-cQ-9zZ">
+                                        <rect key="frame" x="5" y="5" width="365" height="40"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="CREATE SESSION">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createSessionClick:" destination="Bie-4u-ZEa" eventType="touchUpInside" id="mw8-kA-5P6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="A6Y-CA-pN0"/>
+                                    <constraint firstAttribute="trailing" secondItem="33T-cQ-9zZ" secondAttribute="trailing" constant="5" id="Jdx-YK-92z"/>
+                                    <constraint firstItem="33T-cQ-9zZ" firstAttribute="top" secondItem="iGk-4R-77F" secondAttribute="top" constant="5" id="KIA-Kr-yrZ"/>
+                                    <constraint firstItem="33T-cQ-9zZ" firstAttribute="leading" secondItem="iGk-4R-77F" secondAttribute="leading" constant="5" id="V1u-Lz-cSo"/>
+                                    <constraint firstAttribute="bottom" secondItem="33T-cQ-9zZ" secondAttribute="bottom" constant="5" id="XIV-Xj-wEC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="top" secondItem="hYD-cq-GZK" secondAttribute="bottom" constant="5" id="0Nj-6R-bnf"/>
-                            <constraint firstItem="I3S-qU-N7u" firstAttribute="top" secondItem="33T-cQ-9zZ" secondAttribute="bottom" constant="5" id="DZc-ed-Xgb"/>
-                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="width" secondItem="MXR-bH-tGv" secondAttribute="width" multiplier="0.95" id="IKE-K2-2zg"/>
+                            <constraint firstItem="I3S-qU-N7u" firstAttribute="top" secondItem="iGk-4R-77F" secondAttribute="bottom" id="Aa7-1s-A6m"/>
+                            <constraint firstItem="iGk-4R-77F" firstAttribute="top" secondItem="hYD-cq-GZK" secondAttribute="bottom" id="BBU-V6-tNf"/>
                             <constraint firstItem="hYD-cq-GZK" firstAttribute="leading" secondItem="MXR-bH-tGv" secondAttribute="leading" id="K5o-Q8-dYT"/>
                             <constraint firstItem="hYD-cq-GZK" firstAttribute="top" secondItem="2CZ-MZ-Yvb" secondAttribute="bottom" id="MI7-l1-6De"/>
-                            <constraint firstItem="33T-cQ-9zZ" firstAttribute="centerX" secondItem="MXR-bH-tGv" secondAttribute="centerX" id="QBI-jA-MB4"/>
+                            <constraint firstAttribute="trailing" secondItem="iGk-4R-77F" secondAttribute="trailing" id="PDW-fl-GZ1"/>
+                            <constraint firstItem="iGk-4R-77F" firstAttribute="leading" secondItem="MXR-bH-tGv" secondAttribute="leading" id="mab-Hd-A29"/>
                             <constraint firstAttribute="trailing" secondItem="hYD-cq-GZK" secondAttribute="trailing" id="mx1-El-7OC"/>
                         </constraints>
                     </view>
@@ -533,20 +548,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fd-RM-eNV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="bRG-Gf-QD8" id="3Um-KV-x4R"/>
                                     <outlet property="delegate" destination="bRG-Gf-QD8" id="xb0-11-jyJ"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JcN-2E-vx0">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEq-Kr-i84">
+                                        <rect key="frame" x="5" y="5" width="365" height="40"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="UPDATE ATTENDANCE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateAttendance:" destination="bRG-Gf-QD8" eventType="touchUpInside" id="0Tr-sE-gaz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pEq-Kr-i84" firstAttribute="leading" secondItem="JcN-2E-vx0" secondAttribute="leading" constant="5" id="HM3-8j-nod"/>
+                                    <constraint firstAttribute="bottom" secondItem="pEq-Kr-i84" secondAttribute="bottom" constant="5" id="Tyj-7D-lfF"/>
+                                    <constraint firstItem="pEq-Kr-i84" firstAttribute="top" secondItem="JcN-2E-vx0" secondAttribute="top" constant="5" id="YJm-nZ-Buu"/>
+                                    <constraint firstAttribute="trailing" secondItem="pEq-Kr-i84" secondAttribute="trailing" constant="5" id="a0K-Lt-j65"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="sox-8X-fMK"/>
+                                    <constraint firstAttribute="height" constant="50" id="wZr-Jb-abz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8fd-RM-eNV" firstAttribute="top" secondItem="OtF-Vl-Z8D" secondAttribute="bottom" id="FjI-LB-0zu"/>
+                            <constraint firstItem="JcN-2E-vx0" firstAttribute="leading" secondItem="TqL-2x-98N" secondAttribute="leading" id="ImE-Q6-TDH"/>
                             <constraint firstAttribute="trailing" secondItem="8fd-RM-eNV" secondAttribute="trailing" id="NcK-76-stW"/>
-                            <constraint firstItem="fI7-st-kST" firstAttribute="top" secondItem="8fd-RM-eNV" secondAttribute="bottom" id="Nzv-FK-Jnz"/>
                             <constraint firstItem="8fd-RM-eNV" firstAttribute="leading" secondItem="TqL-2x-98N" secondAttribute="leading" id="Qf4-De-4nc"/>
+                            <constraint firstAttribute="trailing" secondItem="JcN-2E-vx0" secondAttribute="trailing" id="RjZ-eY-McA"/>
+                            <constraint firstItem="JcN-2E-vx0" firstAttribute="top" secondItem="8fd-RM-eNV" secondAttribute="bottom" id="k3J-mK-nrX"/>
+                            <constraint firstItem="fI7-st-kST" firstAttribute="top" secondItem="JcN-2E-vx0" secondAttribute="bottom" id="wGe-eM-UEW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Pc-EM-kHo"/>
@@ -698,7 +747,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43q-Cn-QES" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Session" image="session" id="vGd-NE-66c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R65-eM-BmE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R65-eM-BmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
