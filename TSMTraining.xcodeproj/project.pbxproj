@@ -12,6 +12,7 @@
 		79AC26FD1F607FE60032B5AE /* AttendanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FC1F607FE60032B5AE /* AttendanceData.m */; };
 		79AC27001F6080B70032B5AE /* ScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FF1F6080B70032B5AE /* ScoreData.m */; };
 		79B7F1061F619CA800C9C945 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */; };
+		79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */; };
 		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
 		79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489D1F5F104700818441 /* SpinerLayer.m */; };
 		79EB48A21F5F104700818441 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489F1F5F104700818441 /* Transition.m */; };
@@ -95,6 +96,8 @@
 		79AC26FE1F6080B70032B5AE /* ScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreData.h; sourceTree = "<group>"; };
 		79AC26FF1F6080B70032B5AE /* ScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreData.m; sourceTree = "<group>"; };
 		79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
+		79DFA5B01F63978500A809A9 /* ForgotPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordVC.h; sourceTree = "<group>"; };
+		79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
 		79EB489A1F5F104700818441 /* MagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicButton.h; sourceTree = "<group>"; };
 		79EB489B1F5F104700818441 /* MagicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicButton.m; sourceTree = "<group>"; };
 		79EB489C1F5F104700818441 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				79EB48B31F5F333800818441 /* SyncVC.m */,
 				79EB48B51F5F335000818441 /* SessionCloseVC.h */,
 				79EB48B61F5F335000818441 /* SessionCloseVC.m */,
+				79DFA5B01F63978500A809A9 /* ForgotPasswordVC.h */,
+				79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -793,6 +798,7 @@
 				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
+				79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */,
 				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
 				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,
 				E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */,
@@ -955,16 +961,16 @@
 			baseConfigurationReference = C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
 				INFOPLIST_FILE = TSMTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 			};
 			name = Debug;
 		};
@@ -973,16 +979,16 @@
 			baseConfigurationReference = BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
 				INFOPLIST_FILE = TSMTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TSMTraining.TSMTraining;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 			};
 			name = Release;
 		};

@@ -33,7 +33,7 @@
 + (void)deleteAllRecordsForType:(OFFLINEMODE)type{
     
     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)",[NSNumber numberWithInt:type]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:type], GET_USER_DEFAULTS(CRMID)];
         [OfflineObject MR_deleteAllMatchingPredicate:predicate inContext:localContext];
     }];
     
@@ -55,6 +55,7 @@
         object.objData = crmDataArray.toJSONString;
         object.objType = [NSNumber numberWithInt:CRMUserData];
         object.objClass = NSStringFromClass([crmDataArray class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -74,6 +75,7 @@
         object.objData = sessionDataArray.toJSONString;
         object.objType = [NSNumber numberWithInt:SESSIONDATAARRAY];
         object.objClass = NSStringFromClass([sessionDataArray class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -93,6 +95,7 @@
         object.objData = AttendanceDataArray.toJSONString;
         object.objType = [NSNumber numberWithInt:ATTENDANCEDATAARRAY];
         object.objClass = NSStringFromClass([AttendanceDataArray class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -112,6 +115,7 @@
         object.objData = scoreDataArray.toJSONString;
         object.objType = [NSNumber numberWithInt:SCOREDATAARRAY];
         object.objClass = NSStringFromClass([scoreDataArray class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -131,6 +135,7 @@
         object.objData = sessionData.toJSONString;
         object.objType = [NSNumber numberWithInt:SESSIONDATA];
         object.objClass = NSStringFromClass([sessionData class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -150,6 +155,7 @@
         object.objData = AttendanceData.toJSONString;
         object.objType = [NSNumber numberWithInt:ATTENDANCEDATA];
         object.objClass = NSStringFromClass([AttendanceData class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -169,6 +175,7 @@
         object.objData = scoreData.toJSONString;
         object.objType = [NSNumber numberWithInt:SCOREDATA];
         object.objClass = NSStringFromClass([scoreData class]);
+        object.objName = GET_USER_DEFAULTS(CRMID);
     }];
     
 }
@@ -178,7 +185,9 @@
 
 +(CRMDataArray *)getCRMData{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:CRMUserData]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:CRMUserData], GET_USER_DEFAULTS(CRMID)];
+    
+    
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -194,7 +203,7 @@
 
 +(SessionDataArray *)getSessionDataArray{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SESSIONDATAARRAY]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:SESSIONDATAARRAY], GET_USER_DEFAULTS(CRMID)];
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -210,7 +219,8 @@
 
 +(AttendanceDataArray *)getAttendanceDataArray{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:ATTENDANCEDATAARRAY]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:ATTENDANCEDATAARRAY], GET_USER_DEFAULTS(CRMID)];
+    
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -226,7 +236,7 @@
 
 +(ScoreDataArray *)getScoreDataArray{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SCOREDATAARRAY]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:SCOREDATAARRAY], GET_USER_DEFAULTS(CRMID)];
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -242,7 +252,7 @@
 
 +(SessionData *)getSessionData{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SESSIONDATA]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:SESSIONDATA], GET_USER_DEFAULTS(CRMID)];
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -258,7 +268,7 @@
 
 +(AttendanceData *)getAttendanceData{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:ATTENDANCEDATA]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:ATTENDANCEDATA], GET_USER_DEFAULTS(CRMID)];
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     
@@ -274,7 +284,7 @@
 
 +(ScoreData *)getScoreData{
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)", [NSNumber numberWithInt:SCOREDATA]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objType == %@)AND(objName == %@)",[NSNumber numberWithInt:SCOREDATA], GET_USER_DEFAULTS(CRMID)];
     
     NSArray *array = [OfflineObject MR_findAllWithPredicate:predicate];
     

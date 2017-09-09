@@ -29,9 +29,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setTitle:@"Synchronize" isBold:YES];
+}
+
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Home" isBold:YES];
+    [self setTitle:@"Synchronize" isBold:YES];
 
     [self addGrayLogOutButton];
     [self ShowIndicator:NO];

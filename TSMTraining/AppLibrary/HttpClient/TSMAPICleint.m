@@ -21,6 +21,9 @@
         [_sharedClient setRequestSerializer:[AFJSONRequestSerializer serializer]];
         
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", nil];
+    
         _sharedClient.requestSerializer.timeoutInterval = 30;
         
     });

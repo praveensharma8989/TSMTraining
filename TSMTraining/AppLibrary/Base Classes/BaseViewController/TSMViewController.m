@@ -44,7 +44,7 @@
 
 -(void)addGrayBackButton{
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBack:)];
-    [item setTintColor:[UIColor grayColor]];
+    [item setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = item;
 
 }

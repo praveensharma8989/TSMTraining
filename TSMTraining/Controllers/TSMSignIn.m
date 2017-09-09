@@ -41,31 +41,12 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
-    [super viewWillDisappear:animated];
-    
-    [MBAppInitializer keyboardManagerDisabled];
-    
-}
+
 
 #pragma mark - set up initial screen
 -(void)setupInitialScreen{
-    
-    NSString *crmID = GET_USER_DEFAULTS(CRMID);
-    NSString *crmPassword = GET_USER_DEFAULTS(CRMPASSWORD);
-    
-    CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
-    
-    if(crmID && crmPassword && dataArray && dataArray.data.count > 0){
-        
-        [MBAppInitializer moveToInitialViewController];
-        
-    }else{
-    
-        [self setTitle:@"Login" isBold:YES];
-        
-    }
+
+    [self setTitle:@"Login" isBold:YES];
 }
 
 

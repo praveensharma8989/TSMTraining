@@ -49,6 +49,8 @@
     
     [super viewWillAppear:animated];
     
+    [self setTitle:@"Session" isBold:YES];
+    
     [MBAppInitializer keyboardManagerEnabled];
     
 }
@@ -56,8 +58,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
-    
-    [MBAppInitializer keyboardManagerDisabled];
     
 }
 
@@ -70,6 +70,7 @@
     [self checkLocationServicesAndStartUpdates];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    NSString *ID = GET_USER_DEFAULTS(CRMID);
     dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
     sessionData = [MBDataBaseHandler getSessionData];
@@ -254,7 +255,7 @@
 
     if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
         
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 100)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
         
         searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 20)];
         searchBar.delegate = self;
@@ -279,10 +280,17 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
+    if(section == 0){
+        if(sessionData){
+            return 30;
+        }else{
+            return 0;
+        }
+    }else if(section == 2 && dealerName && ![dealerName isEqualToString:@""]){
         return 44;
+    }else{
+        return 30;
     }
-    return self.tableView.sectionHeaderHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -331,6 +339,10 @@
 }
 
 -(void)selectValueFromPicker :(NSInteger)row{
+    
+    if(!row){
+        row = 0;
+    }
     
     selectedIndexofRow = row;
     
@@ -450,10 +462,10 @@
         dealerName = nil;
         trainingType = nil;
         trainingLOB = nil;
-        dropDownSelectValue = [picketHeading copy];
-        productLineArray = nil;
-        CRMNameArray = nil;
-        CRMIDArray = nil;
+        dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
+        productLineArray = [NSMutableArray new];
+        CRMNameArray = [NSMutableArray new];
+        CRMIDArray = [NSMutableArray new];
         
         sessionData = setSessionData;
         
@@ -650,7 +662,41 @@
             [self presentModalViewController:picker animated:YES];
         } failureBlock:^(NSError *error) {
             if (error.code == ALAssetsLibraryAccessUserDeniedError) {
+
+                
                 NSLog(@"user denied access, code: %zd", error.code);
+                
+                //Now if the location is denied.
+                UIAlertController *alertController = [UIAlertController
+                                                      alertControllerWithTitle:@"Enable Camera permission"
+                                                      message:@"please enable camera services for this app"
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+                
+                
+                UIAlertAction *cancelAction = [UIAlertAction
+                                               actionWithTitle:@"Dismiss"
+                                               style:UIAlertActionStyleCancel
+                                               handler:^(UIAlertAction *action)
+                                               {
+                                                   NSLog(@"Cancel action");
+                                               }];
+                
+                UIAlertAction *goToSettings = [UIAlertAction
+                                               actionWithTitle:@"Settings"
+                                               style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction *action)
+                                               {
+                                                   //Simple way to open settings module
+                                                   NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                                   [[UIApplication sharedApplication] openURL:url];
+                                               }];
+                
+                [alertController addAction:cancelAction];
+                [alertController addAction:goToSettings];
+                [self presentViewController:alertController animated:YES completion:^{
+                    //            alertController.view.tintColor = [UIColor blueColor];
+                }];
+
             } else {
                 NSLog(@"Other error code: %zd", error.code);
             }
@@ -686,6 +732,10 @@
     
     SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray
                                           ];
+    
+    NSDictionary *new = [sessionData toDictionary];
+    NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
+    
     if(sessionDataArray){
         
         [sessionDataArray.data addObject:sessionData];
@@ -696,7 +746,7 @@
         sessionData = nil;
     }else{
         
-        sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":sessionData} error:nil];
+        sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
     
         [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
         [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];

@@ -24,6 +24,7 @@
 
 
 #define CRMID @"CRMID"
+#define TEMCRMID @"TEMCRMID"
 #define CRMPASSWORD @"CRMPASSWORD"
 
 
