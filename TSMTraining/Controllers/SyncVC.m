@@ -138,7 +138,7 @@
                 
                 [MBDataBaseHandler saveCRMdata:dataArray];
                 
-                [self MB_showErrorMessageWithText:@"Your User Data Successfully Sync."];
+                [self MB_showSuccessMessageWithText:@"Your User Data Successfully Sync."];
                 
             }else{
                 
