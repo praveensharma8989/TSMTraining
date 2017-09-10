@@ -790,6 +790,7 @@
                     <navigationItem key="navigationItem" id="9Pc-EM-kHo"/>
                     <connections>
                         <outlet property="tableView" destination="8fd-RM-eNV" id="c6e-wh-zgd"/>
+                        <outlet property="updateAttendanceBtn" destination="pEq-Kr-i84" id="PX0-Tz-5X0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8r-Iy-BC5" userLabel="First Responder" sceneMemberID="firstResponder"/>

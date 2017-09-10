@@ -10,6 +10,7 @@
 
 @interface AttendanceVC ()<UITabBarDelegate,UITableViewDataSource, IQActionSheetPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *updateAttendanceBtn;
 
 @end
 
@@ -55,7 +56,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Score" isBold:YES];
+    [self setTitle:@"Attendance" isBold:YES];
     [self addGrayLogOutButton];
     [self nibRegistration];
     
@@ -70,6 +71,12 @@
     CRMNameArray = [NSMutableArray new];
     CRMIDArray = [NSMutableArray new];
     filterDataArray = [NSMutableArray new];
+    
+    if(sessionData){
+        [self.updateAttendanceBtn setHidden:NO];
+    }else{
+        [self.updateAttendanceBtn setHidden:YES];
+    }
     
     showSession = NO;
     

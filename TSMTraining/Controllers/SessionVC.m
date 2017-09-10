@@ -89,6 +89,8 @@
     filterCRMIDArray = [NSMutableArray new];
     shouldShowSearchResults = false;
     
+    
+    
     if(sessionData){
         [self.tableView setHidden:NO];
         [self.createSessionBtn setHidden:YES];
@@ -98,6 +100,8 @@
         [self.createSessionBtn setHidden:YES];
         [self.selectView setHidden:NO];
     }
+    
+//    [self.navigationItem setHidesBackButton:YES];
     
     dealerNameArray = [self getValueFromDataArray:dataArray withKey:@"dealer_name" withValue:@""];
     
@@ -142,6 +146,25 @@
     [self.trainingLOBLbl addGestureRecognizer:tapAction1];
     [self.productLineLbl addGestureRecognizer:tapAction2];
     [self.dealerNameLbl addGestureRecognizer:tapAction3];
+    
+}
+
+-(void)addGrayBackButtonForSession{
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBackSession:)];
+    [item setTintColor:[UIColor whiteColor]];
+    
+    self.tabBarController.navigationItem.leftBarButtonItem = item;
+    
+    
+}
+
+-(IBAction)action_MoveToBackSession:(id)sender{
+    
+    [self.tableView setHidden:YES];
+    [self.createSessionBtn setHidden:YES];
+    [self.selectView setHidden:NO];
+    self.tabBarController.navigationItem.leftBarButtonItem = nil;
     
 }
 
@@ -441,6 +464,10 @@
         [self.selectView setHidden:YES];
         [self.createSessionBtn setHidden:NO];
         [self.tableView setHidden:NO];
+        
+        [self addGrayBackButtonForSession];
+        
+//        [self.navigationItem setHidesBackButton:NO];
         
         [self.tableView reloadData];
         
