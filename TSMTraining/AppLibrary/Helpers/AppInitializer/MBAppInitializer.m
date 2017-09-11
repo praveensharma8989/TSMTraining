@@ -23,8 +23,12 @@
 {
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor defaultBlueColor]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];;
+    
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"TSMTraining"];
     
+        
     [self keyboardManagerEnabled];
     
     if(GET_USER_DEFAULTS(CRMID))

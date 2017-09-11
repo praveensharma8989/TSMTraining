@@ -63,6 +63,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
+    self.tabBarController.navigationItem.leftBarButtonItem = nil;
     
 }
 
@@ -108,6 +109,7 @@
     dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Training Type", @"Select Training LOB", @"Select Product Line", @"Select Dealer Name", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
     
+    
     [MBAppInitializer keyboardManagerEnabled];
     
     self.trainingTypeLbl.tag = 0;
@@ -148,6 +150,8 @@
     [self.dealerNameLbl addGestureRecognizer:tapAction3];
     
 }
+
+
 
 -(void)addGrayBackButtonForSession{
     

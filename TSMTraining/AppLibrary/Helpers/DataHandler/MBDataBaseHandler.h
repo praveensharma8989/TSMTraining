@@ -17,7 +17,11 @@ typedef enum
     SCOREDATAARRAY,
     SESSIONDATA,
     ATTENDANCEDATA,
-    SCOREDATA
+    SCOREDATA,
+    SAVESESSIONDATAARRAY,
+    SAVEATTENDANCEDATAARRAY,
+    SAVESCOREDATAARRAY,
+    
 } OFFLINEMODE;
 
 
@@ -31,6 +35,9 @@ typedef enum
 + (void)saveSessiondataArray:(SessionDataArray*)sessionDataArray;
 + (void)saveAttendancedataArray:(AttendanceDataArray*)AttendanceDataArray;
 + (void)saveScoredataArray:(ScoreDataArray*)scoreDataArray;
++ (void)saveSessiondataArrayAlways:(SessionDataArray*)sessionDataArray;
++ (void)saveAttendancedataArrayAlways:(AttendanceDataArray*)AttendanceDataArray;
++ (void)saveScoredataArrayAlways:(ScoreDataArray*)scoreDataArray;
 + (void)saveSessiondata:(SessionData*)sessionData;
 + (void)saveAttendancedata:(AttendanceData*)AttendanceData;
 + (void)saveScoredata:(ScoreData*)scoreData;
@@ -41,6 +48,9 @@ typedef enum
 + (SessionDataArray*)getSessionDataArray;
 + (AttendanceDataArray*)getAttendanceDataArray;
 + (ScoreDataArray*)getScoreDataArray;
++ (SessionDataArray*)getSessionDataArrayAlways;
++ (AttendanceDataArray*)getAttendanceDataArrayAlways;
++ (ScoreDataArray*)getScoreDataArrayAlways;
 + (SessionData*)getSessionData;
 + (AttendanceData*)getAttendanceData;
 + (ScoreData*)getScoreData;

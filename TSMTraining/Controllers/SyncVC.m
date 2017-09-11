@@ -38,6 +38,7 @@
     
     [self setTitle:@"Synchronize" isBold:YES];
 
+    
     [self addGrayLogOutButton];
     [self ShowIndicator:NO];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
@@ -164,7 +165,7 @@
     
     if(sessionDataArray){
         
-        NSArray *parama = sessionDataArray.data;
+        NSArray *parama = [self getSessionDataToJson:sessionDataArray];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -174,7 +175,22 @@
                 
                 if(JSON && !error){
                     
-                    [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATAARRAY];
+                    SessionDataArray *sessionDataArrrayAlways = [MBDataBaseHandler getSessionDataArrayAlways];
+                    
+                    if(sessionDataArrrayAlways){
+                        [sessionDataArrrayAlways.data addObjectsFromArray:sessionDataArray.data];
+                    }else{
+                        
+                        sessionDataArrrayAlways = sessionDataArray;
+                    }
+                    
+                    [MBDataBaseHandler saveSessiondataArrayAlways:sessionDataArrrayAlways];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATAARRAY];
+                    });
+                    
+                    
                     [self MB_showSuccessMessageWithText:@"Your Seesion Data Successfully Sync."];
                     
                 }else{
@@ -215,7 +231,19 @@
                 
                 if(JSON && !error){
                     
-                    [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATAARRAY];
+                    AttendanceDataArray *attendanceDataArrayAlways = [MBDataBaseHandler getAttendanceDataArrayAlways];
+                    if(attendanceDataArrayAlways){
+                        [attendanceDataArrayAlways.data addObjectsFromArray:attendanceDataArray.data];
+                    }else{
+                        attendanceDataArrayAlways = attendanceDataArray;
+                    }
+                    
+                    [MBDataBaseHandler saveAttendancedataArrayAlways:attendanceDataArrayAlways];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATAARRAY];
+                    });
+                    
                     [self MB_showSuccessMessageWithText:@"Your Attendance Data Successfully Sync."];
                     
                 }else{
@@ -259,7 +287,18 @@
                 
                 if(JSON && !error){
                     
-                    [MBDataBaseHandler deleteAllRecordsForType:SCOREDATAARRAY];
+                    ScoreDataArray *scoreDataArrayAlways = [MBDataBaseHandler getScoreDataArrayAlways];
+                    
+                    if(scoreDataArrayAlways){
+                        [scoreDataArrayAlways.data addObjectsFromArray:scoreDataArray.data];
+                    }else{
+                        scoreDataArrayAlways = scoreDataArray;
+                    }
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [MBDataBaseHandler deleteAllRecordsForType:SCOREDATAARRAY];
+                    });
+                    
                     [self MB_showSuccessMessageWithText:@"Your Score Data Successfully Sync."];
                     
                 }else{
@@ -296,5 +335,30 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(NSArray *)getSessionDataToJson:(SessionDataArray *)sessionData{
+    
+    NSMutableArray *retunArray = [NSMutableArray new];
+    
+    for (SessionData *session in sessionData.data) {
+        
+        NSDictionary *dict = @{
+                               @"LOB_training":session.LOB_training,
+                               @"dealer_code":session.dealer_code,
+                               @"last_session_update":session.last_session_update,
+                               @"product_line":session.product_line,
+                               @"session_name":session.session_name,
+                               @"session_location":session.session_location,
+                               @"session_image":session.session_image,
+                               @"session_status":@"1",
+                               @"trainees_crm_ids":session.trainees_crm_ids,
+                               @"trainer_crm_id":session.trainer_crm_id,
+                               @"training_type":session.training_type
+                               };
+        
+        [retunArray addObject:dict];
+    }
+    return [NSArray arrayWithArray:retunArray];;
+}
 
 @end
