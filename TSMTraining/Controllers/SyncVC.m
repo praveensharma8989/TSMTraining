@@ -167,13 +167,31 @@
         
         NSArray *parama = [self getSessionDataToJson:sessionDataArray];
         
+//        NSArray *parama = @[
+//                            @{
+//                                @"session_name":@"a",
+//                                @"trainer_crm_id":@"a",
+//                                @"dealer_code":@"a",
+//                                @"dealer_name":@"a",
+//                                @"training_type":@"a",
+//                                @"product_line":@"a",
+//                                @"LOB_training":@"a",
+//                                @"trainees_crm_ids":@"a",
+//                                @"last_session_update":@"a",
+//                                @"session_status":@"a",
+//                                @"session_location":@"a",
+//                                @"session_image":@"a"
+//                                
+//                                }
+//                            ];
+        
         if([APP_DELEGATE connectedToInternet]){
             
             [self ShowIndicator:YES];
             
             CallSessionRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                if(JSON && !error){
+                if(JSON && !error && [JSON integerValue] > 0){
                     
                     SessionDataArray *sessionDataArrrayAlways = [MBDataBaseHandler getSessionDataArrayAlways];
                     
@@ -340,25 +358,31 @@
     
     NSMutableArray *retunArray = [NSMutableArray new];
     
+    
+    
     for (SessionData *session in sessionData.data) {
         
+        NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@", "];
+        
         NSDictionary *dict = @{
-                               @"LOB_training":session.LOB_training,
-                               @"dealer_code":session.dealer_code,
-                               @"last_session_update":session.last_session_update,
-                               @"product_line":session.product_line,
-                               @"session_name":session.session_name,
-                               @"session_location":session.session_location,
-                               @"session_image":session.session_image,
-                               @"session_status":@"1",
-                               @"trainees_crm_ids":session.trainees_crm_ids,
-                               @"trainer_crm_id":session.trainer_crm_id,
-                               @"training_type":session.training_type
+                               
+                               @"session_name":[NSString stringWithFormat:@"%@", session.session_name],
+                               @"trainer_crm_id":[NSString stringWithFormat:@"%@", session.trainer_crm_id],
+                               @"dealer_code":[NSString stringWithFormat:@"%@", @"sd"],
+                               @"dealer_name":[NSString stringWithFormat: @"%@", session.dealer_name],
+                               @"training_type":[NSString stringWithFormat:@"%@", session.training_type],
+                               @"product_line":[NSString stringWithFormat:@"%@", session.product_line],
+                               @"LOB_training":[NSString stringWithFormat:@"%@", session.LOB_training],
+                               @"trainees_crm_ids":[NSString stringWithFormat:@"%@", trainees_ids],
+                               @"last_session_update":[NSString stringWithFormat:@"%@", session.last_session_update],
+                               @"session_status":[NSString stringWithFormat:@"%d", session.session_status],
+                               @"session_location":[NSString stringWithFormat:@"%@", session.session_location],
+                               @"session_image":[NSString stringWithFormat:@"%@", session.session_image]
                                };
         
         [retunArray addObject:dict];
     }
-    return [NSArray arrayWithArray:retunArray];;
+    return retunArray;
 }
 
 @end

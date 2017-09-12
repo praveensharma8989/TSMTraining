@@ -20,11 +20,14 @@
         
         [_sharedClient setRequestSerializer:[AFJSONRequestSerializer serializer]];
         
-        [_sharedClient.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
-        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
         
-        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", nil];
+        [_sharedClient.requestSerializer setValue:@"application/json;charset=ISO-8859-1" forHTTPHeaderField:@"Content-Type"];
+
+        
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+        
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/html", nil];
     
         _sharedClient.requestSerializer.timeoutInterval = 30;
         

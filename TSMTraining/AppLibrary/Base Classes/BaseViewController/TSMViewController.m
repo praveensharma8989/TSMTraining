@@ -76,7 +76,6 @@
     UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         REMOVE_USER_DEFAULTSFOR(CRMID);
         REMOVE_USER_DEFAULTSFOR(CRMPASSWORD);
-        [MBDataBaseHandler clearAllDataBase];
         [self moveToSignInScreen];
     }];
     
