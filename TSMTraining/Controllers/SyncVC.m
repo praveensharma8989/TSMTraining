@@ -165,25 +165,7 @@
     
     if(sessionDataArray){
         
-        NSArray *parama = [self getSessionDataToJson:sessionDataArray];
-        
-//        NSArray *parama = @[
-//                            @{
-//                                @"session_name":@"a",
-//                                @"trainer_crm_id":@"a",
-//                                @"dealer_code":@"a",
-//                                @"dealer_name":@"a",
-//                                @"training_type":@"a",
-//                                @"product_line":@"a",
-//                                @"LOB_training":@"a",
-//                                @"trainees_crm_ids":@"a",
-//                                @"last_session_update":@"a",
-//                                @"session_status":@"a",
-//                                @"session_location":@"a",
-//                                @"session_image":@"a"
-//                                
-//                                }
-//                            ];
+        NSArray *parama = [self getDataArray:sessionDataArray.data];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -239,7 +221,8 @@
     AttendanceDataArray *attendanceDataArray = [MBDataBaseHandler getAttendanceDataArray];
     
     if(attendanceDataArray){
-        NSArray *parama = attendanceDataArray.data;
+        
+        NSArray *parama = [self getDataArray:attendanceDataArray.data];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -295,7 +278,7 @@
     
     if(scoreDataArray){
         
-        NSArray *parama = scoreDataArray.data;
+        NSArray *parama = [self getDataArray:scoreDataArray.data];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -354,35 +337,66 @@
 }
 */
 
--(NSArray *)getSessionDataToJson:(SessionDataArray *)sessionData{
+-(NSArray *)getDataArray:(NSMutableArray *)data{
     
     NSMutableArray *retunArray = [NSMutableArray new];
     
-    
-    
-    for (SessionData *session in sessionData.data) {
+    if([data isKindOfClass:[SessionDataArray class]]){
         
-        NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@", "];
+        for (SessionData *session in data) {
+            
+            NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@", "];
+            
+            NSDictionary *dict = @{
+                                   
+                                   @"session_name":[NSString stringWithFormat:@"%@", session.session_name],
+                                   @"trainer_crm_id":[NSString stringWithFormat:@"%@", session.trainer_crm_id],
+                                   @"dealer_code":[NSString stringWithFormat:@"%@", @"sd"],
+                                   @"dealer_name":[NSString stringWithFormat: @"%@", session.dealer_name],
+                                   @"training_type":[NSString stringWithFormat:@"%@", session.training_type],
+                                   @"product_line":[NSString stringWithFormat:@"%@", session.product_line],
+                                   @"LOB_training":[NSString stringWithFormat:@"%@", session.LOB_training],
+                                   @"trainees_crm_ids":[NSString stringWithFormat:@"%@", trainees_ids],
+                                   @"last_session_update":[NSString stringWithFormat:@"%@", session.last_session_update],
+                                   @"session_status":[NSString stringWithFormat:@"%d", session.session_status],
+                                   @"session_location":[NSString stringWithFormat:@"%@", session.session_location],
+                                   @"session_image":[NSString stringWithFormat:@"%@", session.session_image]
+                                   };
+            
+            [retunArray addObject:dict];
+        }
+
+    }else if([data isKindOfClass:[AttendanceDataArray class]]){
         
-        NSDictionary *dict = @{
-                               
-                               @"session_name":[NSString stringWithFormat:@"%@", session.session_name],
-                               @"trainer_crm_id":[NSString stringWithFormat:@"%@", session.trainer_crm_id],
-                               @"dealer_code":[NSString stringWithFormat:@"%@", @"sd"],
-                               @"dealer_name":[NSString stringWithFormat: @"%@", session.dealer_name],
-                               @"training_type":[NSString stringWithFormat:@"%@", session.training_type],
-                               @"product_line":[NSString stringWithFormat:@"%@", session.product_line],
-                               @"LOB_training":[NSString stringWithFormat:@"%@", session.LOB_training],
-                               @"trainees_crm_ids":[NSString stringWithFormat:@"%@", trainees_ids],
-                               @"last_session_update":[NSString stringWithFormat:@"%@", session.last_session_update],
-                               @"session_status":[NSString stringWithFormat:@"%d", session.session_status],
-                               @"session_location":[NSString stringWithFormat:@"%@", session.session_location],
-                               @"session_image":[NSString stringWithFormat:@"%@", session.session_image]
-                               };
+        for (AttendanceData *attendance in data) {
+            
+            NSString *present_crm_ids = [attendance.present_crm_ids componentsJoinedByString:@", "];
+            
+            NSDictionary *dict = @{
+                                   @"trainer_id":[NSString stringWithFormat:@"%@",attendance.trainer_id],
+                                   @"trainer_name":[NSString stringWithFormat:@"%@",attendance.trainer_name],
+                                   @"session_name":[NSString stringWithFormat:@"%@",attendance.session_name],
+                                   @"dealer_code":[NSString stringWithFormat:@"%@",attendance.dealer_code],
+                                   @"dealer_name":[NSString stringWithFormat:@"%@",attendance.dealer_name],
+                                   @"attendance_date":[NSString stringWithFormat:@"%@",attendance.attendance_date],
+                                   @"present_crm_ids":[NSString stringWithFormat:@"%@",present_crm_ids],
+                                   @"last_att_update":[NSString stringWithFormat:@"%@",attendance.last_att_update],
+                                   @"att_status":[NSString stringWithFormat:@"%d",attendance.att_status]
+                                   
+                                   };
+            [retunArray addObject:dict];
+        }
         
-        [retunArray addObject:dict];
+    }else if([data isKindOfClass:[ScoreDataArray class]]){
+        
+        for (ScoreData *scoreData in data) {
+            
+            
+            
+        }
     }
-    return retunArray;
+    
+        return retunArray;
 }
 
 @end

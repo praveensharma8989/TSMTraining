@@ -11,6 +11,7 @@
 		79AC26F41F607E4E0032B5AE /* SessionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26F31F607E4E0032B5AE /* SessionData.m */; };
 		79AC26FD1F607FE60032B5AE /* AttendanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FC1F607FE60032B5AE /* AttendanceData.m */; };
 		79AC27001F6080B70032B5AE /* ScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FF1F6080B70032B5AE /* ScoreData.m */; };
+		79B323F91F684F69006C5F25 /* sessionSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B323F81F684F69006C5F25 /* sessionSecondVC.m */; };
 		79B7F1061F619CA800C9C945 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */; };
 		79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */; };
 		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
@@ -95,6 +96,8 @@
 		79AC26FC1F607FE60032B5AE /* AttendanceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceData.m; sourceTree = "<group>"; };
 		79AC26FE1F6080B70032B5AE /* ScoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreData.h; sourceTree = "<group>"; };
 		79AC26FF1F6080B70032B5AE /* ScoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreData.m; sourceTree = "<group>"; };
+		79B323F71F684F69006C5F25 /* sessionSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sessionSecondVC.h; sourceTree = "<group>"; };
+		79B323F81F684F69006C5F25 /* sessionSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sessionSecondVC.m; sourceTree = "<group>"; };
 		79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
 		79DFA5B01F63978500A809A9 /* ForgotPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordVC.h; sourceTree = "<group>"; };
 		79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				79EB48B61F5F335000818441 /* SessionCloseVC.m */,
 				79DFA5B01F63978500A809A9 /* ForgotPasswordVC.h */,
 				79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */,
+				79B323F71F684F69006C5F25 /* sessionSecondVC.h */,
+				79B323F81F684F69006C5F25 /* sessionSecondVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -798,6 +803,7 @@
 				E95C6A4F1F5EAF8100AA0101 /* TSMSignIn.m in Sources */,
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
+				79B323F91F684F69006C5F25 /* sessionSecondVC.m in Sources */,
 				79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */,
 				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
 				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,

@@ -75,7 +75,7 @@
 #define K_SELECT_CELL @"selectTableViewCell"
 #define K_USER_SELECT @"UserSelectTableViewCell"
 #define K_Seeion_Name_cell @"SessionCloseTableViewCell"
-
+#define K_SESSION_SECOND_VC @"sessionSecondVC"
 
  #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
