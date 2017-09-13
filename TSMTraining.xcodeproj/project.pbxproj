@@ -24,6 +24,10 @@
 		79EB48B11F5F332700818441 /* AttendanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B01F5F332700818441 /* AttendanceVC.m */; };
 		79EB48B41F5F333800818441 /* SyncVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B31F5F333800818441 /* SyncVC.m */; };
 		79EB48B71F5F335000818441 /* SessionCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB48B61F5F335000818441 /* SessionCloseVC.m */; };
+		79EF837B1F699FCE00B35E89 /* ScoreSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EF837A1F699FCE00B35E89 /* ScoreSecondVC.m */; };
+		79EF837E1F699FE100B35E89 /* ScoreThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EF837D1F699FE100B35E89 /* ScoreThirdVC.m */; };
+		79EF83811F69A40A00B35E89 /* ScoreCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EF83801F69A40A00B35E89 /* ScoreCustomTableViewCell.m */; };
+		79EF83841F69A41C00B35E89 /* ScoreStatickTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EF83831F69A41C00B35E89 /* ScoreStatickTableViewCell.m */; };
 		E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E91BCD791F612D8200738F78 /* selectTableViewCell.m */; };
 		E91BCD7C1F612D8200738F78 /* selectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD7A1F612D8200738F78 /* selectTableViewCell.xib */; };
 		E91BCD841F614CCE00738F78 /* UserSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */; };
@@ -121,6 +125,14 @@
 		79EB48B31F5F333800818441 /* SyncVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncVC.m; sourceTree = "<group>"; };
 		79EB48B51F5F335000818441 /* SessionCloseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCloseVC.h; sourceTree = "<group>"; };
 		79EB48B61F5F335000818441 /* SessionCloseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCloseVC.m; sourceTree = "<group>"; };
+		79EF83791F699FCE00B35E89 /* ScoreSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreSecondVC.h; sourceTree = "<group>"; };
+		79EF837A1F699FCE00B35E89 /* ScoreSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreSecondVC.m; sourceTree = "<group>"; };
+		79EF837C1F699FE100B35E89 /* ScoreThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreThirdVC.h; sourceTree = "<group>"; };
+		79EF837D1F699FE100B35E89 /* ScoreThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreThirdVC.m; sourceTree = "<group>"; };
+		79EF837F1F69A40A00B35E89 /* ScoreCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCustomTableViewCell.h; sourceTree = "<group>"; };
+		79EF83801F69A40A00B35E89 /* ScoreCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCustomTableViewCell.m; sourceTree = "<group>"; };
+		79EF83821F69A41C00B35E89 /* ScoreStatickTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStatickTableViewCell.h; sourceTree = "<group>"; };
+		79EF83831F69A41C00B35E89 /* ScoreStatickTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStatickTableViewCell.m; sourceTree = "<group>"; };
 		B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TSMTrainingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.release.xcconfig"; sourceTree = "<group>"; };
 		C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSMTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSMTraining/Pods-TSMTraining.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +296,10 @@
 				E91BCD821F614CCE00738F78 /* UserSelectTableViewCell.xib */,
 				E91BCD851F61560100738F78 /* SessionCloseTableViewCell.h */,
 				E91BCD861F61560100738F78 /* SessionCloseTableViewCell.m */,
+				79EF837F1F69A40A00B35E89 /* ScoreCustomTableViewCell.h */,
+				79EF83801F69A40A00B35E89 /* ScoreCustomTableViewCell.m */,
+				79EF83821F69A41C00B35E89 /* ScoreStatickTableViewCell.h */,
+				79EF83831F69A41C00B35E89 /* ScoreStatickTableViewCell.m */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -396,6 +412,10 @@
 				79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */,
 				79B323F71F684F69006C5F25 /* sessionSecondVC.h */,
 				79B323F81F684F69006C5F25 /* sessionSecondVC.m */,
+				79EF83791F699FCE00B35E89 /* ScoreSecondVC.h */,
+				79EF837A1F699FCE00B35E89 /* ScoreSecondVC.m */,
+				79EF837C1F699FE100B35E89 /* ScoreThirdVC.h */,
+				79EF837D1F699FE100B35E89 /* ScoreThirdVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -772,6 +792,7 @@
 				E95C6A981F5EAF8900AA0101 /* UIView+MB.m in Sources */,
 				E95C6A8B1F5EAF8900AA0101 /* NSDate+MB.m in Sources */,
 				E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */,
+				79EF83811F69A40A00B35E89 /* ScoreCustomTableViewCell.m in Sources */,
 				79EB48B11F5F332700818441 /* AttendanceVC.m in Sources */,
 				79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */,
 				79EB48A01F5F104700818441 /* MagicButton.m in Sources */,
@@ -804,10 +825,13 @@
 				E95C6A921F5EAF8900AA0101 /* UIFont+MB.m in Sources */,
 				E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */,
 				79B323F91F684F69006C5F25 /* sessionSecondVC.m in Sources */,
+				79EF837E1F699FE100B35E89 /* ScoreThirdVC.m in Sources */,
 				79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */,
+				79EF83841F69A41C00B35E89 /* ScoreStatickTableViewCell.m in Sources */,
 				E95C6A9C1F5EAF8900AA0101 /* MBValidator.m in Sources */,
 				E95C6A8F1F5EAF8900AA0101 /* NSString+MB.m in Sources */,
 				E91BCD7B1F612D8200738F78 /* selectTableViewCell.m in Sources */,
+				79EF837B1F699FCE00B35E89 /* ScoreSecondVC.m in Sources */,
 				E95C6A0D1F5EAAC100AA0101 /* main.m in Sources */,
 				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
 				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,

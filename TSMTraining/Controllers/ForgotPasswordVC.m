@@ -146,6 +146,11 @@
     {
         [self MB_showErrorMessageOnWindowWithText:@"Please enter New Password"];
         return NO;
+    }else if(_passwordTxt.text.length < 6){
+        
+        [self MB_showErrorMessageOnWindowWithText:@"Password lenght should be minmum six letters."];
+        return NO;
+        
     }else if([MBValidator isTextEmpty:_coPasswordTxt.text] != 0){
         
         [self MB_showErrorMessageOnWindowWithText:@"Please enter Confirm Password"];

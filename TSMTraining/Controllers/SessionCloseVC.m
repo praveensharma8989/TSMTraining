@@ -40,7 +40,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Session" isBold:YES];
+    [self setTitle:@"Session Close" isBold:YES];
     
     [self addGrayBackButton];
     [self addGrayLogOutButton];
@@ -51,15 +51,6 @@
     
     sessionData = [MBDataBaseHandler getSessionData];
     attendanceData = [MBDataBaseHandler getAttendanceData];
-    
-    
-    
-    
-    if(sessionData){
-        [self.tableView setHidden:NO];
-    }else{
-        [self.tableView setHidden:YES];
-    }
 
 }
 
@@ -71,6 +62,10 @@
         cell.sessionName.text = sessionData.session_name;
         return cell;
         
+    }else{
+        SessionCloseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:K_Seeion_Name_cell forIndexPath:indexPath];
+        cell.sessionName.text = @"No Session Data!";
+        return cell;
     }
     return nil;
 }
@@ -80,7 +75,7 @@
     if(sessionData){
         return 1;
     }else{
-        return 0;
+        return 1;
         
     }
 
@@ -345,34 +340,48 @@
     
     sessionData.last_session_update = stringDate;
     
-    SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray
-                                          ];
     
-    NSDictionary *new = [sessionData toDictionary];
-    NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
-    
-    if(sessionDataArray){
+    if(![sessionData.session_image isEqualToString:@""] && ![sessionData.session_location isEqualToString:@""]){
         
-        [sessionDataArray.data addObject:sessionData];
+        SessionDataArray *sessionDataArray = [MBDataBaseHandler getSessionDataArray
+                                              ];
         
-        [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
+        NSDictionary *new = [sessionData toDictionary];
+        NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
         
-        [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
-        [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
-        sessionData = nil;
-        attendanceData = nil;
+        if(sessionDataArray){
+            
+            [sessionDataArray.data addObject:sessionData];
+            
+            [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
+            
+            [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+            [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
+            sessionData = nil;
+            attendanceData = nil;
+        }else{
+            
+            sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
+            
+            [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
+            [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
+            [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
+            sessionData = nil;
+            attendanceData = nil;
+        }
+        
+        [self MB_showSuccessMessageWithText:@"Session Close Successfully!"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
     }else{
         
-        sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
+        [self MB_showErrorMessageWithText:@"Error."];
         
-        [MBDataBaseHandler saveSessiondataArray:sessionDataArray];
-        [MBDataBaseHandler deleteAllRecordsForType:SESSIONDATA];
-        [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
-        sessionData = nil;
-        attendanceData = nil;
     }
     
-    [self.tableView reloadData];
+    
+    
+    
 }
 
 

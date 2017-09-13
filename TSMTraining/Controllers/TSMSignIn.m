@@ -130,6 +130,9 @@
     {
         [self MB_showErrorMessageOnWindowWithText:@"Please enter password."];
         return NO;
+    }else if(_CRMPassword.text.length < 6 ){
+        [self MB_showErrorMessageOnWindowWithText:@"Password lenght should be minmum six letters."];
+        return NO;
     }
     
     return YES;

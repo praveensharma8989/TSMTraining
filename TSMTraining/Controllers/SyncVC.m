@@ -165,7 +165,7 @@
     
     if(sessionDataArray){
         
-        NSArray *parama = [self getDataArray:sessionDataArray.data];
+        NSArray *parama = [self getDataArray:sessionDataArray.data withType:SESSIONDATAARRAY];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -222,7 +222,7 @@
     
     if(attendanceDataArray){
         
-        NSArray *parama = [self getDataArray:attendanceDataArray.data];
+        NSArray *parama = [self getDataArray:attendanceDataArray.data withType:ATTENDANCEDATAARRAY];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -278,7 +278,7 @@
     
     if(scoreDataArray){
         
-        NSArray *parama = [self getDataArray:scoreDataArray.data];
+        NSArray *parama = [self getDataArray:scoreDataArray.data withType:SCOREDATAARRAY];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -337,11 +337,11 @@
 }
 */
 
--(NSArray *)getDataArray:(NSMutableArray *)data{
+-(NSArray *)getDataArray:(NSMutableArray *)data withType:(OFFLINEMODE)type{
     
     NSMutableArray *retunArray = [NSMutableArray new];
     
-    if([data isKindOfClass:[SessionDataArray class]]){
+    if(type == SESSIONDATAARRAY){
         
         for (SessionData *session in data) {
             
@@ -366,7 +366,7 @@
             [retunArray addObject:dict];
         }
 
-    }else if([data isKindOfClass:[AttendanceDataArray class]]){
+    }else if(type == ATTENDANCEDATAARRAY){
         
         for (AttendanceData *attendance in data) {
             
@@ -387,7 +387,7 @@
             [retunArray addObject:dict];
         }
         
-    }else if([data isKindOfClass:[ScoreDataArray class]]){
+    }else if(type == SCOREDATAARRAY){
         
         for (ScoreData *scoreData in data) {
             

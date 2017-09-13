@@ -235,13 +235,13 @@
             
             [MBDataBaseHandler saveSessiondata:setSessionData];
             
-            [self MB_showSuccessMessageWithText:@"Session Create Successfully!"];
             
             trainingLOB = nil;
             dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
             productLineArray = [NSMutableArray new];
             sessionData = setSessionData;
-            
+            [self MB_showSuccessMessageWithText:@"Session Create Successfully!"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
 
     }else{

@@ -302,9 +302,7 @@
             setAttendanceData.att_status = TRUE;
             
             [MBDataBaseHandler saveAttendancedata:setAttendanceData];
-            
-            [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
-            
+        
             dealerNameSelect = nil;
             sessionSelect = nil;
             dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
@@ -333,8 +331,8 @@
                 
             }
             
-            
-            [self.tableView reloadData];
+            [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
             
         }
 
