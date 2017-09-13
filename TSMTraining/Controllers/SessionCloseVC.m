@@ -41,6 +41,8 @@
 -(void)setupInitialScreen{
     
     [self setTitle:@"Session" isBold:YES];
+    
+    [self addGrayBackButton];
     [self addGrayLogOutButton];
     
     [self checkLocationServicesAndStartUpdates];

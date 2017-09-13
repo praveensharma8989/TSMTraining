@@ -11,7 +11,7 @@
 #import "MBAppInitializer.h"
 #import <IQKeyboardManager.h>
 #import "TSMSignIn.h"
-#import "TSMLandingTabBar.h"
+#import "HomeVC.h"
 
 @implementation MBAppInitializer
 
@@ -88,7 +88,7 @@
     
     UIStoryboard * storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    TSMLandingTabBar *landingViewController = [storyboard instantiateViewControllerWithIdentifier:@"TSMLandingTabBar"];
+    HomeVC *landingViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeVC"];
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:landingViewController];
     

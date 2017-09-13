@@ -42,10 +42,6 @@
     
     [super viewWillAppear:animated];
     
-    [self setupInitialScreen];
-    
-    
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -57,6 +53,8 @@
 -(void)setupInitialScreen{
     
     [self setTitle:@"Attendance" isBold:YES];
+    
+    [self addGrayBackButton];
     [self addGrayLogOutButton];
     [self nibRegistration];
     

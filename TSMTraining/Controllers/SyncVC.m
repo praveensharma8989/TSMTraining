@@ -38,7 +38,7 @@
     
     [self setTitle:@"Synchronize" isBold:YES];
 
-    
+    [self addGrayBackButton];
     [self addGrayLogOutButton];
     [self ShowIndicator:NO];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
@@ -391,7 +391,21 @@
         
         for (ScoreData *scoreData in data) {
             
-            
+            NSDictionary *dict = @{
+                                   
+                                   @"crm_id": [NSString stringWithFormat:@"%@", scoreData.crm_id],
+                                   @"crm_name":[NSString stringWithFormat:@"%@", scoreData.crm_name],
+                                   @"trainer_crm_id":[NSString stringWithFormat:@"%@", scoreData.trainer_crm_id],
+                                   @"trainer_name":[NSString stringWithFormat:@"%@", scoreData.trainer_name],
+                                   @"date_of_test":[NSString stringWithFormat:@"%@", scoreData.date_of_test],
+                                   @"training_LOB":[NSString stringWithFormat:@"%@", scoreData.training_LOB],
+                                   @"pre_test_score":[NSString stringWithFormat:@"%@", scoreData.pre_test_score],
+                                   @"post_test_score":[NSString stringWithFormat:@"%@", scoreData.post_test_score],
+                                   @"last_scroe_update":[NSString stringWithFormat:@"%@", scoreData.last_scroe_update],
+                                   @"score_status":[NSString stringWithFormat:@"%@", scoreData.score_status],
+                                   @"score_session_name":[NSString stringWithFormat:@"%@", scoreData.score_session_name],
+                                   };
+            [retunArray addObject:dict];
             
         }
     }

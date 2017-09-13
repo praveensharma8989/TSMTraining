@@ -41,18 +41,11 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    
-    self.tabBarController.navigationItem.leftBarButtonItem = nil;
-    POP;
-    
-}
-
 -(void)setupInitialScreen{
     
     [self setTitle:@"Session" isBold:YES];
     [self addGrayLogOutButton];
-    [self addGrayBackButtonCustom];
+    [self addGrayBackButton];
 //    [self nibRegistration];
     
     
@@ -258,21 +251,21 @@
     
 }
 
--(void)addGrayBackButtonCustom{
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBackCustom::)];
-    [item setTintColor:[UIColor whiteColor]];
-    
-    if(self.tabBarController){
-        self.tabBarController.navigationItem.leftBarButtonItem = item;
-    }else{
-        self.navigationItem.leftBarButtonItem = item;
-    }
-    
-}
--(IBAction)action_MoveToBackCustom:(id)sender{
-    ENDEDITING;
-    POP;
-}
+//-(void)addGrayBackButtonCustom{
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:IMAGE(@"back") style:UIBarButtonItemStylePlain target:self action:@selector(action_MoveToBackCustom::)];
+//    [item setTintColor:[UIColor whiteColor]];
+//    
+//    if(self.tabBarController){
+//        self.tabBarController.navigationItem.leftBarButtonItem = item;
+//    }else{
+//        self.navigationItem.leftBarButtonItem = item;
+//    }
+//    
+//}
+//-(IBAction)action_MoveToBackCustom:(id)sender{
+//    ENDEDITING;
+//    POP;
+//}
 
 /*
 #pragma mark - Navigation
