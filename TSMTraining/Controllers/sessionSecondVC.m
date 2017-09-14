@@ -103,7 +103,7 @@
         predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_LOB == %@)AND(SELF.crm_product_line != %@)", value,@""];
         
     }else if([key isEqualToString:@"crm_name"]){
-        NSArray *idsToLookFor = _sessionDataCreate.trainees_crm_ids;
+        NSArray *idsToLookFor = [_sessionDataCreate.trainees_crm_ids componentsSeparatedByString:@","];
         predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
     }else{
         predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
@@ -212,36 +212,41 @@
             [self MB_showErrorMessageWithText:@"Please Select Product Line"];
         }else{
             
-            SessionData *setSessionData = [SessionData new];
-            setSessionData.trainer_crm_id = GET_USER_DEFAULTS(CRMID);
-            setSessionData.dealer_code = _sessionDataCreate.dealer_code;
-            setSessionData.dealer_name = _sessionDataCreate.dealer_name;
-            setSessionData.training_type = _sessionDataCreate.training_type;
-            setSessionData.product_line = productLine;
-            setSessionData.LOB_training = trainingLOB;
-            setSessionData.trainees_crm_ids = _sessionDataCreate.trainees_crm_ids;
-            setSessionData.session_status = TRUE;
-            
-            
             NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
-            
             NSDate *date = [NSDate date];
-            
             NSString *stringDate = [formatter stringFromDate:date];
+        
+            NSString *sessionName = [NSString stringWithFormat:@"%@_%@_%@", stringDate, trainingLOB, _sessionDataCreate.dealer_code];
+            SessionDataArray *sesssionDataArray = [MBDataBaseHandler getSessionDataArray];
             
-            setSessionData.last_session_update = stringDate;
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.session_name == %@)", sessionName];
             
-            setSessionData.session_name = [NSString stringWithFormat:@"%@_%@_%@", stringDate, trainingLOB, _sessionDataCreate.dealer_code];
+            NSArray *sessionArray = [sesssionDataArray.data filteredArrayUsingPredicate:predicate];
             
-            [MBDataBaseHandler saveSessiondata:setSessionData];
-            
-            
-            trainingLOB = nil;
-            dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
-            productLineArray = [NSMutableArray new];
-            sessionData = setSessionData;
-            [self MB_showSuccessMessageWithText:@"Session Create Successfully!"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            if(sessionArray.count > 0){
+                [self MB_showErrorMessageWithText:@"This session already exist!"];
+            }else{
+                SessionData *setSessionData = [SessionData new];
+                setSessionData.trainer_crm_id = GET_USER_DEFAULTS(CRMID);
+                setSessionData.dealer_code = _sessionDataCreate.dealer_code;
+                setSessionData.dealer_name = _sessionDataCreate.dealer_name;
+                setSessionData.training_type = _sessionDataCreate.training_type;
+                setSessionData.product_line = productLine;
+                setSessionData.LOB_training = trainingLOB;
+                setSessionData.trainees_crm_ids = _sessionDataCreate.trainees_crm_ids;
+                setSessionData.session_status = @"Success";
+                setSessionData.last_session_update = stringDate;
+                setSessionData.session_name = sessionName;
+                
+                [MBDataBaseHandler saveSessiondata:setSessionData];
+                
+                trainingLOB = nil;
+                dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
+                productLineArray = [NSMutableArray new];
+                sessionData = setSessionData;
+                [self MB_showSuccessMessageWithText:@"Session Create Successfully!"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
         }
 
     }else{

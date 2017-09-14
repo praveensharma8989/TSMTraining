@@ -96,7 +96,7 @@
     NSPredicate *predicate;
     
     if([key isEqualToString:@"crm_name"]){
-        NSArray *idsToLookFor = sessionData.trainees_crm_ids;
+        NSArray *idsToLookFor = [sessionData.trainees_crm_ids componentsSeparatedByString:@","];
         predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
     }else if([key isEqualToString:@"crm_id"]){
         predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_name == %@)", value];
@@ -300,8 +300,8 @@
             setAttendanceData.last_att_update = stringDate;
             setAttendanceData.attendance_date = stringDate;
             
-            setAttendanceData.present_crm_ids = [anotherArray copy];
-            setAttendanceData.att_status = TRUE;
+            setAttendanceData.present_crm_ids = [anotherArray componentsJoinedByString:@","];
+            setAttendanceData.att_status = @"Success";
             
             [MBDataBaseHandler saveAttendancedata:setAttendanceData];
         

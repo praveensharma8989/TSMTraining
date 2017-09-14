@@ -7,6 +7,7 @@
 //
 
 #import "ScoreSecondVC.h"
+#import "ScoreThirdVC.h"
 
 @interface ScoreSecondVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,12 +45,9 @@
         
     }
     
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [MBAppInitializer keyboardManagerEnabled];
-    
-    
 }
 
 -(void) nibRegistration{
@@ -78,9 +76,13 @@
     [cell.preScoreTxt setBk_shouldChangeCharactersInRangeWithReplacementStringBlock:^BOOL(UITextField *textField, NSRange range, NSString *string) {
         
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+        if(newString.length > 3 || [newString integerValue] > 100){
+            return NO;
+        }
         
         NSString *postScore = [[scores objectAtIndex:indexPath.row] valueForKey:@"postScore"];
-        
+    
         [scores replaceObjectAtIndex:indexPath.row withObject:@{@"preScore":newString,@"postScore":postScore}];
         
         return YES;
@@ -90,6 +92,10 @@
     [cell.postCoreTxt setBk_shouldChangeCharactersInRangeWithReplacementStringBlock:^BOOL(UITextField *textField, NSRange range, NSString *string) {
         
         NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        if(newString.length > 3 || [newString integerValue] > 100){
+            return NO;
+        }
         
         NSString *preScore = [[scores objectAtIndex:indexPath.row] valueForKey:@"preScore"];
         
@@ -101,6 +107,38 @@
     
     return cell;
     
+}
+- (IBAction)submitScore:(id)sender {
+    
+    ScoreDataArray *setScoreDataArray = [ScoreDataArray new];
+    
+    for (int i = 0; i<_scoreDataArray.data.count; i++) {
+        
+        NSString *preOrder = [[scores objectAtIndex:i] valueForKey:@"preScore"];
+        NSString *postOrder = [[scores objectAtIndex:i] valueForKey:@"postScore"];
+        ScoreData *scoreDataForName = _scoreDataArray.data[i];
+        if(!preOrder || [preOrder isEqualToString:@""]){
+            
+            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Pre Score", scoreDataForName.trainer_name]];
+            return;
+        }else if(!postOrder || [postOrder isEqualToString:@""]){
+            
+            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Post Score", scoreDataForName.trainer_name]];
+            return;
+        }
+        
+        scoreDataForName.pre_test_score = preOrder;
+        scoreDataForName.post_test_score = postOrder;
+        
+        [setScoreDataArray.data addObject:scoreDataForName];
+    }
+    
+    ScoreThirdVC *vwNav = [self.storyboard instantiateViewControllerWithIdentifier:K_THIRD_SECOND_VC];
+    
+    vwNav.scoreDataArray = setScoreDataArray;
+    
+    [self.navigationController pushViewController:vwNav animated:YES];
+
 }
 
 /*

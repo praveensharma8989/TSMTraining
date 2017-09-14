@@ -76,9 +76,12 @@
 #define K_USER_SELECT @"UserSelectTableViewCell"
 #define K_Seeion_Name_cell @"SessionCloseTableViewCell"
 #define K_SCORE_CUSTOM_CELL @"ScoreCustomTableViewCell"
+#define K_SCORE_STATIC_CELL @"ScoreStatickTableViewCell"
+
 
 #define K_SESSION_SECOND_VC @"sessionSecondVC"
 #define K_SCORE_SECOND_VC @"ScoreSecondVC"
+#define K_THIRD_SECOND_VC @"ScoreThirdVC"
 
  #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 

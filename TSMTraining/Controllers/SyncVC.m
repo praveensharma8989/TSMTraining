@@ -165,7 +165,9 @@
     
     if(sessionDataArray){
         
-        NSArray *parama = [self getDataArray:sessionDataArray.data withType:SESSIONDATAARRAY];
+//        NSArray *parama1 = [self getDataArray:sessionDataArray.data withType:SESSIONDATAARRAY];
+        NSArray *parama = [SessionData arrayOfDictionariesFromModels:sessionDataArray.data];
+        
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -173,7 +175,7 @@
             
             CallSessionRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                if(JSON && !error && [JSON integerValue] > 0){
+                if(JSON && !error){
                     
                     SessionDataArray *sessionDataArrrayAlways = [MBDataBaseHandler getSessionDataArrayAlways];
                     
@@ -222,7 +224,8 @@
     
     if(attendanceDataArray){
         
-        NSArray *parama = [self getDataArray:attendanceDataArray.data withType:ATTENDANCEDATAARRAY];
+//        NSArray *parama = [self getDataArray:attendanceDataArray.data withType:ATTENDANCEDATAARRAY];
+        NSArray *parama = [AttendanceData arrayOfDictionariesFromModels:attendanceDataArray.data];
         
         if([APP_DELEGATE connectedToInternet]){
             
@@ -278,8 +281,8 @@
     
     if(scoreDataArray){
         
-        NSArray *parama = [self getDataArray:scoreDataArray.data withType:SCOREDATAARRAY];
-        
+//        NSArray *parama = [self getDataArray:scoreDataArray.data withType:SCOREDATAARRAY];
+        NSArray *parama = [ScoreData arrayOfDictionariesFromModels:scoreDataArray.data];
         if([APP_DELEGATE connectedToInternet]){
             
             [self ShowIndicator:YES];
@@ -345,18 +348,18 @@
         
         for (SessionData *session in data) {
             
-            NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@", "];
+//            NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@","];
             
             NSDictionary *dict = @{
                                    
                                    @"session_name":[NSString stringWithFormat:@"%@", session.session_name],
                                    @"trainer_crm_id":[NSString stringWithFormat:@"%@", session.trainer_crm_id],
-                                   @"dealer_code":[NSString stringWithFormat:@"%@", @"sd"],
+                                   @"dealer_code":[NSString stringWithFormat:@"%@", session.dealer_code],
                                    @"dealer_name":[NSString stringWithFormat: @"%@", session.dealer_name],
                                    @"training_type":[NSString stringWithFormat:@"%@", session.training_type],
                                    @"product_line":[NSString stringWithFormat:@"%@", session.product_line],
                                    @"LOB_training":[NSString stringWithFormat:@"%@", session.LOB_training],
-                                   @"trainees_crm_ids":[NSString stringWithFormat:@"%@", trainees_ids],
+                                   @"trainees_crm_ids":[NSString stringWithFormat:@"%@", session.trainees_crm_ids],
                                    @"last_session_update":[NSString stringWithFormat:@"%@", session.last_session_update],
                                    @"session_status":[NSString stringWithFormat:@"%d", session.session_status],
                                    @"session_location":[NSString stringWithFormat:@"%@", session.session_location],
@@ -370,7 +373,7 @@
         
         for (AttendanceData *attendance in data) {
             
-            NSString *present_crm_ids = [attendance.present_crm_ids componentsJoinedByString:@", "];
+//            NSString *present_crm_ids = [attendance.present_crm_ids componentsJoinedByString:@", "];
             
             NSDictionary *dict = @{
                                    @"trainer_id":[NSString stringWithFormat:@"%@",attendance.trainer_id],
@@ -379,7 +382,7 @@
                                    @"dealer_code":[NSString stringWithFormat:@"%@",attendance.dealer_code],
                                    @"dealer_name":[NSString stringWithFormat:@"%@",attendance.dealer_name],
                                    @"attendance_date":[NSString stringWithFormat:@"%@",attendance.attendance_date],
-                                   @"present_crm_ids":[NSString stringWithFormat:@"%@",present_crm_ids],
+                                   @"present_crm_ids":[NSString stringWithFormat:@"%@",attendance.present_crm_ids],
                                    @"last_att_update":[NSString stringWithFormat:@"%@",attendance.last_att_update],
                                    @"att_status":[NSString stringWithFormat:@"%d",attendance.att_status]
                                    

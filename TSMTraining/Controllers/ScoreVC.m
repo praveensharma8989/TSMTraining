@@ -81,7 +81,7 @@
     NSPredicate *predicate;
     
     if([key isEqualToString:@"crm_name"]){
-        NSArray *idsToLookFor = attendanceData.present_crm_ids;
+        NSArray *idsToLookFor = [attendanceData.present_crm_ids componentsSeparatedByString:@","];
         predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
     }else if([key isEqualToString:@"crm_id"]){
         predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_name == %@)", value];
@@ -257,57 +257,49 @@
 }
 - (IBAction)updateScore:(id)sender {
     
-    if(!scoreData){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"length > 0"];
-        NSArray *anotherArray = [CRMIDArray filteredArrayUsingPredicate:predicate];
-        
-        if([dealerNameSelect isEqualToString:@""] || !dealerNameSelect){
-            [self MB_showErrorMessageWithText:@"Please Select Dealer Name!"];
-        }else if([sessionSelect isEqualToString:@""] || !sessionSelect){
-            [self MB_showErrorMessageWithText:@"Please Select session!"];
-        }else if(anotherArray.count==0 || !anotherArray){
-            [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
-        }else{
-        
-            ScoreDataArray *setScoreDataArray = [ScoreDataArray new];
-            for (NSString *ids in  anotherArray) {
-                
-                NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(SELF.crm_id == %@)", ids];
-                NSArray *anotherNameArray =[dataArray.data filteredArrayUsingPredicate:predicate1];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"length > 0"];
+    NSArray *anotherArray = [CRMIDArray filteredArrayUsingPredicate:predicate];
     
-                CRMData *dataAr = anotherNameArray[0];
-                
-                ScoreData *setScoreData = [ScoreData new];
-                setScoreData.crm_id = GET_USER_DEFAULTS(CRMID);
-                setScoreData.crm_name = userData.crm_name;
-                setScoreData.trainer_crm_id = ids;
-                setScoreData.trainer_name = dataAr.crm_name;
-                
-                NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
-                NSDate *date = [NSDate date];
-                NSString *stringDate = [formatter stringFromDate:date];
-                
-                setScoreData.date_of_test = stringDate;
-                setScoreData.training_LOB = sessionData.LOB_training;
-                setScoreData.score_status = @"pending";
-                setScoreData.score_session_name = attendanceData.session_name;
-                
-                [setScoreDataArray.data addObject:setScoreData];
-            }
+    if([dealerNameSelect isEqualToString:@""] || !dealerNameSelect){
+        [self MB_showErrorMessageWithText:@"Please Select Dealer Name!"];
+    }else if([sessionSelect isEqualToString:@""] || !sessionSelect){
+        [self MB_showErrorMessageWithText:@"Please Select session!"];
+    }else if(anotherArray.count==0 || !anotherArray){
+        [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
+    }else{
+        
+        ScoreDataArray *setScoreDataArray = [ScoreDataArray new];
+        for (NSString *ids in  anotherArray) {
             
-            ScoreSecondVC *vwNav = [self.storyboard instantiateViewControllerWithIdentifier:K_SCORE_SECOND_VC];
+            NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(SELF.crm_id == %@)", ids];
+            NSArray *anotherNameArray =[dataArray.data filteredArrayUsingPredicate:predicate1];
             
-            vwNav.scoreDataArray = setScoreDataArray;
+            CRMData *dataAr = anotherNameArray[0];
             
-            [self.navigationController pushViewController:vwNav animated:YES];
+            ScoreData *setScoreData = [ScoreData new];
+            setScoreData.crm_id = GET_USER_DEFAULTS(CRMID);
+            setScoreData.crm_name = userData.crm_name;
+            setScoreData.trainer_crm_id = ids;
+            setScoreData.trainer_name = dataAr.crm_name;
+            
+            NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+            NSDate *date = [NSDate date];
+            NSString *stringDate = [formatter stringFromDate:date];
+            setScoreData.last_scroe_update = stringDate;
+            setScoreData.date_of_test = sessionData.last_session_update;
+            setScoreData.training_LOB = sessionData.LOB_training;
+            setScoreData.score_status = @"Success";
+            setScoreData.score_session_name = attendanceData.session_name;
+            
+            [setScoreDataArray.data addObject:setScoreData];
         }
         
-    }else{
-        [self MB_showErrorMessageWithText:@"Score already updated!"];
+        ScoreSecondVC *vwNav = [self.storyboard instantiateViewControllerWithIdentifier:K_SCORE_SECOND_VC];
+        
+        vwNav.scoreDataArray = setScoreDataArray;
+        
+        [self.navigationController pushViewController:vwNav animated:YES];
     }
-    
-    
-    
 }
 
 

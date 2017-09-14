@@ -387,7 +387,7 @@
         createSessionData.dealer_name = dealerName;
         createSessionData.training_type = trainingType;
         
-        createSessionData.trainees_crm_ids = [anotherArray copy];
+        createSessionData.trainees_crm_ids = [anotherArray componentsJoinedByString:@","];
         createSessionData.session_status = false;
         
         

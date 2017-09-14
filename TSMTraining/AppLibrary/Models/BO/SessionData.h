@@ -21,9 +21,9 @@
 @property (nonatomic,strong) NSString *training_type;
 @property (nonatomic,strong) NSString *product_line;
 @property (nonatomic,strong) NSString *LOB_training;
-@property (nonatomic,strong) NSMutableArray *trainees_crm_ids;
+@property (nonatomic,strong) NSString *trainees_crm_ids;
 @property (nonatomic,strong) NSString *last_session_update;
-@property (nonatomic,assign) BOOL session_status;
+@property (nonatomic,assign) NSString *session_status;
 @property (nonatomic,strong) NSString *session_location;
 @property (nonatomic,strong) NSString *session_image;
 
