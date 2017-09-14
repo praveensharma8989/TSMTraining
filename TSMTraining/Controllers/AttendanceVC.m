@@ -98,6 +98,8 @@
     if([key isEqualToString:@"crm_name"]){
         NSArray *idsToLookFor = sessionData.trainees_crm_ids;
         predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
+    }else if([key isEqualToString:@"crm_id"]){
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_name == %@)", value];
     }else{
         predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
     }

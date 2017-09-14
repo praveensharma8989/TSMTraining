@@ -7,6 +7,7 @@
 //
 
 #import "ScoreVC.h"
+#import "ScoreSecondVC.h"
 
 @interface ScoreVC ()<UITableViewDelegate, UITableViewDataSource, IQActionSheetPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -82,6 +83,8 @@
     if([key isEqualToString:@"crm_name"]){
         NSArray *idsToLookFor = attendanceData.present_crm_ids;
         predicate = [NSPredicate predicateWithFormat:@"crm_id IN %@", idsToLookFor];
+    }else if([key isEqualToString:@"crm_id"]){
+        predicate = [NSPredicate predicateWithFormat:@"(SELF.crm_name == %@)", value];
     }else{
         predicate = [NSPredicate predicateWithFormat:@"(SELF.dealer_name != %@)", @""];
     }
@@ -265,61 +268,38 @@
         }else if(anotherArray.count==0 || !anotherArray){
             [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
         }else{
-            
-            ScoreData *setScoreData = [ScoreData new];
-            setScoreData.crm_id = GET_USER_DEFAULTS(CRMID);
-            setScoreData.crm_name = userData.crm_name;
-            setScoreData.trainer_crm_id = sessionData.session_name;
-//            setScoreData.dealer_code = sessionData.dealer_code;
-//            setScoreData.dealer_name = sessionData.dealer_name;
-            
-            NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
-            
-            NSDate *date = [NSDate date];
-            
-            NSString *stringDate = [formatter stringFromDate:date];
-            
-//            setAttendanceData.last_att_update = stringDate;
-//            setAttendanceData.attendance_date = stringDate;
-//            
-//            setAttendanceData.present_crm_ids = [anotherArray copy];
-//            setAttendanceData.att_status = TRUE;
-            
-            [MBDataBaseHandler saveScoredata:setScoreData];
-            
-            [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
-            
-            dealerNameSelect = nil;
-            sessionSelect = nil;
-            dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
-            CRMNameArray = [NSMutableArray new];
-            CRMIDArray = [NSMutableArray new];
-            
-            scoreData = setScoreData;
-            
-            ScoreDataArray *scoreDataArray = [MBDataBaseHandler getScoreDataArray
-                                                        ];
-            
-            NSDictionary *new = [scoreData toDictionary];
-            NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
-            
-            if(scoreDataArray){
+        
+            ScoreDataArray *setScoreDataArray = [ScoreDataArray new];
+            for (NSString *ids in  anotherArray) {
                 
-                [scoreDataArray.data addObject:scoreData];
+                NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"(SELF.crm_id == %@)", ids];
+                NSArray *anotherNameArray =[dataArray.data filteredArrayUsingPredicate:predicate1];
+    
+                CRMData *dataAr = anotherNameArray[0];
                 
-                [MBDataBaseHandler saveScoredataArray:scoreDataArray];
+                ScoreData *setScoreData = [ScoreData new];
+                setScoreData.crm_id = GET_USER_DEFAULTS(CRMID);
+                setScoreData.crm_name = userData.crm_name;
+                setScoreData.trainer_crm_id = ids;
+                setScoreData.trainer_name = dataAr.crm_name;
                 
-            }else{
+                NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+                NSDate *date = [NSDate date];
+                NSString *stringDate = [formatter stringFromDate:date];
                 
-                scoreDataArray = [[ScoreDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
+                setScoreData.date_of_test = stringDate;
+                setScoreData.training_LOB = sessionData.LOB_training;
+                setScoreData.score_status = @"pending";
+                setScoreData.score_session_name = attendanceData.session_name;
                 
-                [MBDataBaseHandler saveScoredataArray:scoreDataArray];
-                
+                [setScoreDataArray.data addObject:setScoreData];
             }
             
+            ScoreSecondVC *vwNav = [self.storyboard instantiateViewControllerWithIdentifier:K_SCORE_SECOND_VC];
             
-            [self.tableView reloadData];
+            vwNav.scoreDataArray = setScoreDataArray;
             
+            [self.navigationController pushViewController:vwNav animated:YES];
         }
         
     }else{

@@ -35,6 +35,7 @@
 
 
 #import <MagicalRecord/MagicalRecord.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
 #import "MBDataBaseHandler.h"
 #import "GlobalFunctionHandler.h"
 
@@ -42,6 +43,8 @@
 #import "selectTableViewCell.h"
 #import "UserSelectTableViewCell.h"
 #import "SessionCloseTableViewCell.h"
+#import "ScoreCustomTableViewCell.h"
+#import "ScoreStatickTableViewCell.h"
 
 
 #import "IQActionSheetPickerView.h"

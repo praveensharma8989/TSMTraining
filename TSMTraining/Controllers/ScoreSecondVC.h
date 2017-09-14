@@ -10,4 +10,6 @@
 
 @interface ScoreSecondVC : TSMViewController
 
+@property (nonatomic, strong) ScoreDataArray *scoreDataArray;
+
 @end
