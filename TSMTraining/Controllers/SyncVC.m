@@ -168,14 +168,14 @@
 //        NSArray *parama1 = [self getDataArray:sessionDataArray.data withType:SESSIONDATAARRAY];
         NSArray *parama = [SessionData arrayOfDictionariesFromModels:sessionDataArray.data];
         
-        
         if([APP_DELEGATE connectedToInternet]){
             
             [self ShowIndicator:YES];
             
             CallSessionRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                if(JSON && !error){
+                if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
+                    
                     
                     SessionDataArray *sessionDataArrrayAlways = [MBDataBaseHandler getSessionDataArrayAlways];
                     
@@ -233,7 +233,7 @@
             
             CallAttendanceRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                if(JSON && !error){
+                if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
                     
                     AttendanceDataArray *attendanceDataArrayAlways = [MBDataBaseHandler getAttendanceDataArrayAlways];
                     if(attendanceDataArrayAlways){
@@ -289,7 +289,7 @@
             
             CallScoreRequest(parama, ^(NSURLSessionDataTask *task, id JSON, NSError *error) {
                 
-                if(JSON && !error){
+                if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
                     
                     ScoreDataArray *scoreDataArrayAlways = [MBDataBaseHandler getScoreDataArrayAlways];
                     
@@ -347,8 +347,6 @@
     if(type == SESSIONDATAARRAY){
         
         for (SessionData *session in data) {
-            
-//            NSString *trainees_ids = [session.trainees_crm_ids componentsJoinedByString:@","];
             
             NSDictionary *dict = @{
                                    
