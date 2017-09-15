@@ -319,7 +319,7 @@
     picker.actionToolbar.titleButton.titleColor = [UIColor blackColor];
     
     if(selectedIndexofRow == 0){
-        [picker setTitlesForComponents:@[@[@"Refresher", @"Produuct Training"]]];
+        [picker setTitlesForComponents:@[@[@"Refresher Product Training", @"Product Training"]]];
     }else if(selectedIndexofRow == 1){
         
         [picker setTitlesForComponents:@[dealerNameArray]];
