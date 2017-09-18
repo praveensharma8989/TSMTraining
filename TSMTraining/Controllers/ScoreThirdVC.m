@@ -7,8 +7,9 @@
 //
 
 #import "ScoreThirdVC.h"
+#import "ScoreUpdateTV.h"
 
-@interface ScoreThirdVC ()
+@interface ScoreThirdVC ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -28,7 +29,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Session" isBold:YES];
+    [self setTitle:@"Score List" isBold:YES];
     [self addGrayBackButton];
     [self addGrayLogOutButton];
     
@@ -57,6 +58,27 @@
     cell.postScoreLbl.text = scoreData.post_test_score;
     
     return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ScoreUpdateTV *VC = [self.storyboard instantiateViewControllerWithIdentifier:K_UPDATE_SECOND_VC];
+    ScoreData *scoreData = _scoreDataArray.data[indexPath.row];
+    
+    VC.scoreData = scoreData;
+    VC.onCompletion = ^(ScoreData *score){
+        
+            [_scoreDataArray.data replaceObjectAtIndex:[indexPath row] withObject:score];
+            
+            [self.navigationController popViewControllerAnimated:NO];
+            
+            [self.tableView reloadData];
+        
+    };
+    
+    [self.navigationController pushViewController:VC animated:YES];
+    
     
 }
 

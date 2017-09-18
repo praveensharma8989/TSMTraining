@@ -13,6 +13,7 @@
 		79AC27001F6080B70032B5AE /* ScoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AC26FF1F6080B70032B5AE /* ScoreData.m */; };
 		79B323F91F684F69006C5F25 /* sessionSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B323F81F684F69006C5F25 /* sessionSecondVC.m */; };
 		79B7F1061F619CA800C9C945 /* UserSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */; };
+		79C80C471F702A9A0088BADC /* ScoreUpdateTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C80C461F702A9A0088BADC /* ScoreUpdateTV.m */; };
 		79DFA5B21F63978500A809A9 /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */; };
 		79EB48A01F5F104700818441 /* MagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489B1F5F104700818441 /* MagicButton.m */; };
 		79EB48A11F5F104700818441 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB489D1F5F104700818441 /* SpinerLayer.m */; };
@@ -103,6 +104,8 @@
 		79B323F71F684F69006C5F25 /* sessionSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sessionSecondVC.h; sourceTree = "<group>"; };
 		79B323F81F684F69006C5F25 /* sessionSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sessionSecondVC.m; sourceTree = "<group>"; };
 		79B7F1051F619CA800C9C945 /* UserSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSelectTableViewCell.m; sourceTree = "<group>"; };
+		79C80C451F702A9A0088BADC /* ScoreUpdateTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreUpdateTV.h; sourceTree = "<group>"; };
+		79C80C461F702A9A0088BADC /* ScoreUpdateTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreUpdateTV.m; sourceTree = "<group>"; };
 		79DFA5B01F63978500A809A9 /* ForgotPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordVC.h; sourceTree = "<group>"; };
 		79DFA5B11F63978500A809A9 /* ForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
 		79EB489A1F5F104700818441 /* MagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicButton.h; sourceTree = "<group>"; };
@@ -416,6 +419,8 @@
 				79EF837A1F699FCE00B35E89 /* ScoreSecondVC.m */,
 				79EF837C1F699FE100B35E89 /* ScoreThirdVC.h */,
 				79EF837D1F699FE100B35E89 /* ScoreThirdVC.m */,
+				79C80C451F702A9A0088BADC /* ScoreUpdateTV.h */,
+				79C80C461F702A9A0088BADC /* ScoreUpdateTV.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 				E95C6A991F5EAF8900AA0101 /* UIViewController+MB.m in Sources */,
 				E95C6A901F5EAF8900AA0101 /* UIButton+MB.m in Sources */,
 				E91BCD871F61560100738F78 /* SessionCloseTableViewCell.m in Sources */,
+				79C80C471F702A9A0088BADC /* ScoreUpdateTV.m in Sources */,
 				E9E442311F62A380008F8BA5 /* MBAppInitializer.m in Sources */,
 				79EB48AE1F5F331100818441 /* SessionVC.m in Sources */,
 				E95C6A941F5EAF8900AA0101 /* UIImage+ImageEffects.m in Sources */,

@@ -82,6 +82,7 @@
 #define K_SESSION_SECOND_VC @"sessionSecondVC"
 #define K_SCORE_SECOND_VC @"ScoreSecondVC"
 #define K_THIRD_SECOND_VC @"ScoreThirdVC"
+#define K_UPDATE_SECOND_VC @"ScoreUpdateTV"
 
  #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 

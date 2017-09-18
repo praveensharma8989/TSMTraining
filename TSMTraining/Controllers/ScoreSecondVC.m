@@ -33,7 +33,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Session" isBold:YES];
+    [self setTitle:@"Update Score" isBold:YES];
     [self addGrayBackButton];
     [self addGrayLogOutButton];
 
