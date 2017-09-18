@@ -96,8 +96,9 @@
     
     NSArray *uniqueGenres = [array valueForKeyPath:valueForKey];
     
-    
-    return uniqueGenres;
+    NSArray *arraysort = [uniqueGenres sortedArrayUsingSelector:@selector(compare:)];
+
+    return arraysort;
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -221,9 +222,15 @@
         case 1:{
             sessionSelect = titles[0];
             CRMNameArray = [[self getValueFromDataArray:dataArray withKey:@"crm_name" withValue:@""] copy];
-            for(int i = 0; i<CRMNameArray.count;i++){
-                [CRMIDArray addObject:@""];
+            
+            if(CRMNameArray.count >0){
+                for(int i = 0; i<CRMNameArray.count;i++){
+                    [CRMIDArray addObject:@""];
+                }
+            }else{
+                [self MB_showErrorMessageWithText:@"No attendance found for the particular session"];
             }
+    
         }
             
             break;

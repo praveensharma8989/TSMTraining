@@ -111,8 +111,9 @@
     
     NSArray *uniqueGenres = [array valueForKeyPath:valueForKey];
     
+    NSArray *arraysort = [uniqueGenres sortedArrayUsingSelector:@selector(compare:)];
     
-    return uniqueGenres;
+    return arraysort;
 }
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{

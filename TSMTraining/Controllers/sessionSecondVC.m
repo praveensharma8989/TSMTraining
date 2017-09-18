@@ -24,7 +24,7 @@
     SessionData *sessionData;
     AttendanceData *attendanceData;
     NSInteger selectedIndexofRow;
-    NSArray *picketHeading, *trainingLOBArray, *arrayCRMName;
+    NSArray *picketHeading, *trainingLOBArray, *arrayCRMName, *arrayCVPax, *arrayILCV, *arrayMHCV, *arraySCVCargo;
     NSMutableArray *dropDownSelectValue, *productLineArray;
     NSString *trainingLOB,*productLine;
     
@@ -64,6 +64,10 @@
     dropDownSelectValue = [[NSMutableArray alloc] initWithObjects: @"Select Training LOB", @"Select Product Line", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
     
+    arrayCVPax = @[@"Buses", @"SCV Passenger"];
+    arrayILCV = @[@"ILCV", @"ICV", @"LCV"];
+    arrayMHCV = @[@"MHCV Construck", @"MHCV Cargo"];
+    arraySCVCargo = @[@"SCV Cargo", @"Pick ups"];
     
     [MBAppInitializer keyboardManagerEnabled];
     
@@ -86,8 +90,6 @@
     
     [self.trainingLOBLbl addGestureRecognizer:tapAction];
     [self.productLineLbl addGestureRecognizer:tapAction1];
-    
-    
 }
 
 -(NSArray *)getValueFromDataArray :(CRMDataArray *)data withKey:(NSString *)key withValue:(NSString *)value{
@@ -116,8 +118,9 @@
     
     NSArray *uniqueGenres = [array valueForKeyPath:valueForKey];
     
+    NSArray *arraysort = [uniqueGenres sortedArrayUsingSelector:@selector(compare:)];
     
-    return uniqueGenres;
+    return arraysort;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -189,7 +192,18 @@
             [dropDownSelectValue replaceObjectAtIndex:1 withObject:@"Select Product Line"];
             self.trainingLOBLbl.text = trainingLOB;
             self.productLineLbl.text = @"Select Product Line";
-            productLineArray = [[self getValueFromDataArray:dataArray withKey:@"crm_product_line" withValue:trainingLOB] copy];
+            
+            if([trainingLOB isEqualToString:@"CV Pax"]){
+                productLineArray = [arrayCVPax copy];
+            }else if([trainingLOB isEqualToString:@"ILCV"]){
+                productLineArray = [arrayILCV copy];
+            }else if([trainingLOB isEqualToString:@"MHCV"]){
+                productLineArray = [arrayMHCV copy];
+            }else if([trainingLOB isEqualToString:@"SCV Cargo"]){
+                productLineArray = [arraySCVCargo copy];
+            }
+            
+//            productLineArray = [[self getValueFromDataArray:dataArray withKey:@"crm_product_line" withValue:trainingLOB] copy];
         }
             break;
         case 1:

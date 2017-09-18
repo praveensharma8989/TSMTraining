@@ -14,6 +14,7 @@
 @interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *locationName;
 
 @end
 
@@ -120,6 +121,7 @@
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              
              sessionLocation = [NSString stringWithFormat:@"%@, %@, %@", placemark.subLocality, placemark.locality, placemark.country ];
+             _locationName.text = sessionLocation;
              
          }
          else

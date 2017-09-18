@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @property (weak, nonatomic) IBOutlet UILabel *trainingTypeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *dealerNameLbl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchControllerBar;
 
 
 @end
@@ -33,7 +34,7 @@
     NSMutableArray *dropDownSelectValue, *productLineArray, *CRMNameArray, *CRMIDArray, *filterCRMNameArray, *filterCRMIDArray;
     NSString *trainingType,*dealerName;
     
-    UISearchController *searchControllerBar;
+//    UISearchController *searchControllerBar1;
 }
 
 - (void)viewDidLoad {
@@ -85,6 +86,7 @@
     filterCRMIDArray = [NSMutableArray new];
     shouldShowSearchResults = false;
     
+    _searchControllerBar.delegate =self;
     
     
     if(CRMNameArray){
@@ -123,6 +125,17 @@
     [self.trainingTypeLbl addGestureRecognizer:tapAction];
     [self.dealerNameLbl addGestureRecognizer:tapAction1];
     
+    if(sessionData){
+    
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sessoin" message:@"Please close previous pending sessions." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *no = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:no];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    
+    }
+
 }
 
 -(NSArray *)getValueFromDataArray :(CRMDataArray *)data withKey:(NSString *)key withValue:(NSString *)value{
@@ -154,8 +167,9 @@
     
     NSArray *uniqueGenres = [array valueForKeyPath:valueForKey];
     
+    NSArray *arraysort = [uniqueGenres sortedArrayUsingSelector:@selector(compare:)];
     
-    return uniqueGenres;
+    return arraysort;
 }
 
 -(void) nibRegistration{
@@ -202,53 +216,53 @@
     
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    return @" ";
-}
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//
+//    return @" ";
+//}
 
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    if(dealerName && ![dealerName isEqualToString:@""]){
-        
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
-        
-        [view setTintColor:[UIColor lightGrayColor]];
-        [view setBackgroundColor:[UIColor lightGrayColor]];
-        
-        searchControllerBar = [[UISearchController alloc] initWithSearchResultsController:nil];
-        
-        searchControllerBar.searchResultsUpdater = self;
-        searchControllerBar.dimsBackgroundDuringPresentation = NO;
-        searchControllerBar.searchBar.delegate = self;
-        
-        searchControllerBar.hidesNavigationBarDuringPresentation = false;
-        
-        searchControllerBar.searchBar.searchBarStyle = UISearchBarStyleProminent;
-        
-        [searchControllerBar setNeedsStatusBarAppearanceUpdate];
-        
-        
-        [view addSubview:searchControllerBar.searchBar];
-        
-        [searchControllerBar.searchBar sizeToFit];
-        
-        return view;
-        
-    }else{
-        return nil;
-    }
-    
-}
+//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//
+//    if(dealerName && ![dealerName isEqualToString:@""]){
+//
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+//
+//        [view setTintColor:[UIColor lightGrayColor]];
+//        [view setBackgroundColor:[UIColor lightGrayColor]];
+//
+//        searchControllerBar1 = [[UISearchController alloc] initWithSearchResultsController:nil];
+//
+//        searchControllerBar1.searchResultsUpdater = self;
+//        searchControllerBar1.dimsBackgroundDuringPresentation = NO;
+//        searchControllerBar1.searchBar.delegate = self;
+//
+//        searchControllerBar1.hidesNavigationBarDuringPresentation = false;
+//
+//        searchControllerBar1.searchBar.searchBarStyle = UISearchBarStyleProminent;
+//
+//        [searchControllerBar1 setNeedsStatusBarAppearanceUpdate];
+//
+//
+//        [view addSubview:searchControllerBar1.searchBar];
+//
+//        [searchControllerBar1.searchBar sizeToFit];
+//
+//        return view;
+//
+//    }else{
+//        return nil;
+//    }
+//
+//}
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    if(dealerName && ![dealerName isEqualToString:@""]){
-        return 44;
-    }else{
-        return 30;
-    }
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    
+//    if(dealerName && ![dealerName isEqualToString:@""]){
+//        return 44;
+//    }else{
+//        return 30;
+//    }
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -288,7 +302,7 @@
         
     }else{
         
-        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:CRMNameArray[crmNamePosition.row]];
+        NSArray *crmids = [self getValueFromDataArray:dataArray withKey:@"crm_id" withValue:arraycrmName[crmNamePosition.row]];
         NSString *crmid = crmids[0];
         
         if(shouldShowSearchResults){
@@ -410,12 +424,14 @@
     
 }
 
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if(searchText.length==0){
         
         shouldShowSearchResults = NO;
-        filterCRMNameArray = CRMNameArray;
+        filterCRMNameArray = [NSMutableArray new];
+        filterCRMIDArray = [NSMutableArray new];
         
     }else{
         
@@ -423,6 +439,7 @@
         [self filterDataFromNameArray:searchText];
         
     }
+    [self.tableView reloadData];
     
 }
 
@@ -504,6 +521,12 @@
     }
     [self.tableView reloadData];
 }
+
+//-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+//
+//
+//    
+//}
 /*
  #pragma mark - Navigation
  
