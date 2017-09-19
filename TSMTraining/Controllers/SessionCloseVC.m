@@ -189,7 +189,7 @@
     }
     
     //Checking authorization status
-    if (![CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
     {
         
         //Now if the location is denied.
@@ -236,9 +236,11 @@
     
     if(attendanceData){
         
-        [self checkLocationServicesAndStartUpdates];
-        [self selectPic];
-        
+        if(!sessionLocation || [sessionLocation isEqualToString:@""]){
+            [self checkLocationServicesAndStartUpdates];
+        }else{
+            [self selectPic];
+        }
     }else{
         [self MB_showErrorMessageWithText:@"Please Upload attendance for this session!"];
     }
@@ -364,6 +366,7 @@
              }
          }];
     }
+
     
 }
 
