@@ -1006,7 +1006,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc79d061-7017-4a90-8c0a-100f8ab0d847";
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
 				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1026,7 +1026,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc79d061-7017-4a90-8c0a-100f8ab0d847";
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
 				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

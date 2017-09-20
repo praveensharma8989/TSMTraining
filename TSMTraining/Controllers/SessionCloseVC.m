@@ -9,9 +9,10 @@
 #import "SessionCloseVC.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 
-@interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate>
+@interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *locationName;
@@ -164,7 +165,7 @@
                                            {
                                                //Simple way to open settings module
                                                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                               [[UIApplication sharedApplication] openURL:url];
+                                               [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                            }];
             
             [alertController addAction:cancelAction];
@@ -188,7 +189,7 @@
     }
     
     //Checking authorization status
-    if (![CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
     {
         
         //Now if the location is denied.
@@ -213,7 +214,7 @@
                                        {
                                            //Simple way to open settings module
                                            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                           [[UIApplication sharedApplication] openURL:url];
+                                           [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                        }];
         
         [alertController addAction:cancelAction];
@@ -235,9 +236,11 @@
     
     if(attendanceData){
         
-        [self checkLocationServicesAndStartUpdates];
-        [self selectPic];
-        
+        if(!sessionLocation || [sessionLocation isEqualToString:@""]){
+            [self checkLocationServicesAndStartUpdates];
+        }else{
+            [self selectPic];
+        }
     }else{
         [self MB_showErrorMessageWithText:@"Please Upload attendance for this session!"];
     }
@@ -253,68 +256,119 @@
         return;
     }
     
-    ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
-    
-    if (status != ALAuthorizationStatusAuthorized) {
-        ALAssetsLibrary *lib = [[ALAssetsLibrary alloc] init];
-        [lib enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-            
-            UIImagePickerController *picker= [[UIImagePickerController alloc] init];
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            
-            [picker setDelegate:self];
-            
-            [self presentModalViewController:picker animated:YES];
-        } failureBlock:^(NSError *error) {
-            if (error.code == ALAssetsLibraryAccessUserDeniedError) {
-                
-                
-                NSLog(@"user denied access, code: %zd", error.code);
-                
-                //Now if the location is denied.
-                UIAlertController *alertController = [UIAlertController
-                                                      alertControllerWithTitle:@"Enable Camera permission"
-                                                      message:@"please enable camera services for this app"
-                                                      preferredStyle:UIAlertControllerStyleAlert];
-                
-                
-                UIAlertAction *cancelAction = [UIAlertAction
-                                               actionWithTitle:@"Dismiss"
-                                               style:UIAlertActionStyleCancel
-                                               handler:^(UIAlertAction *action)
-                                               {
-                                                   NSLog(@"Cancel action");
-                                               }];
-                
-                UIAlertAction *goToSettings = [UIAlertAction
-                                               actionWithTitle:@"Settings"
-                                               style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction *action)
-                                               {
-                                                   //Simple way to open settings module
-                                                   NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                                   [[UIApplication sharedApplication] openURL:url];
-                                               }];
-                
-                [alertController addAction:cancelAction];
-                [alertController addAction:goToSettings];
-                [self presentViewController:alertController animated:YES completion:^{
-                    //            alertController.view.tintColor = [UIColor blueColor];
-                }];
-                
-            } else {
-                NSLog(@"Other error code: %zd", error.code);
-            }
-        }];
-    }else{
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized)
+    {
         UIImagePickerController *picker= [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         
         [picker setDelegate:self];
         
-        [self presentModalViewController:picker animated:YES];
+        [self.navigationController presentViewController:picker animated:YES completion:nil];
+        
     }
-    
+    else if(authStatus == AVAuthorizationStatusDenied)
+    {
+        
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted)
+         {
+             if(granted)
+             {
+                 UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+                 picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                 
+                 [picker setDelegate:self];
+                 
+                 [self.navigationController presentViewController:picker animated:YES completion:nil];
+                 
+//                 [self presentModalViewController:picker animated:YES];
+             }
+             else
+             {
+                 
+                 //Now if the location is denied.
+                 UIAlertController *alertController = [UIAlertController
+                                                       alertControllerWithTitle:@"Enable Camera permission"
+                                                       message:@"please enable camera services for this app"
+                                                       preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 
+                 UIAlertAction *cancelAction = [UIAlertAction
+                                                actionWithTitle:@"Dismiss"
+                                                style:UIAlertActionStyleCancel
+                                                handler:^(UIAlertAction *action)
+                                                {
+                                                    NSLog(@"Cancel action");
+                                                }];
+                 
+                 UIAlertAction *goToSettings = [UIAlertAction
+                                                actionWithTitle:@"Settings"
+                                                style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action)
+                                                {
+                                                    //Simple way to open settings module
+                                                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+                                                }];
+                 
+                 [alertController addAction:cancelAction];
+                 [alertController addAction:goToSettings];
+                 [self presentViewController:alertController animated:YES completion:^{
+                     //            alertController.view.tintColor = [UIColor blueColor];
+                 }];
+             }
+         }];
+    }else if(authStatus == AVAuthorizationStatusNotDetermined)
+    {
+        
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted)
+         {
+             if(granted)
+             {
+                 UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+                 picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                 
+                 [picker setDelegate:self];
+                 [self.navigationController presentViewController:picker animated:YES completion:nil];
+//                 [self presentModalViewController:picker animated:YES];
+             }
+             else
+             {
+                 
+                 //Now if the location is denied.
+                 UIAlertController *alertController = [UIAlertController
+                                                       alertControllerWithTitle:@"Enable Camera permission"
+                                                       message:@"please enable camera services for this app"
+                                                       preferredStyle:UIAlertControllerStyleAlert];
+                 
+                 
+                 UIAlertAction *cancelAction = [UIAlertAction
+                                                actionWithTitle:@"Dismiss"
+                                                style:UIAlertActionStyleCancel
+                                                handler:^(UIAlertAction *action)
+                                                {
+                                                    NSLog(@"Cancel action");
+                                                }];
+                 
+                 UIAlertAction *goToSettings = [UIAlertAction
+                                                actionWithTitle:@"Settings"
+                                                style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action)
+                                                {
+                                                    //Simple way to open settings module
+                                                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+                                                }];
+                 
+                 [alertController addAction:cancelAction];
+                 [alertController addAction:goToSettings];
+                 [self presentViewController:alertController animated:YES completion:^{
+                     //            alertController.view.tintColor = [UIColor blueColor];
+                 }];
+             }
+         }];
+    }
+
     
 }
 

@@ -285,65 +285,86 @@
             [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
         }else{
             
-            AttendanceData *setAttendanceData = [AttendanceData new];
-            setAttendanceData.trainer_id = GET_USER_DEFAULTS(CRMID);
-            setAttendanceData.trainer_name = userData.crm_name;
-            setAttendanceData.session_name = sessionData.session_name;
-            setAttendanceData.dealer_code = sessionData.dealer_code;
-            setAttendanceData.dealer_name = sessionData.dealer_name;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Attendance" message:@"The attendance for this session cannot be updated later. Are you sure you want to proceed?" preferredStyle:UIAlertControllerStyleAlert];
             
-            NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
-            
-            NSDate *date = [NSDate date];
-            
-            NSString *stringDate = [formatter stringFromDate:date];
-            
-            setAttendanceData.last_att_update = stringDate;
-            setAttendanceData.attendance_date = stringDate;
-            
-            setAttendanceData.present_crm_ids = [anotherArray componentsJoinedByString:@","];
-            setAttendanceData.att_status = @"Success";
-            
-            [MBDataBaseHandler saveAttendancedata:setAttendanceData];
-        
-            dealerNameSelect = nil;
-            sessionSelect = nil;
-            dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
-            CRMNameArray = [NSMutableArray new];
-            CRMIDArray = [NSMutableArray new];
-            
-            attendanceData = setAttendanceData;
-            
-            AttendanceDataArray *attendanceDataArray = [MBDataBaseHandler getAttendanceDataArray
-                                                        ];
-            
-            NSDictionary *new = [attendanceData toDictionary];
-            NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
-            
-            if(attendanceDataArray){
+            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Okey" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
-                [attendanceDataArray.data addObject:attendanceData];
+                [self submitAttendance];
                 
-                [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
-                
-            }else{
-                
-                attendanceDataArray = [[AttendanceDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
-                
-                [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
-                
-            }
+            }];
             
-            [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:yes];
+            [alert addAction:no];
+            
+            [self presentViewController:alert animated:yes completion:nil];
             
         }
 
     }else{
         [self MB_showErrorMessageWithText:@"Attendace already updated!"];
     }
+}
+
+-(void)submitAttendance{
     
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"length > 0"];
+    NSArray *anotherArray = [CRMIDArray filteredArrayUsingPredicate:predicate];
     
+    AttendanceData *setAttendanceData = [AttendanceData new];
+    setAttendanceData.trainer_id = GET_USER_DEFAULTS(CRMID);
+    setAttendanceData.trainer_name = userData.crm_name;
+    setAttendanceData.session_name = sessionData.session_name;
+    setAttendanceData.dealer_code = sessionData.dealer_code;
+    setAttendanceData.dealer_name = sessionData.dealer_name;
+    
+    NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+    
+    NSDate *date = [NSDate date];
+    
+    NSString *stringDate = [formatter stringFromDate:date];
+    
+    setAttendanceData.last_att_update = stringDate;
+    setAttendanceData.attendance_date = stringDate;
+    
+    setAttendanceData.present_crm_ids = [anotherArray componentsJoinedByString:@","];
+    setAttendanceData.att_status = @"Success";
+    
+    [MBDataBaseHandler saveAttendancedata:setAttendanceData];
+    
+    dealerNameSelect = nil;
+    sessionSelect = nil;
+    dropDownSelectValue = [NSMutableArray arrayWithArray:picketHeading];
+    CRMNameArray = [NSMutableArray new];
+    CRMIDArray = [NSMutableArray new];
+    
+    attendanceData = setAttendanceData;
+    
+    AttendanceDataArray *attendanceDataArray = [MBDataBaseHandler getAttendanceDataArray
+                                                ];
+    
+    NSDictionary *new = [attendanceData toDictionary];
+    NSMutableArray *jsonToArray = [NSMutableArray arrayWithObject:new];
+    
+    if(attendanceDataArray){
+        
+        [attendanceDataArray.data addObject:attendanceData];
+        
+        [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
+        
+    }else{
+        
+        attendanceDataArray = [[AttendanceDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
+        
+        [MBDataBaseHandler saveAttendancedataArray:attendanceDataArray];
+        
+    }
+    
+    [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

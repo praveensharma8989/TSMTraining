@@ -359,7 +359,7 @@
                                    @"LOB_training":[NSString stringWithFormat:@"%@", session.LOB_training],
                                    @"trainees_crm_ids":[NSString stringWithFormat:@"%@", session.trainees_crm_ids],
                                    @"last_session_update":[NSString stringWithFormat:@"%@", session.last_session_update],
-                                   @"session_status":[NSString stringWithFormat:@"%d", session.session_status],
+                                   @"session_status":[NSString stringWithFormat:@"%@", session.session_status],
                                    @"session_location":[NSString stringWithFormat:@"%@", session.session_location],
                                    @"session_image":[NSString stringWithFormat:@"%@", session.session_image]
                                    };
@@ -382,7 +382,7 @@
                                    @"attendance_date":[NSString stringWithFormat:@"%@",attendance.attendance_date],
                                    @"present_crm_ids":[NSString stringWithFormat:@"%@",attendance.present_crm_ids],
                                    @"last_att_update":[NSString stringWithFormat:@"%@",attendance.last_att_update],
-                                   @"att_status":[NSString stringWithFormat:@"%d",attendance.att_status]
+                                   @"att_status":[NSString stringWithFormat:@"%@",attendance.att_status]
                                    
                                    };
             [retunArray addObject:dict];
