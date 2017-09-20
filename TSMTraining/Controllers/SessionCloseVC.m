@@ -12,7 +12,7 @@
 #import <Photos/Photos.h>
 
 
-@interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate>
+@interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *locationName;
@@ -165,7 +165,7 @@
                                            {
                                                //Simple way to open settings module
                                                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                               [[UIApplication sharedApplication] openURL:url];
+                                               [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                            }];
             
             [alertController addAction:cancelAction];
@@ -214,7 +214,7 @@
                                        {
                                            //Simple way to open settings module
                                            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                           [[UIApplication sharedApplication] openURL:url];
+                                           [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                        }];
         
         [alertController addAction:cancelAction];
@@ -264,7 +264,7 @@
         
         [picker setDelegate:self];
         
-        [self presentModalViewController:picker animated:YES];
+        [self.navigationController presentViewController:picker animated:YES completion:nil];
         
     }
     else if(authStatus == AVAuthorizationStatusDenied)
@@ -279,7 +279,9 @@
                  
                  [picker setDelegate:self];
                  
-                 [self presentModalViewController:picker animated:YES];
+                 [self.navigationController presentViewController:picker animated:YES completion:nil];
+                 
+//                 [self presentModalViewController:picker animated:YES];
              }
              else
              {
@@ -306,7 +308,7 @@
                                                 {
                                                     //Simple way to open settings module
                                                     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                                    [[UIApplication sharedApplication] openURL:url];
+                                                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                                 }];
                  
                  [alertController addAction:cancelAction];
@@ -327,8 +329,8 @@
                  picker.sourceType = UIImagePickerControllerSourceTypeCamera;
                  
                  [picker setDelegate:self];
-                 
-                 [self presentModalViewController:picker animated:YES];
+                 [self.navigationController presentViewController:picker animated:YES completion:nil];
+//                 [self presentModalViewController:picker animated:YES];
              }
              else
              {
@@ -355,7 +357,7 @@
                                                 {
                                                     //Simple way to open settings module
                                                     NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                                    [[UIApplication sharedApplication] openURL:url];
+                                                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
                                                 }];
                  
                  [alertController addAction:cancelAction];

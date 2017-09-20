@@ -997,8 +997,8 @@
 			baseConfigurationReference = C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobikasa LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobikasa LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anil Khanna (7SR669H6XH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anil Khanna (7SR669H6XH)";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
@@ -1006,8 +1006,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1017,8 +1017,8 @@
 			baseConfigurationReference = BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobikasa LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobikasa LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anil Khanna (7SR669H6XH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anil Khanna (7SR669H6XH)";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
@@ -1026,8 +1026,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "409a1782-2f46-4a22-aa78-edc522d85181";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
