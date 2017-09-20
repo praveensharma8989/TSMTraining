@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *CRMIDTxt;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTxt;
 @property (weak, nonatomic) IBOutlet UITextField *coPasswordTxt;
+@property (weak, nonatomic) IBOutlet UITextField *oldPasswordTxt;
 
 @end
 
@@ -105,7 +106,7 @@
                     
                 }else{
                     
-                    [self MB_showErrorMessageWithText:@"Please Enter Valid Id and CRM ID."];
+                    [self MB_showErrorMessageWithText:@"Please Enter Valid CRM ID Or Password."];
                     
                 }
                 
@@ -142,13 +143,24 @@
 
 - (BOOL)ValidateTextFieldsPassword
 {
-    if ([MBValidator isTextEmpty:_passwordTxt.text] != 0)
+    if ([MBValidator isTextEmpty:_oldPasswordTxt.text] != 0){
+        
+        [self MB_showErrorMessageOnWindowWithText:@"Please enter Old Password"];
+        return NO;
+        
+    }else if ([MBValidator isTextEmpty:_passwordTxt.text] != 0)
     {
         [self MB_showErrorMessageOnWindowWithText:@"Please enter New Password"];
         return NO;
+        
     }else if(_passwordTxt.text.length < 6){
         
         [self MB_showErrorMessageOnWindowWithText:@"Password lenght should be minmum six letters."];
+        return NO;
+        
+    }else if ([_oldPasswordTxt.text isEqualToString:_passwordTxt.text]){
+        
+        [self MB_showErrorMessageOnWindowWithText:@"New Password should not same as Old Password"];
         return NO;
         
     }else if([MBValidator isTextEmpty:_coPasswordTxt.text] != 0){
