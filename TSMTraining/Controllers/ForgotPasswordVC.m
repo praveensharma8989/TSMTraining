@@ -84,10 +84,13 @@
     if([self ValidateTextFieldsPassword]){
         
         NSString *password = _passwordTxt.text;
+        NSString *oldPassword = _oldPasswordTxt.text;
         
         NSDictionary *param = @{
                                 @"CRMID": GET_USER_DEFAULTS(TEMCRMID),
-                                @"Password": password
+                                @"Password": password,
+                                @"OldPassword":oldPassword
+                                
                                 };
         
         if([APP_DELEGATE connectedToInternet]){

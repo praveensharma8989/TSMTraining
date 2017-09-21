@@ -8,7 +8,9 @@
 
 #define APP_DELEGATE (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
-#define BaseUrl @"https://wheebox.com/MobileAPIService/"
+//#define BaseUrl @"https://wheebox.com/MobileAPIService/"
+
+#define BaseUrl @"http://169.38.81.91:8095/MobileAPIService/"
 
 #define RegData @"RegData"
 

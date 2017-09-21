@@ -395,7 +395,7 @@
     NSString *stringDate = [formatter stringFromDate:date];
     
     sessionData.last_session_update = stringDate;
-    
+    sessionData.session_status = @"closed";
     
     if(![sessionData.session_image isEqualToString:@""] && ![sessionData.session_location isEqualToString:@""]){
         

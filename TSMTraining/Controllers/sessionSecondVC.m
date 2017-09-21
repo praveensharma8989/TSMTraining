@@ -248,7 +248,7 @@
                 setSessionData.product_line = productLine;
                 setSessionData.LOB_training = trainingLOB;
                 setSessionData.trainees_crm_ids = _sessionDataCreate.trainees_crm_ids;
-                setSessionData.session_status = @"Success";
+                setSessionData.session_status = @"open";
                 setSessionData.last_session_update = stringDate;
                 setSessionData.session_name = sessionName;
                 

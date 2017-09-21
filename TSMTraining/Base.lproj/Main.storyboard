@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dnq-Pc-Kco">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ahG-RH-bsE">
@@ -123,7 +123,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8Qm-d2-vnx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="k29-ve-Jq4">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZsW-Xe-Ou6">
@@ -490,11 +490,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kN6-fu-FvV">
-                                <rect key="frame" x="37.5" y="173.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="188.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.69803921568627447" green="0.87058823529411766" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Registration Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -506,11 +506,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-9J-DQ9">
-                                <rect key="frame" x="37.5" y="243.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="248.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.70588235294117641" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Session Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -522,14 +522,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7Q-kv-9SH">
-                                <rect key="frame" x="37.5" y="313.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="308.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.80000000000000004" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="jaf-mQ-vSt"/>
+                                    <constraint firstAttribute="height" constant="50" id="jaf-mQ-vSt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Attendance Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -542,11 +542,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqV-3K-mA7">
-                                <rect key="frame" x="37.5" y="383.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="368.5" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.81176470588235294" green="0.95294117647058818" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Score Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -603,10 +603,10 @@
                             <constraint firstItem="BPY-ba-EtF" firstAttribute="leading" secondItem="hJv-yW-ZRJ" secondAttribute="leading" id="hvK-de-iDh"/>
                             <constraint firstItem="BPY-ba-EtF" firstAttribute="top" secondItem="hJv-yW-ZRJ" secondAttribute="top" id="mEd-DV-H4H"/>
                             <constraint firstItem="X7Q-kv-9SH" firstAttribute="width" secondItem="hJv-yW-ZRJ" secondAttribute="width" multiplier="0.8" id="mrP-i8-I3E"/>
-                            <constraint firstItem="xUa-9J-DQ9" firstAttribute="top" secondItem="kN6-fu-FvV" secondAttribute="bottom" constant="30" id="ofI-Xw-T9s"/>
-                            <constraint firstItem="nqV-3K-mA7" firstAttribute="top" secondItem="X7Q-kv-9SH" secondAttribute="bottom" constant="30" id="ox9-1w-jPE"/>
+                            <constraint firstItem="xUa-9J-DQ9" firstAttribute="top" secondItem="kN6-fu-FvV" secondAttribute="bottom" constant="10" id="ofI-Xw-T9s"/>
+                            <constraint firstItem="nqV-3K-mA7" firstAttribute="top" secondItem="X7Q-kv-9SH" secondAttribute="bottom" constant="10" id="ox9-1w-jPE"/>
                             <constraint firstAttribute="trailing" secondItem="Z4z-Bl-avU" secondAttribute="trailing" id="pVK-Aa-h45"/>
-                            <constraint firstItem="X7Q-kv-9SH" firstAttribute="top" secondItem="xUa-9J-DQ9" secondAttribute="bottom" constant="30" id="x5W-5c-EU7"/>
+                            <constraint firstItem="X7Q-kv-9SH" firstAttribute="top" secondItem="xUa-9J-DQ9" secondAttribute="bottom" constant="10" id="x5W-5c-EU7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XDb-IP-SyD"/>

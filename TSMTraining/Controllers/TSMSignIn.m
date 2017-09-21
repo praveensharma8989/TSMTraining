@@ -93,7 +93,7 @@
                     
                 }else{
                     
-                    [self MB_showErrorMessageWithText:@"Please Enter Valid Id and Password."];
+                    [self MB_showErrorMessageWithText:@"Please enter valid Id and Password."];
                     [_loginBtn ErrorRevertAnimation];
                     
                 }

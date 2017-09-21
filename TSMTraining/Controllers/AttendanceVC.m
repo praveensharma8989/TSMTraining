@@ -331,7 +331,7 @@
     setAttendanceData.attendance_date = stringDate;
     
     setAttendanceData.present_crm_ids = [anotherArray componentsJoinedByString:@","];
-    setAttendanceData.att_status = @"Success";
+    setAttendanceData.att_status = @"active";
     
     [MBDataBaseHandler saveAttendancedata:setAttendanceData];
     
