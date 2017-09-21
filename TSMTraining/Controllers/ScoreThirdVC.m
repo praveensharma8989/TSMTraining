@@ -52,8 +52,8 @@
     
     ScoreData *scoreData = _scoreDataArray.data[indexPath.row];
     
-    cell.CRMNameLbl.text = scoreData.trainer_name;
-    cell.CRMIdLbl.text = scoreData.trainer_crm_id;
+    cell.CRMNameLbl.text = scoreData.crm_name;
+    cell.CRMIdLbl.text = scoreData.crm_id;
     cell.preScoreLbl.text = scoreData.pre_test_score;
     cell.postScoreLbl.text = scoreData.post_test_score;
     

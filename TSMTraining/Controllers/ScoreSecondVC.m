@@ -70,8 +70,8 @@
     
     ScoreData *scoreData = _scoreDataArray.data[indexPath.row];
     
-    cell.CRMNameLbl.text = scoreData.trainer_name;
-    cell.CRMIdLbl.text = scoreData.trainer_crm_id;
+    cell.CRMNameLbl.text = scoreData.crm_name;
+    cell.CRMIdLbl.text = scoreData.crm_id;
     
     [cell.preScoreTxt setBk_shouldChangeCharactersInRangeWithReplacementStringBlock:^BOOL(UITextField *textField, NSRange range, NSString *string) {
         
@@ -119,11 +119,11 @@
         ScoreData *scoreDataForName = _scoreDataArray.data[i];
         if(!preOrder || [preOrder isEqualToString:@""]){
             
-            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Pre Score", scoreDataForName.trainer_name]];
+            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Pre Score", scoreDataForName.crm_name]];
             return;
         }else if(!postOrder || [postOrder isEqualToString:@""]){
             
-            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Post Score", scoreDataForName.trainer_name]];
+            [self MB_showErrorMessageWithText:[NSString stringWithFormat:@"Please Enter %@'s Post Score", scoreDataForName.crm_name]];
             return;
         }
         

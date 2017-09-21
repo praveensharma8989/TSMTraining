@@ -284,12 +284,13 @@
             CRMData *dataAr = anotherNameArray[0];
             
             ScoreData *setScoreData = [ScoreData new];
-            setScoreData.crm_id = GET_USER_DEFAULTS(CRMID);
-            setScoreData.crm_name = userData.crm_name;
-            setScoreData.trainer_crm_id = ids;
-            setScoreData.trainer_name = dataAr.crm_name;
+            setScoreData.crm_id = ids;
+            setScoreData.crm_name = dataAr.crm_name;
             
-            NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+            setScoreData.trainer_crm_id = GET_USER_DEFAULTS(CRMID);
+            setScoreData.trainer_name = userData.crm_name;
+            
+            NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
             NSDate *date = [NSDate date];
             NSString *stringDate = [formatter stringFromDate:date];
             setScoreData.last_scroe_update = stringDate;

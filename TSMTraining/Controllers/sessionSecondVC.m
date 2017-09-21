@@ -230,6 +230,10 @@
             NSDate *date = [NSDate date];
             NSString *stringDate = [formatter stringFromDate:date];
         
+            NSDateFormatter *formatter1 = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
+            
+            NSString *stringDate1 = [formatter1 stringFromDate:date];
+            
             NSString *sessionName = [NSString stringWithFormat:@"%@_%@_%@", stringDate, trainingLOB, _sessionDataCreate.dealer_code];
             SessionDataArray *sesssionDataArray = [MBDataBaseHandler getSessionDataArray];
             
@@ -249,7 +253,7 @@
                 setSessionData.LOB_training = trainingLOB;
                 setSessionData.trainees_crm_ids = _sessionDataCreate.trainees_crm_ids;
                 setSessionData.session_status = @"open";
-                setSessionData.last_session_update = stringDate;
+                setSessionData.last_session_update = stringDate1;
                 setSessionData.session_name = sessionName;
                 
                 [MBDataBaseHandler saveSessiondata:setSessionData];

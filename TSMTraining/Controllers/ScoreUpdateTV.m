@@ -35,8 +35,8 @@
     
     _PreTestTxt.delegate = self;
     _PostTestTxt.delegate = self;
-    _DSEIDLbl.text = _scoreData.trainer_crm_id;
-    _DSENameLbl.text = _scoreData.trainer_name;
+    _DSEIDLbl.text = _scoreData.crm_id;
+    _DSENameLbl.text = _scoreData.crm_name;
     _PreTestTxt.text = _scoreData.pre_test_score;
     _PostTestTxt.text = _scoreData.post_test_score;
     

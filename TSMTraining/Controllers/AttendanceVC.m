@@ -321,7 +321,7 @@
     setAttendanceData.dealer_code = sessionData.dealer_code;
     setAttendanceData.dealer_name = sessionData.dealer_name;
     
-    NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+    NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
     
     NSDate *date = [NSDate date];
     

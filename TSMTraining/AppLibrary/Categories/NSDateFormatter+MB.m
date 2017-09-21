@@ -59,7 +59,7 @@
 +(instancetype)MB_defaultDateTimeFormatterWith12HrFormat:(BOOL)is12Hr{
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter setDateFormat:(is12Hr) ? @"MM-dd-yyyy HH:mm a" : @"MM-dd-yyyy HH:mm"];
+    [dateFormatter setDateFormat:(is12Hr) ? @"yyyy-MM-dd HH:mm a" : @"yyyy-MM-dd HH:mm"];
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
     

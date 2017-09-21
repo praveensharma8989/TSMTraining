@@ -388,7 +388,7 @@
     sessionData.session_location = sessionLocation;
     NSString *stringImage = [mediaData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     sessionData.session_image = stringImage;
-    NSDateFormatter *formatter = [NSDateFormatter MB_defaultDateFormatter];
+    NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
     
     NSDate *date = [NSDate date];
     
