@@ -139,7 +139,7 @@
                 
                 [MBDataBaseHandler saveCRMdata:dataArray];
                 
-                [self MB_showSuccessMessageWithText:@"Your User Data Successfully Sync."];
+                [self MB_showSuccessMessageWithText:@"User Data Successfully Sync."];
                 
             }else{
                 
@@ -193,7 +193,7 @@
                     });
                     
                     
-                    [self MB_showSuccessMessageWithText:@"Your Seesion Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Seesion Data Successfully Sync."];
                     
                 }else{
                     
@@ -248,7 +248,7 @@
                         [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATAARRAY];
                     });
                     
-                    [self MB_showSuccessMessageWithText:@"Your Attendance Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Attendance Data Successfully Sync."];
                     
                 }else{
                     
@@ -303,7 +303,7 @@
                         [MBDataBaseHandler deleteAllRecordsForType:SCOREDATAARRAY];
                     });
                     
-                    [self MB_showSuccessMessageWithText:@"Your Score Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Score Data Successfully Sync."];
                     
                 }else{
                     

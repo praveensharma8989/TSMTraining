@@ -86,14 +86,14 @@
                     [GlobalFunctionHandler getUserDetail:dataArray withUserId:crmID];
                     
                     [_loginBtn stopAnimation:^{
-                       
+                        
                         [MBAppInitializer moveToLandingViewController];
                         
                     }];
                     
                 }else{
                     
-                    [self MB_showErrorMessageWithText:@"Please enter valid Id and Password."];
+                    [self MB_showErrorMessageWithText:@"Please check your CRM Id and Password."];
                     [_loginBtn ErrorRevertAnimation];
                     
                 }

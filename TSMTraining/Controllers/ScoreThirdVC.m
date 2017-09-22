@@ -105,7 +105,7 @@
         [MBDataBaseHandler saveScoredataArray:_scoreDataArray];
         
     }
-    [self MB_showSuccessMessageWithText:@"Score Create Successfully!"];
+    [self MB_showSuccessMessageWithText:@"Score updated successfully!"];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }

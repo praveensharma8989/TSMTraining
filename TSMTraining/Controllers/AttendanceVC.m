@@ -363,7 +363,7 @@
         
     }
     
-    [self MB_showSuccessMessageWithText:@"Attendance Create Successfully!"];
+    [self MB_showSuccessMessageWithText:@"Attendance updated successfully!"];
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
