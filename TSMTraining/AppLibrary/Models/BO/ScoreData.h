@@ -23,6 +23,7 @@
 @property (nonatomic,strong) NSString *post_test_score;
 @property (nonatomic,strong) NSString *last_scroe_update;
 @property (nonatomic,strong) NSString *score_status;
+@property (nonatomic,strong) NSString *training_product_line;
 @property (nonatomic,strong) NSString *score_session_name;
 
 @end

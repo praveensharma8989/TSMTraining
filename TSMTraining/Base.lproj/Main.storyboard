@@ -558,7 +558,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-9J-DQ9">
                                 <rect key="frame" x="37.5" y="248.5" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.70588235294117641" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.80000000000000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Session Data">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -594,7 +594,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqV-3K-mA7">
                                 <rect key="frame" x="37.5" y="368.5" width="300" height="50"/>
-                                <color key="backgroundColor" red="0.81176470588235294" green="0.95294117647058818" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.80000000000000004" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Score Data">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1063,6 +1063,12 @@
                                     <segue destination="h4I-Lb-06B" kind="show" id="oMI-Ob-MAO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwy-7s-SJX">
+                                <rect key="frame" x="10" y="637" width="355" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7h-du-h00">
                                 <rect key="frame" x="0.0" y="647" width="375" height="20"/>
                                 <color key="backgroundColor" red="0.2901960784" green="0.40784313729999999" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -1084,15 +1090,21 @@
                             <constraint firstItem="A7h-du-h00" firstAttribute="leading" secondItem="8pa-Td-AJg" secondAttribute="leading" id="Imo-YS-3rC"/>
                             <constraint firstItem="DdG-0W-VKT" firstAttribute="centerY" secondItem="8pa-Td-AJg" secondAttribute="centerY" id="U4r-CW-W3C"/>
                             <constraint firstItem="2iS-TV-D8F" firstAttribute="top" secondItem="gIc-eV-7Lz" secondAttribute="bottom" constant="10" id="Vf9-vo-CiS"/>
+                            <constraint firstAttribute="trailing" secondItem="mwy-7s-SJX" secondAttribute="trailing" constant="10" id="WlC-8h-jM9"/>
                             <constraint firstItem="gIc-eV-7Lz" firstAttribute="width" secondItem="DdG-0W-VKT" secondAttribute="width" id="X3Z-98-8Si"/>
                             <constraint firstItem="Gjg-sG-ihj" firstAttribute="width" secondItem="DdG-0W-VKT" secondAttribute="width" id="eke-xg-chj"/>
                             <constraint firstItem="cuK-ld-RcH" firstAttribute="top" secondItem="A7h-du-h00" secondAttribute="bottom" id="ga6-0S-Fz2"/>
                             <constraint firstItem="2iS-TV-D8F" firstAttribute="width" secondItem="DdG-0W-VKT" secondAttribute="width" id="gvV-lH-fsu"/>
                             <constraint firstItem="uve-u8-wM1" firstAttribute="centerX" secondItem="8pa-Td-AJg" secondAttribute="centerX" id="hIm-x1-THD"/>
                             <constraint firstItem="DdG-0W-VKT" firstAttribute="width" secondItem="8pa-Td-AJg" secondAttribute="width" multiplier="0.85" id="o8k-3h-6Nw"/>
+                            <constraint firstItem="A7h-du-h00" firstAttribute="top" secondItem="mwy-7s-SJX" secondAttribute="bottom" constant="10" id="u6o-xx-o9j"/>
                             <constraint firstItem="2iS-TV-D8F" firstAttribute="centerX" secondItem="8pa-Td-AJg" secondAttribute="centerX" id="vaa-Cm-GVS"/>
+                            <constraint firstItem="mwy-7s-SJX" firstAttribute="leading" secondItem="8pa-Td-AJg" secondAttribute="leading" constant="10" id="zH9-74-3hV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appVersionLabel" destination="mwy-7s-SJX" id="byG-g4-3j4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5u-6v-x7l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

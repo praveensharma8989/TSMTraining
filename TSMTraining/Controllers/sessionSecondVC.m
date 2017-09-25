@@ -24,8 +24,8 @@
     SessionData *sessionData;
     AttendanceData *attendanceData;
     NSInteger selectedIndexofRow;
-    NSArray *picketHeading, *trainingLOBArray, *arrayCRMName, *arrayCVPax, *arrayILCV, *arrayMHCV, *arraySCVCargo;
-    NSMutableArray *dropDownSelectValue, *productLineArray;
+    NSArray *picketHeading, *arrayCRMName, *arrayCVPax, *arrayILCV, *arrayMHCV, *arraySCVCargo;
+    NSMutableArray *dropDownSelectValue, *productLineArray, *trainingLOBArray;
     NSString *trainingLOB,*productLine;
     
 }
@@ -56,7 +56,16 @@
     sessionData = [MBDataBaseHandler getSessionData];
     attendanceData = [MBDataBaseHandler getAttendanceData];
     
-    trainingLOBArray = [self getValueFromDataArray:dataArray withKey:@"crm_LOB" withValue:@""];
+    trainingLOBArray = [NSMutableArray arrayWithArray:[self getValueFromDataArray:dataArray withKey:@"crm_LOB" withValue:@""]];
+    
+    for (int i = 0; i<trainingLOBArray.count; i++) {
+        
+        if([trainingLOBArray[i] isEqualToString:@"CV Pax"]){
+            [trainingLOBArray replaceObjectAtIndex:i withObject:@"CV Passenger"];
+        }
+        
+    }
+    
     productLineArray = [NSMutableArray new];
     
     arrayCRMName = [self getValueFromDataArray:dataArray withKey:@"crm_name" withValue:@""];
@@ -193,7 +202,7 @@
             self.trainingLOBLbl.text = trainingLOB;
             self.productLineLbl.text = @"Select Product Line";
             
-            if([trainingLOB isEqualToString:@"CV Pax"]){
+            if([trainingLOB isEqualToString:@"CV Passenger"]){
                 productLineArray = [arrayCVPax copy];
             }else if([trainingLOB isEqualToString:@"ILCV"]){
                 productLineArray = [arrayILCV copy];
@@ -250,7 +259,7 @@
                 setSessionData.dealer_name = _sessionDataCreate.dealer_name;
                 setSessionData.training_type = _sessionDataCreate.training_type;
                 setSessionData.product_line = productLine;
-                setSessionData.LOB_training = trainingLOB;
+                setSessionData.LOB_training = [trainingLOB isEqualToString:@"CV Passenger"]?@"CV Pax":trainingLOB;
                 setSessionData.trainees_crm_ids = _sessionDataCreate.trainees_crm_ids;
                 setSessionData.session_status = @"open";
                 setSessionData.last_session_update = stringDate1;

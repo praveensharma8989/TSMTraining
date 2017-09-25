@@ -11,7 +11,6 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
 
-
 @interface SessionCloseVC ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -382,6 +381,49 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want change this Image?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self selectPic];
+        
+    }];
+    
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self closeSessionwithImage:info];
+        
+    }];
+    
+    [alert addAction:yes];
+    [alert addAction:no];
+    
+    UIViewController *viewController = [[UIViewController alloc]init];
+    
+    [viewController setPreferredContentSize:CGSizeMake(200, 200)];
+    
+    [viewController.view setBackgroundColor:[UIColor clearColor]];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(25, 10, 150, 180)];
+    
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage]; // or you can use UIImagePickerControllerEditedImage too
+    NSData *mediaData = UIImageJPEGRepresentation(image, 0.3);
+    
+    [imageView setImage:[UIImage imageWithData:mediaData]];
+    
+    [viewController.view addSubview:imageView];
+    
+    [alert setValue:viewController forKey:@"contentViewController"];
+    
+    [self.navigationController presentViewController:alert animated:yes completion:nil];
+    
+    
+}
+
+-(void)closeSessionwithImage:(NSDictionary *)info{
+    
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage]; // or you can use UIImagePickerControllerEditedImage too
     NSData *mediaData = UIImageJPEGRepresentation(image, 0.3);
     
@@ -435,11 +477,7 @@
         
     }
     
-    
-    
-    
 }
-
 
 /*
 #pragma mark - Navigation

@@ -69,6 +69,9 @@
 		E95C6A9D1F5EAF8900AA0101 /* TSMAPICleint.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6A841F5EAF8900AA0101 /* TSMAPICleint.m */; };
 		E95C6AA21F5EAF8E00AA0101 /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA11F5EAF8E00AA0101 /* ApiManager.m */; };
 		E95C6AAA1F5ECA6400AA0101 /* CRMData.m in Sources */ = {isa = PBXBuildFile; fileRef = E95C6AA91F5ECA6400AA0101 /* CRMData.m */; };
+		E96E84B11F79211600B8AF22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96E84B01F79211600B8AF22 /* UIKit.framework */; };
+		E96E84B31F79212200B8AF22 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96E84B21F79212200B8AF22 /* CoreGraphics.framework */; };
+		E96E84B51F79212D00B8AF22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96E84B41F79212C00B8AF22 /* Foundation.framework */; };
 		E9D01EF11F5EDA150043BC89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D01EF01F5EDA150043BC89 /* AppDelegate.m */; };
 		E9E0B1A61F5EE087000DE22A /* OfflineObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E0B1A41F5EE087000DE22A /* OfflineObject.m */; };
 		E9E442311F62A380008F8BA5 /* MBAppInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E442301F62A380008F8BA5 /* MBAppInitializer.m */; };
@@ -221,6 +224,9 @@
 		E95C6AA31F5EAFB900AA0101 /* TSMTraining.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMTraining.pch; sourceTree = "<group>"; };
 		E95C6AA81F5ECA6400AA0101 /* CRMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMData.h; sourceTree = "<group>"; };
 		E95C6AA91F5ECA6400AA0101 /* CRMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMData.m; sourceTree = "<group>"; };
+		E96E84B01F79211600B8AF22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E96E84B21F79212200B8AF22 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E96E84B41F79212C00B8AF22 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9D01EF01F5EDA150043BC89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E9E0B1A41F5EE087000DE22A /* OfflineObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineObject.m; sourceTree = "<group>"; };
 		E9E0B1A51F5EE087000DE22A /* OfflineObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineObject.h; sourceTree = "<group>"; };
@@ -235,6 +241,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96E84B51F79212D00B8AF22 /* Foundation.framework in Frameworks */,
+				E96E84B31F79212200B8AF22 /* CoreGraphics.framework in Frameworks */,
+				E96E84B11F79211600B8AF22 /* UIKit.framework in Frameworks */,
 				42FEA641C900AE95BEDA9AA1 /* libPods-TSMTraining.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +268,9 @@
 		6F0539770D7C5EAB3DE76072 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E96E84B41F79212C00B8AF22 /* Foundation.framework */,
+				E96E84B21F79212200B8AF22 /* CoreGraphics.framework */,
+				E96E84B01F79211600B8AF22 /* UIKit.framework */,
 				0C0D69EA5ABAC27DDFC31CAE /* libPods-TSMTraining.a */,
 				2BCD85B492B85405EC4482E0 /* libPods-TSMTrainingTests.a */,
 				B0AD819C18FD7FC567555B10 /* libPods-TSMTrainingUITests.a */,
@@ -997,8 +1009,8 @@
 			baseConfigurationReference = C4A793A2046472A4952BF8BB /* Pods-TSMTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobikasa LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobikasa LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anil Khanna (7SR669H6XH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anil Khanna (7SR669H6XH)";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
@@ -1006,8 +1018,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "fc79d061-7017-4a90-8c0a-100f8ab0d847";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1017,8 +1029,8 @@
 			baseConfigurationReference = BE787ABA4BCFA27D4A62C880 /* Pods-TSMTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobikasa LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobikasa LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Anil Khanna (7SR669H6XH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anil Khanna (7SR669H6XH)";
 				DEVELOPMENT_TEAM = NJG4H3H984;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TSMTraining/TSMTraining.pch";
@@ -1026,8 +1038,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobikasa.RateMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7e1a4d7e-cb79-4817-b032-48571dc673be";
-				PROVISIONING_PROFILE_SPECIFIER = RateMe_InHouse;
+				PROVISIONING_PROFILE = "fc79d061-7017-4a90-8c0a-100f8ab0d847";
+				PROVISIONING_PROFILE_SPECIFIER = Rateme_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
