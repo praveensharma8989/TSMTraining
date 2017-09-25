@@ -381,7 +381,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want change this Image?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want different photograph?" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -389,7 +389,7 @@
         
     }];
     
-    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No, It's Okey" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self closeSessionwithImage:info];
         
