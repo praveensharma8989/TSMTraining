@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *CRMName;
 @property (weak, nonatomic) IBOutlet UILabel *StateOffice;
 @property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *TSMName;
 
 @end
 
@@ -53,6 +54,8 @@
     _CRMId.text = [NSString stringWithFormat:@"CRM ID : %@", userData.crm_id];
     _StateOffice.text = [NSString stringWithFormat:@"State Office : %@", userData.state_office];
     _appVersionLabel.text = [NSString stringWithFormat:@"APP VERSION %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    _TSMName.text = userData.crm_name;
+    
 }
 
 

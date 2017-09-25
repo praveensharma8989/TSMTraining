@@ -11,6 +11,8 @@
 @interface SyncVC ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndigator;
 @property (weak, nonatomic) IBOutlet UIView *activityView;
+@property (weak, nonatomic) IBOutlet UILabel *TSMName;
+@property (weak, nonatomic) IBOutlet UILabel *appVersion;
 
 @end
 
@@ -43,6 +45,9 @@
     [self ShowIndicator:NO];
     CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
     userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
+    _appVersion.text = [NSString stringWithFormat:@"APP VERSION %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    _TSMName.text = userData.crm_name;
+    
     
 }
 
