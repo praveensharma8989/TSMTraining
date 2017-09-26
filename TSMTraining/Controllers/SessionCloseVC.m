@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *locationName;
+@property (weak, nonatomic) IBOutlet UILabel *appVersion;
+@property (weak, nonatomic) IBOutlet UILabel *TSMName;
 
 @end
 
@@ -25,6 +27,7 @@
     SessionData *sessionData;
     AttendanceData *attendanceData;
     NSString *sessionLocation;
+    CRMData *userData;
     
 }
 
@@ -50,8 +53,13 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    CRMDataArray *dataArray = [MBDataBaseHandler getCRMData];
+    userData = [GlobalFunctionHandler getUserDetail:dataArray withUserId:GET_USER_DEFAULTS(CRMID)];
     sessionData = [MBDataBaseHandler getSessionData];
     attendanceData = [MBDataBaseHandler getAttendanceData];
+    
+    _appVersion.text = [NSString stringWithFormat:@"APP VERSION %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+    _TSMName.text = userData.crm_name;
 
 }
 
