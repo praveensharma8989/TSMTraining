@@ -291,13 +291,15 @@
             setScoreData.trainer_name = userData.crm_name;
             
             NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
+            NSDateFormatter *formatter1 = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd"];
             NSDate *date = [NSDate date];
             NSString *stringDate = [formatter stringFromDate:date];
+            NSString *stringDate1 = [formatter1 stringFromDate:date];
             setScoreData.last_scroe_update = stringDate;
-            setScoreData.date_of_test = sessionData.last_session_update;
+            setScoreData.date_of_test = stringDate1;
             setScoreData.training_LOB = sessionData.LOB_training;
             setScoreData.training_product_line = sessionData.product_line;
-            setScoreData.score_status = @"active";
+            setScoreData.score_status = @"Active";
             setScoreData.score_session_name = attendanceData.session_name;
             
             [setScoreDataArray.data addObject:setScoreData];

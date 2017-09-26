@@ -321,7 +321,7 @@
     setAttendanceData.dealer_code = sessionData.dealer_code;
     setAttendanceData.dealer_name = sessionData.dealer_name;
     
-    NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *formatter = [NSDateFormatter MB_defaultFormatter:@"yyyy-MM-dd"];
     
     NSDate *date = [NSDate date];
     
@@ -331,7 +331,7 @@
     setAttendanceData.attendance_date = stringDate;
     
     setAttendanceData.present_crm_ids = [anotherArray componentsJoinedByString:@","];
-    setAttendanceData.att_status = @"active";
+    setAttendanceData.att_status = @"Active";
     
     [MBDataBaseHandler saveAttendancedata:setAttendanceData];
     

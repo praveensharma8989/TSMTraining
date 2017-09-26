@@ -114,6 +114,7 @@
     currentLocation = [locations objectAtIndex:0];
     [locationManager stopUpdatingLocation];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
+    
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error)
      {
          if (!(error))
@@ -188,7 +189,7 @@
     }
     
     //Checking authorization status
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
     {
         
         //Now if the location is denied.
@@ -425,7 +426,19 @@
 -(void)closeSessionwithImage:(NSDictionary *)info{
     
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage]; // or you can use UIImagePickerControllerEditedImage too
-    NSData *mediaData = UIImageJPEGRepresentation(image, 0.3);
+    NSData *mediaData = UIImageJPEGRepresentation(image, 1.0);
+    
+    NSLog(@"image size in bytes %lu",(unsigned long)mediaData.length);
+    
+    float compressionRate = 10;
+    while (mediaData.length > 500000)
+    {
+        if (compressionRate > 0.5)
+        {
+            compressionRate = compressionRate - 1.5;
+            mediaData = UIImageJPEGRepresentation(image,compressionRate / 10);
+        }
+    }
     
     sessionData.session_location = sessionLocation;
     NSString *stringImage = [mediaData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
@@ -437,7 +450,7 @@
     NSString *stringDate = [formatter stringFromDate:date];
     
     sessionData.last_session_update = stringDate;
-    sessionData.session_status = @"closed";
+    sessionData.session_status = @"Closed";
     
     if(![sessionData.session_image isEqualToString:@""] && ![sessionData.session_location isEqualToString:@""]){
         
@@ -457,6 +470,7 @@
             [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATA];
             sessionData = nil;
             attendanceData = nil;
+            
         }else{
             
             sessionDataArray = [[SessionDataArray alloc] initWithDictionary:@{@"data":jsonToArray} error:nil];
