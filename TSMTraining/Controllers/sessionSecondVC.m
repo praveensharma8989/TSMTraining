@@ -243,7 +243,7 @@
             
             NSString *stringDate1 = [formatter1 stringFromDate:date];
             
-            NSString *sessionName = [NSString stringWithFormat:@"%@_%@_%@", stringDate, trainingLOB, _sessionDataCreate.dealer_code];
+            NSString *sessionName = [NSString stringWithFormat:@"%@_%@_%@", stringDate, [trainingLOB isEqualToString:@"CV Passenger"]?@"CV Pax":trainingLOB, _sessionDataCreate.dealer_code];
             SessionDataArray *sesssionDataArray = [MBDataBaseHandler getSessionDataArray];
             
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(SELF.session_name == %@)", sessionName];
