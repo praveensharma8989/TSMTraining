@@ -19,6 +19,7 @@
 @property (nonatomic,strong) NSString *trainer_name;
 @property (nonatomic,strong) NSString *date_of_test;
 @property (nonatomic,strong) NSString *training_LOB;
+@property (nonatomic, strong) NSString *training_type;
 @property (nonatomic,strong) NSString *pre_test_score;
 @property (nonatomic,strong) NSString *post_test_score;
 @property (nonatomic,strong) NSString *last_scroe_update;

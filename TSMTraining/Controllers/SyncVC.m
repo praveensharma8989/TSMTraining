@@ -181,14 +181,16 @@
                 
                 if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
                     
-                    
                     SessionDataArray *sessionDataArrrayAlways = [MBDataBaseHandler getSessionDataArrayAlways];
+                    
+                    NSMutableArray *array = [parama copy];
                     
                     if(sessionDataArrrayAlways){
                         [sessionDataArrrayAlways.data addObjectsFromArray:sessionDataArray.data];
                     }else{
                         
-                        sessionDataArrrayAlways = sessionDataArray;
+//                        sessionDataArrrayAlways = [SessionDataArray new];
+                        sessionDataArrrayAlways = [[SessionDataArray alloc] initWithDictionary:@{@"data":array} error:nil];
                     }
                     
                     [MBDataBaseHandler saveSessiondataArrayAlways:sessionDataArrrayAlways];
@@ -240,11 +242,13 @@
                 
                 if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
                     
+                    NSMutableArray *array = [parama copy];
+                    
                     AttendanceDataArray *attendanceDataArrayAlways = [MBDataBaseHandler getAttendanceDataArrayAlways];
                     if(attendanceDataArrayAlways){
                         [attendanceDataArrayAlways.data addObjectsFromArray:attendanceDataArray.data];
                     }else{
-                        attendanceDataArrayAlways = attendanceDataArray;
+                        attendanceDataArrayAlways = [[AttendanceDataArray alloc] initWithDictionary:@{@"data":array} error:nil];
                     }
                     
                     [MBDataBaseHandler saveAttendancedataArrayAlways:attendanceDataArrayAlways];
@@ -296,12 +300,14 @@
                 
                 if(JSON && !error && [[JSON valueForKey:@"status"] isEqualToString:@"success"]){
                     
+                    NSMutableArray *array = [parama copy];
+                    
                     ScoreDataArray *scoreDataArrayAlways = [MBDataBaseHandler getScoreDataArrayAlways];
                     
                     if(scoreDataArrayAlways){
                         [scoreDataArrayAlways.data addObjectsFromArray:scoreDataArray.data];
                     }else{
-                        scoreDataArrayAlways = scoreDataArray;
+                        scoreDataArrayAlways = [[ScoreDataArray alloc] initWithDictionary:@{@"data":array} error:nil];
                     }
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -298,6 +298,7 @@
             setScoreData.last_scroe_update = stringDate;
             setScoreData.date_of_test = stringDate1;
             setScoreData.training_LOB = sessionData.LOB_training;
+            setScoreData.training_type = sessionData.training_type;
             setScoreData.training_product_line = sessionData.product_line;
             setScoreData.score_status = @"Active";
             setScoreData.score_session_name = attendanceData.session_name;
