@@ -144,7 +144,7 @@
                 
                 [MBDataBaseHandler saveCRMdata:dataArray];
                 
-                [self MB_showSuccessMessageWithText:@"User Data Successfully Sync."];
+                [self MB_showSuccessMessageWithText:@"User Data Successfully synchronize."];
                 
             }else{
                 
@@ -200,7 +200,7 @@
                     });
                     
                     
-                    [self MB_showSuccessMessageWithText:@"Seesion Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Seesion Data Successfully synchronize."];
                     
                 }else{
                     
@@ -219,7 +219,7 @@
             [self ShowIndicator:NO];
         }
     }else{
-        [self MB_showErrorMessageWithText:@"No session data for sync."];
+        [self MB_showErrorMessageWithText:@"No session data for synchronize."];
     }
     
     
@@ -257,7 +257,7 @@
                         [MBDataBaseHandler deleteAllRecordsForType:ATTENDANCEDATAARRAY];
                     });
                     
-                    [self MB_showSuccessMessageWithText:@"Attendance Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Attendance Data Successfully synchronize."];
                     
                 }else{
                     
@@ -277,7 +277,7 @@
         
     }else{
         
-        [self MB_showErrorMessageWithText:@"No attendance data for sync."];
+        [self MB_showErrorMessageWithText:@"No attendance data for synchronize."];
         
     }
     
@@ -314,7 +314,7 @@
                         [MBDataBaseHandler deleteAllRecordsForType:SCOREDATAARRAY];
                     });
                     
-                    [self MB_showSuccessMessageWithText:@"Score Data Successfully Sync."];
+                    [self MB_showSuccessMessageWithText:@"Score Data Successfully synchronize."];
                     
                 }else{
                     
@@ -334,7 +334,7 @@
         
     }else{
         
-        [self MB_showErrorMessageWithText:@"No score data for sync."];
+        [self MB_showErrorMessageWithText:@"No score data for synchronize."];
         
     }
     

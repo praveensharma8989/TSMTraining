@@ -390,17 +390,17 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want different photograph?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want to upload this photo?" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [self selectPic];
+        [self closeSessionwithImage:info];
         
     }];
     
-    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No, It's Okey" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [self closeSessionwithImage:info];
+        [self selectPic];
         
     }];
     

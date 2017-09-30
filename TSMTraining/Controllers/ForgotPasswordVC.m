@@ -63,7 +63,7 @@
             
                 }else{
                     
-                    [self MB_showErrorMessageWithText:@"Please Enter Valid Id and CRM ID."];
+                    [self MB_showErrorMessageWithText:@"Please Enter CRM ID."];
                     
                 }
                 
@@ -109,7 +109,7 @@
                     
                 }else{
                     
-                    [self MB_showErrorMessageWithText:@"Please Enter Valid CRM ID Or Password."];
+                    [self MB_showErrorMessageWithText:@"Old password is incorrect."];
                     
                 }
                 
