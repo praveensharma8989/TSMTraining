@@ -44,7 +44,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Session Close" isBold:YES];
+    [self setTitle:@"Close Session" isBold:YES];
     
     [self addGrayBackButton];
     [self addGrayLogOutButton];
@@ -392,13 +392,13 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image Save" message:@"Do you want to upload this photo?" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self closeSessionwithImage:info];
         
     }];
     
-    UIAlertAction *no = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         [self selectPic];
         

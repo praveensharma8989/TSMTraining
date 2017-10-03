@@ -43,7 +43,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Session" isBold:YES];
+    [self setTitle:@"Create Session" isBold:YES];
     [self addGrayLogOutButton];
     [self addGrayBackButton];
 //    [self nibRegistration];

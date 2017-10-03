@@ -52,7 +52,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Attendance" isBold:YES];
+    [self setTitle:@"Update Attendance" isBold:YES];
     
     [self addGrayBackButton];
     [self addGrayLogOutButton];
@@ -83,8 +83,9 @@
     dropDownSelectValue = [[NSMutableArray alloc] initWithObjects:@"Select Dealer Name", @"Select Session ID", nil];
     picketHeading = [[NSArray alloc] initWithArray:dropDownSelectValue];
     
+    
     if(!sessionData){
-        [self MB_showErrorMessageWithText:@"No session found. Create session"];
+        [self MB_showMessageWithAlertView:@"No Session" Message:@"No session found. Create session."];
     }
     
 }
@@ -285,20 +286,20 @@
         if([dealerNameSelect isEqualToString:@""] || !dealerNameSelect){
             [self MB_showErrorMessageWithText:@"Please Select Dealer Name!"];
         }else if([sessionSelect isEqualToString:@""] || !sessionSelect){
-            [self MB_showErrorMessageWithText:@"Please Select Session ID!"];
+            [self MB_showErrorMessageWithText:@"Please Select session ID!"];
         }else if(anotherArray.count==0 || !anotherArray){
             [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
         }else{
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Attendance" message:@"The attendance for this session cannot be updated later. Are you sure you want to proceed?" preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
                 [self submitAttendance];
                 
             }];
             
-            UIAlertAction *no = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *no = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             

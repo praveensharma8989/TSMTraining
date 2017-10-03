@@ -33,12 +33,12 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setTitle:@"Synchronize" isBold:YES];
+    [self setTitle:@"Synchronization" isBold:YES];
 }
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Synchronize" isBold:YES];
+    [self setTitle:@"Synchronization" isBold:YES];
 
     [self addGrayBackButton];
     [self addGrayLogOutButton];
