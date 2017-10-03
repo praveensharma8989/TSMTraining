@@ -66,7 +66,7 @@
                                                 <rect key="frame" x="56.5" y="386" width="262.5" height="34"/>
                                                 <color key="backgroundColor" red="0.29019607843137252" green="0.40784313725490196" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                <state key="normal" title="Login">
+                                                <state key="normal" title="LOGIN">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
@@ -79,7 +79,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="Ka0-Zy-x2e"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Forgotten Password?"/>
+                                                <state key="normal" title="Change Password?"/>
                                                 <connections>
                                                     <segue destination="0bd-2B-Lop" kind="show" id="9hu-Xz-Wes"/>
                                                 </connections>
@@ -277,7 +277,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="dRe-rV-8cZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <state key="normal" title="Submit">
+                                                        <state key="normal" title="SUBMIT">
                                                             <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                         </state>
                                                         <connections>

@@ -41,7 +41,7 @@
 
 -(void)setupInitialScreen{
     
-    [self setTitle:@"Score" isBold:YES];
+    [self setTitle:@"Update Score" isBold:YES];
     
     [self addGrayBackButton];
     [self addGrayLogOutButton];
@@ -228,7 +228,7 @@
                     [CRMIDArray addObject:@""];
                 }
             }else{
-                [self MB_showErrorMessageWithText:@"No attendance found for the particular session"];
+                [self MB_showErrorMessageWithText:@"Please create attendance for this session!"];
             }
     
         }
@@ -270,9 +270,11 @@
     if([dealerNameSelect isEqualToString:@""] || !dealerNameSelect){
         [self MB_showErrorMessageWithText:@"Please Select Dealer Name!"];
     }else if([sessionSelect isEqualToString:@""] || !sessionSelect){
-        [self MB_showErrorMessageWithText:@"Please Select session!"];
-    }else if(anotherArray.count==0 || !anotherArray){
-        [self MB_showErrorMessageWithText:@"Please Select CRM Names"];
+        [self MB_showErrorMessageWithText:@"Please Select session ID!"];
+    }else if(!CRMNameArray || CRMNameArray.count == 0){
+        [self MB_showErrorMessageWithText:@"Please create attendance for this session!"];
+    }else if(anotherArray.count == 0 || !anotherArray){
+        [self MB_showErrorMessageWithText:@"Please Select CRM Names!"];
     }else{
         
         ScoreDataArray *setScoreDataArray = [ScoreDataArray new];

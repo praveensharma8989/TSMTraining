@@ -87,17 +87,17 @@ static char const * const ObjectTagKey = "IsNotificationErrorVisible";
 
 -(void)MB_showMessageWithAlertView:(NSString *)title Message:(NSString *)message
 {
-//    UIAlertView *alr = [UIAlertView bk_alertViewWithTitle:title message:message];
-//    
-//    [alr bk_setCancelButtonWithTitle:@"Ok" handler:^{
+    UIAlertView *alr = [UIAlertView bk_alertViewWithTitle:title message:message];
+    
+    [alr bk_setCancelButtonWithTitle:@"Ok" handler:^{
+        
+    }];
+    
+    [alr bk_setCancelBlock:^{
         //
-//    }];
+    }];
     
-//    [alr bk_setCancelBlock:^{
-//        //
-//    }];
-    
-//    [alr show];
+    [alr show];
 }
 
 @end
